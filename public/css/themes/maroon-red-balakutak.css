@@ -859,6 +859,39 @@ html.dark .theme-maroon-red-balakutak .section-title {
 .letter-spacing-2 { letter-spacing: 2px; }
 .tracking-widest { letter-spacing: 0.15em; }
 
+/* ========= AURORA CTA SECTION (Maroon Red) ========= */
+.theme-maroon-red-balakutak .aurora-cta-section {
+    background: #2D0000 !important; /* Deepest Maroon */
+    background: linear-gradient(135deg, #2D0000 0%, #1A0000 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-maroon-red-balakutak .aurora-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-maroon-red-balakutak .aurora-btn-premium {
+    background: #FF3131 !important; /* Bright Red */
+    color: #ffffff !important;
+    border: 2px solid #FF3131 !important;
+    border-radius: 0 !important;
+}
+
+.theme-maroon-red-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #FF3131 !important;
+}
+
+.theme-maroon-red-balakutak .aurora-btn-outline {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 0 !important;
+}
+
 .news-immersive-title a {
     transition: opacity 0.3s;
 }

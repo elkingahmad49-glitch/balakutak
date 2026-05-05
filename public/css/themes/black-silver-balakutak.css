@@ -862,6 +862,36 @@ html.dark .theme-black-silver-balakutak .section-title {
 .letter-spacing-2 { letter-spacing: 2px; }
 .tracking-widest { letter-spacing: 0.15em; }
 
+/* ========= AURORA CTA SECTION (Black Silver) ========= */
+.theme-black-silver-balakutak .aurora-cta-section {
+    background: #000000 !important; /* Deepest Black */
+    background: linear-gradient(135deg, #000000 0%, #1c1c1c 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-black-silver-balakutak .aurora-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-black-silver-balakutak .aurora-btn-premium {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.theme-black-silver-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.theme-black-silver-balakutak .aurora-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}
+
 .news-immersive-title a {
     transition: opacity 0.3s;
 }

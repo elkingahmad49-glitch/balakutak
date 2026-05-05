@@ -1366,13 +1366,265 @@ html.dark .acc-btn:hover {
 .rotate-n-15 {
     transform: rotate(-15deg);
 }
- . h e r o - l o g o - p r e m i u m   { 
-         f i l t e r :   d r o p - s h a d o w ( 0   0   2 0 p x   r g b a ( 2 5 5 ,   2 5 5 ,   2 5 5 ,   0 . 2 ) ) ; 
-         a n i m a t i o n :   h e r o L o g o F l o a t   6 s   e a s e - i n - o u t   i n f i n i t e ; 
- } 
- 
- @ k e y f r a m e s   h e r o L o g o F l o a t   { 
-         0 % ,   1 0 0 %   {   t r a n s f o r m :   t r a n s l a t e Y ( 0 ) ;   } 
-         5 0 %   {   t r a n s f o r m :   t r a n s l a t e Y ( - 1 0 p x ) ;   } 
- }  
- 
+
+.hero-logo-premium {
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+    animation: heroLogoFloat 6s ease-in-out infinite;
+}
+
+@keyframes heroLogoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ========= ACCESSIBILITY WIDGET ========= */
+.acc-widget {
+    position: fixed;
+    right: 2rem;
+    bottom: 5.5rem;
+    z-index: 1000;
+}
+
+.acc-toggle {
+    width: 52px;
+    height: 52px;
+    background: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    border: none;
+    font-size: 1.4rem;
+}
+
+.acc-toggle:hover {
+    background: #1d4ed8;
+    transform: scale(1.1);
+}
+
+.acc-menu {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-lg);
+    padding: 1rem;
+    display: none;
+    flex-direction: column;
+    gap: .75rem;
+    animation: slideInUp .3s ease;
+}
+
+html.dark .acc-menu {
+    background: var(--dark-surface);
+    border: 1px solid var(--dark-border);
+}
+
+.acc-menu.open {
+    display: flex;
+}
+
+.acc-header {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--primary);
+}
+
+html.dark .acc-header {
+    color: #60a5fa;
+}
+
+.acc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem;
+}
+
+.acc-btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: .5rem;
+    padding: .6rem .4rem;
+    font-size: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+    cursor: pointer;
+    transition: var(--transition);
+    color: #1e293b;
+    text-align: center;
+    line-height: 1.2;
+}
+
+html.dark .acc-btn {
+    background: var(--dark-border);
+    border-color: #475569;
+    color: white;
+}
+
+.acc-btn:hover {
+    background: #e2e8f0;
+    border-color: var(--primary);
+}
+
+html.dark .acc-btn:hover {
+    background: #334155;
+}
+
+.acc-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.acc-btn i {
+    font-size: 1.1rem;
+}
+
+.acc-reset {
+    margin-top: .5rem;
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    font-size: .8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.acc-reset:hover {
+    background: #dc2626;
+}
+
+/* ========= AURORA GLOBAL SECTIONS (FALLBACKS) ========= */
+.aurora-greeting-section {
+    background: #ffffff !important;
+}
+
+.aurora-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    color: var(--primary, #2563eb) !important;
+    margin-bottom: 1rem !important;
+    display: block !important;
+}
+
+.aurora-greet-title {
+    font-size: 2.2rem !important;
+    font-weight: 800 !important;
+    color: #1e293b !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.aurora-quote-box {
+    position: relative !important;
+}
+
+.aurora-quote-icon {
+    font-size: 3rem !important;
+    color: var(--primary, #2563eb) !important;
+    opacity: 0.1 !important;
+    position: absolute !important;
+    left: -1rem !important;
+    top: -1rem !important;
+}
+
+.aurora-quote-text {
+    font-size: 1.1rem !important;
+    color: #475569 !important;
+    line-height: 1.8 !important;
+}
+
+.aurora-btn-link {
+    color: var(--primary, #2563eb) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.aurora-btn-link:hover {
+    gap: 0.8rem !important;
+}
+
+.aurora-video-frame {
+    border-radius: 1.5rem !important;
+    overflow: hidden !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+.aurora-cta-section {
+    background: #0f172a !important; 
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%) !important;
+    padding: 80px 0 !important;
+}
+
+.aurora-cta-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin-bottom: 1rem !important;
+}
+
+.aurora-cta-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 2.5rem !important;
+}
+
+.aurora-btn-premium {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    padding: 0.8rem 2.2rem !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: 2px solid #ffffff !important;
+}
+
+.aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+    transform: translateY(-5px) !important;
+}
+
+.aurora-btn-outline {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    padding: 0.8rem 2.2rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.aurora-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-5px) !important;
+}

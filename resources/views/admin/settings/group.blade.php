@@ -453,27 +453,156 @@
 
                                     <hr class="my-4">
                                     <h6 class="mb-3 font-weight-bold text-primary"><i class="fas fa-university mr-2"></i>Tema World University</h6>
-                                    <div class="row">
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_luxury').checked = true">
-                                                <div class="card-body text-center p-3">
-                                                    <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #002147;">
+                                    
+                                    <div class="mb-4 pl-3 border-left" style="border-left-width: 4px !important; border-color: #002147 !important;">
+                                        <h6 class="mb-3 font-weight-bold" style="color: #002147;"><i class="fas fa-university mr-2"></i>Oxford</h6>
+                                        <div class="row">
+                                            <!-- Oxford Navy Gold -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-navygold-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_navygold').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #002147;">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_oxford_navygold" name="site_theme" value="oxford-luxury-navygold-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-navygold-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_oxford_navygold" class="custom-control-label small">OxfordLuxury-NavyGold <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input class="custom-control-input" type="radio" id="theme_oxford_luxury" name="site_theme" value="oxford-luxury-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-balakutak' ? 'checked' : '' }}>
-                                                        <label for="theme_oxford_luxury" class="custom-control-label small">OxfordLuxury <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                </div>
+                                            </div>
+                                            <!-- Oxford Red Gold -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-redgold-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_redgold').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #800000; filter: hue-rotate(140deg) saturate(1.2);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_oxford_redgold" name="site_theme" value="oxford-luxury-redgold-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-redgold-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_oxford_redgold" class="custom-control-label small">OxfordLuxury-RedGold <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Oxford Green Gold -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-greengold-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_greengold').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #004d40; filter: hue-rotate(80deg) saturate(1.2);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_oxford_greengold" name="site_theme" value="oxford-luxury-greengold-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-greengold-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_oxford_greengold" class="custom-control-label small">OxfordLuxury-GreenGold <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Oxford Black Gold -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-blackgold-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_blackgold').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #1a1a1a; filter: grayscale(1) brightness(0.6);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_oxford_blackgold" name="site_theme" value="oxford-luxury-blackgold-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-blackgold-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_oxford_blackgold" class="custom-control-label small">OxfordLuxury-BlackGold <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Oxford Brown Gold -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-browngold-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_oxford_browngold').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/oxford-luxury.png') }}'); background-size: cover; background-position: center; border: 1px solid #5D4037; filter: sepia(0.5) brightness(0.7) hue-rotate(-20deg);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_oxford_browngold" name="site_theme" value="oxford-luxury-browngold-balakutak" {{ ($settings['site_theme'] ?? '') == 'oxford-luxury-browngold-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_oxford_browngold" class="custom-control-label small">OxfordLuxury-BrownGold <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mb-3">
-                                            <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow').checked = true">
-                                                <div class="card-body text-center p-3">
-                                                    <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #8C1515;">
+                                    </div>
+
+                                    <div class="mt-4 pl-3 border-left" style="border-left-width: 4px !important; border-color: #8C1515 !important;">
+                                        <h6 class="mb-3 font-weight-bold" style="color: #8C1515;"><i class="fas fa-graduation-cap mr-2"></i>Stanford</h6>
+                                        <div class="row">
+                                            <!-- Stanford Grow Brown -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-brown-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_brown').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #5D4037; filter: sepia(0.5) brightness(0.7) hue-rotate(-20deg);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_brown" name="site_theme" value="stanford-grow-brown-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-brown-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_brown" class="custom-control-label small">StanfordGrow-Brown <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
                                                     </div>
-                                                    <div class="custom-control custom-radio">
-                                                        <input class="custom-control-input" type="radio" id="theme_stanford_grow" name="site_theme" value="stanford-grow-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-balakutak' ? 'checked' : '' }}>
-                                                        <label for="theme_stanford_grow" class="custom-control-label small">StanfordGrow <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                </div>
+                                            </div>
+                                            <!-- Stanford Grow Navy -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-navy-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_navy').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #002147; filter: saturate(0.5) brightness(0.8) sepia(1) hue-rotate(180deg);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_navy" name="site_theme" value="stanford-grow-navy-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-navy-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_navy" class="custom-control-label small">StanfordGrow-Navy <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Stanford Grow Green -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-green-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_green').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #064e3b; filter: saturate(0.8) hue-rotate(80deg);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_green" name="site_theme" value="stanford-grow-green-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-green-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_green" class="custom-control-label small">StanfordGrow-Green <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Stanford Grow Red -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-red-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_red').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #c62828;">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_red" name="site_theme" value="stanford-grow-red-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-red-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_red" class="custom-control-label small">StanfordGrow-Red <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Stanford Grow GoldenOrange -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-goldenorange-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_goldenorange').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #f57c00; filter: saturate(1.5) hue-rotate(-20deg);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_goldenorange" name="site_theme" value="stanford-grow-goldenorange-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-goldenorange-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_goldenorange" class="custom-control-label small">StanfordGrow-GoldenOrange <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Stanford Grow BlackSilver -->
+                                            <div class="col-md-4 mb-3">
+                                                <div class="card h-100 {{ ($settings['site_theme'] ?? '') == 'stanford-grow-blacksilver-balakutak' ? 'border-primary shadow' : 'border-light shadow-sm' }}" style="cursor:pointer; border-width: 2px;" onclick="document.getElementById('theme_stanford_grow_blacksilver').checked = true">
+                                                    <div class="card-body text-center p-3">
+                                                        <div class="rounded mb-2 d-flex align-items-center justify-content-center" style="height:100px; background: url('{{ asset('images/themes/thumbnails/stanford-grow.png') }}'); background-size: cover; background-position: center; border: 1px solid #1a1a1a; filter: grayscale(1) brightness(0.6);">
+                                                        </div>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio" id="theme_stanford_grow_blacksilver" name="site_theme" value="stanford-grow-blacksilver-balakutak" {{ ($settings['site_theme'] ?? '') == 'stanford-grow-blacksilver-balakutak' ? 'checked' : '' }}>
+                                                            <label for="theme_stanford_grow_blacksilver" class="custom-control-label small">StanfordGrow-Black Silver <span class="badge bg-warning text-dark ml-1" style="font-size:0.6rem;">PREMIUM</span></label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

@@ -1,13 +1,14 @@
 /* ===============================================
-   Oxford Luxury Theme - "Balakutak Excellence"
+   Oxford Luxury Brown Gold Theme - "Balakutak Excellence"
    Inspired by: Oxford Programmes & Premium Education
    Design: Symmetrical, High-Contrast, Professional
+   Colors: Rich Brown & Luxury Gold
    =============================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=Outfit:wght@300;400;600;700;800&display=swap');
 
 :root {
-    --lux-navy: #002147;      /* Oxford Navy */
+    --lux-brown: #5D4037;      /* Rich Brown */
     --lux-gold: #c69214;      /* Luxury Gold */
     --lux-gold-light: #eac05d;
     --lux-serif: 'Crimson Pro', serif;
@@ -20,39 +21,89 @@
 }
 
 /* Global Specificity Overrides */
-body.theme-oxford-luxury-balakutak {
+body.theme-oxford-luxury-browngold-balakutak {
     font-family: var(--lux-sans);
     color: var(--lux-text);
     background-color: var(--lux-bg);
 }
 
-.theme-oxford-luxury-balakutak #main-navbar {
+.theme-oxford-luxury-browngold-balakutak .top-menu-wrapper,
+.theme-oxford-luxury-browngold-balakutak .utility-bar {
+    background: #5D4037 !important;
+    border-bottom: 1px solid rgba(198, 146, 20, 0.3) !important;
+    z-index: 1100 !important;
+}
+
+.theme-oxford-luxury-browngold-balakutak #main-navbar.elegant-navbar {
+    background: linear-gradient(to bottom, rgba(93, 64, 55, 0.95) 0%, rgba(93, 64, 55, 0.7) 50%, transparent 100%) !important;
+    border-bottom: 1px solid rgba(198, 146, 20, 0.2) !important;
+    transition: all 0.4s ease;
     z-index: 1040 !important;
 }
 
-.theme-oxford-luxury-balakutak .dropdown-menu {
+.theme-oxford-luxury-browngold-balakutak #main-navbar.elegant-navbar.scrolled {
+    background: rgba(93, 64, 55, 0.98) !important;
+    padding: 0.5rem 0;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 1100;
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .main-nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .main-nav-link:hover,
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .main-nav-link.active {
+    color: var(--lux-gold) !important;
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .elegant-brand-title {
+    background: #ffffff !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .elegant-brand-subtitle {
+    color: rgba(255,255,255,0.8) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .navbar-toggler {
+    border-color: rgba(255,255,255,0.5) !important;
+}
+
+.theme-oxford-luxury-browngold-balakutak .elegant-navbar .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+.theme-oxford-luxury-browngold-balakutak .dropdown-menu {
     z-index: 9999 !important;
 }
 
-.theme-oxford-luxury-balakutak h1,
-.theme-oxford-luxury-balakutak h2,
-.theme-oxford-luxury-balakutak h3 {
+.theme-oxford-luxury-browngold-balakutak h1,
+.theme-oxford-luxury-browngold-balakutak h2,
+.theme-oxford-luxury-browngold-balakutak h3 {
     font-family: var(--lux-serif);
     font-weight: 700;
 }
 
 /* ========= HERO SECTION (GRID BASED) ========= */
-.theme-oxford-luxury-balakutak .luxury-theme-hero {
+.theme-oxford-luxury-browngold-balakutak .luxury-theme-hero {
     overflow: hidden;
     background-color: #ffffff;
 }
 
-.theme-oxford-luxury-balakutak .lux-hero-swiper {
+.theme-oxford-luxury-browngold-balakutak .lux-hero-swiper {
     width: 100%;
     height: 100%;
 }
 
-.theme-oxford-luxury-balakutak .lux-slider-controls {
+.theme-oxford-luxury-browngold-balakutak .lux-slider-controls {
     position: absolute;
     bottom: 30px;
     right: 30px;
@@ -61,8 +112,8 @@ body.theme-oxford-luxury-balakutak {
     z-index: 10;
 }
 
-.theme-oxford-luxury-balakutak .lux-swiper-prev,
-.theme-oxford-luxury-balakutak .lux-swiper-next {
+.theme-oxford-luxury-browngold-balakutak .lux-swiper-prev,
+.theme-oxford-luxury-browngold-balakutak .lux-swiper-next {
     width: 45px;
     height: 45px;
     background: #fff;
@@ -70,19 +121,19 @@ body.theme-oxford-luxury-balakutak {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--lux-navy);
+    color: var(--lux-brown);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: 0.75rem;
 }
 
-.theme-oxford-luxury-balakutak .lux-swiper-prev:hover,
-.theme-oxford-luxury-balakutak .lux-swiper-next:hover {
+.theme-oxford-luxury-browngold-balakutak .lux-swiper-prev:hover,
+.theme-oxford-luxury-browngold-balakutak .lux-swiper-next:hover {
     background: var(--lux-gold);
     color: #fff;
 }
 
-.theme-oxford-luxury-balakutak .lux-hero-tagline {
+.theme-oxford-luxury-browngold-balakutak .lux-hero-tagline {
     display: block;
     color: var(--lux-gold) !important;
     font-weight: 700 !important;
@@ -92,16 +143,16 @@ body.theme-oxford-luxury-balakutak {
     text-transform: uppercase;
 }
 
-.theme-oxford-luxury-balakutak .lux-hero-title {
+.theme-oxford-luxury-browngold-balakutak .lux-hero-title {
     font-family: var(--lux-serif) !important;
     font-size: clamp(2.5rem, 6vw, 4.2rem) !important;
-    color: var(--lux-navy) !important;
+    color: var(--lux-brown) !important;
     line-height: 1.1;
     font-weight: 700;
     margin-bottom: 2rem;
 }
 
-.theme-oxford-luxury-balakutak .lux-hero-desc {
+.theme-oxford-luxury-browngold-balakutak .lux-hero-desc {
     font-size: 1.2rem;
     font-weight: 300;
     line-height: 1.8;
@@ -109,8 +160,8 @@ body.theme-oxford-luxury-balakutak {
     margin-bottom: 2.5rem;
 }
 
-.theme-oxford-luxury-balakutak .btn-premium {
-    background-color: var(--lux-navy) !important;
+.theme-oxford-luxury-browngold-balakutak .btn-premium {
+    background-color: var(--lux-brown) !important;
     color: #fff !important;
     border-radius: 0 !important;
     padding: 1.2rem 2.8rem !important;
@@ -118,16 +169,16 @@ body.theme-oxford-luxury-balakutak {
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: var(--lux-transition);
-    border: 1px solid var(--lux-navy) !important;
+    border: 1px solid var(--lux-brown) !important;
 }
 
-.theme-oxford-luxury-balakutak .btn-premium:hover {
+.theme-oxford-luxury-browngold-balakutak .btn-premium:hover {
     background-color: transparent !important;
-    color: var(--lux-navy) !important;
+    color: var(--lux-brown) !important;
     transform: translateY(-3px);
 }
 
-.theme-oxford-luxury-balakutak .lux-hero-gold-accent {
+.theme-oxford-luxury-browngold-balakutak .lux-hero-gold-accent {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -140,29 +191,29 @@ body.theme-oxford-luxury-balakutak {
 }
 
 /* Stats Bar Luxury Styling */
-.theme-oxford-luxury-balakutak .stats-bar-luxury-wrap {
+.theme-oxford-luxury-browngold-balakutak .stats-bar-luxury-wrap {
     position: relative;
     z-index: 10;
-    margin-top: -1rem; /* Reduced overlap to prevent covering slider content */
+    margin-top: -1rem; 
 }
 
-.theme-oxford-luxury-balakutak .stats-bar-luxury {
-    background: var(--lux-navy) !important;
+.theme-oxford-luxury-browngold-balakutak .stats-bar-luxury {
+    background: var(--lux-brown) !important;
     color: #fff !important;
     border-radius: 4px;
     border-bottom: 6px solid var(--lux-gold);
 }
 
-.theme-oxford-luxury-balakutak .stat-item-lux {
+.theme-oxford-luxury-browngold-balakutak .stat-item-lux {
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2.5rem 1rem;
 }
 
-.theme-oxford-luxury-balakutak .stat-item-lux:last-child {
+.theme-oxford-luxury-browngold-balakutak .stat-item-lux:last-child {
     border-right: none;
 }
 
-.theme-oxford-luxury-balakutak .stat-item-lux .stat-number {
+.theme-oxford-luxury-browngold-balakutak .stat-item-lux .stat-number {
     font-family: var(--lux-serif);
     color: var(--lux-gold) !important;
     font-size: 2.8rem;
@@ -170,7 +221,7 @@ body.theme-oxford-luxury-balakutak {
     margin-bottom: 0.5rem;
 }
 
-.theme-oxford-luxury-balakutak .stat-item-lux .stat-label {
+.theme-oxford-luxury-browngold-balakutak .stat-item-lux .stat-label {
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 2px;
@@ -179,18 +230,18 @@ body.theme-oxford-luxury-balakutak {
 }
 
     /* NEWS SECTION - LUXURY REFINEMENT */
-    .theme-oxford-luxury-balakutak .lux-news-card-featured {
+    .theme-oxford-luxury-browngold-balakutak .lux-news-card-featured {
         background: #fff;
         transition: var(--lux-transition);
         border-radius: 0 !important;
         position: relative;
     }
 
-    .theme-oxford-luxury-balakutak .lux-news-card-featured:hover {
+    .theme-oxford-luxury-browngold-balakutak .lux-news-card-featured:hover {
         box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08) !important;
     }
 
-    .theme-oxford-luxury-balakutak .lux-news-title-lg {
+    .theme-oxford-luxury-browngold-balakutak .lux-news-title-lg {
         font-family: var(--lux-serif) !important;
         font-size: 2.2rem;
         line-height: 1.2;
@@ -198,41 +249,41 @@ body.theme-oxford-luxury-balakutak {
         transition: color 0.3s ease;
     }
 
-    .theme-oxford-luxury-balakutak .lux-news-title-lg a {
-        color: var(--lux-navy) !important;
+    .theme-oxford-luxury-browngold-balakutak .lux-news-title-lg a {
+        color: var(--lux-brown) !important;
         transition: color 0.3s ease;
     }
 
-    .theme-oxford-luxury-balakutak .lux-news-title-lg a:hover {
+    .theme-oxford-luxury-browngold-balakutak .lux-news-title-lg a:hover {
         color: var(--lux-gold) !important;
     }
 
-.theme-oxford-luxury-balakutak .lux-news-card {
+.theme-oxford-luxury-browngold-balakutak .lux-news-card {
     background: #fff;
     transition: var(--lux-transition);
     border-radius: 0 !important;
     overflow: hidden;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-card:hover {
+.theme-oxford-luxury-browngold-balakutak .lux-news-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08) !important;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-img-wrap {
+.theme-oxford-luxury-browngold-balakutak .lux-news-img-wrap {
     overflow: hidden;
     position: relative;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-img-wrap img {
+.theme-oxford-luxury-browngold-balakutak .lux-news-img-wrap img {
     transition: transform 0.6s ease;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-card:hover .lux-news-img-wrap img {
+.theme-oxford-luxury-browngold-balakutak .lux-news-card:hover .lux-news-img-wrap img {
     transform: scale(1.05);
 }
 
-.theme-oxford-luxury-balakutak .lux-news-category {
+.theme-oxford-luxury-browngold-balakutak .lux-news-category {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -246,41 +297,41 @@ body.theme-oxford-luxury-balakutak {
     z-index: 5;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-date {
+.theme-oxford-luxury-browngold-balakutak .lux-news-date {
     font-size: 0.8rem;
     color: var(--lux-gold) !important;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-title {
+.theme-oxford-luxury-browngold-balakutak .lux-news-title {
     font-family: var(--lux-serif) !important;
     font-size: 1.4rem;
     line-height: 1.4;
     font-weight: 700;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-title a {
-    color: var(--lux-navy) !important;
+.theme-oxford-luxury-browngold-balakutak .lux-news-title a {
+    color: var(--lux-brown) !important;
     transition: color 0.3s ease;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-title a:hover {
+.theme-oxford-luxury-browngold-balakutak .lux-news-title a:hover {
     color: var(--lux-gold) !important;
 }
 
-.theme-oxford-luxury-balakutak .lux-read-more {
+.theme-oxford-luxury-browngold-balakutak .lux-read-more {
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--lux-navy);
+    color: var(--lux-brown);
     position: relative;
     display: inline-block;
     padding-bottom: 5px;
 }
 
-.theme-oxford-luxury-balakutak .lux-read-more::after {
+.theme-oxford-luxury-browngold-balakutak .lux-read-more::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -291,20 +342,20 @@ body.theme-oxford-luxury-balakutak {
     transition: width 0.4s ease;
 }
 
-.theme-oxford-luxury-balakutak .lux-news-card:hover .lux-read-more::after {
+.theme-oxford-luxury-browngold-balakutak .lux-news-card:hover .lux-read-more::after {
     width: 100%;
 }
 
 /* ========= GLOBAL PAGE HEADER OVERRIDES (COMPREHENSIVE) ========= */
-.theme-oxford-luxury-balakutak .page-header-premium {
-    background: linear-gradient(180deg, var(--lux-navy) 0%, #00152e 100%) !important;
+.theme-oxford-luxury-browngold-balakutak .page-header-premium {
+    background: linear-gradient(180deg, var(--lux-brown) 0%, #3e2b25 100%) !important;
     padding: 8rem 0 !important;
     border-bottom: 5px solid var(--lux-gold);
     position: relative;
     overflow: hidden;
 }
 
-.theme-oxford-luxury-balakutak .page-header-premium::before {
+.theme-oxford-luxury-browngold-balakutak .page-header-premium::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -315,13 +366,13 @@ body.theme-oxford-luxury-balakutak {
 }
 
 /* Remove old blueprint/grid pattern completely */
-.theme-oxford-luxury-balakutak .page-header-pattern {
+.theme-oxford-luxury-browngold-balakutak .page-header-pattern {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
 }
 
-.theme-oxford-luxury-balakutak .page-header-premium h1 {
+.theme-oxford-luxury-browngold-balakutak .page-header-premium h1 {
     font-family: var(--lux-serif) !important;
     font-size: clamp(2.5rem, 5vw, 4rem) !important;
     letter-spacing: -1.5px;
@@ -330,7 +381,7 @@ body.theme-oxford-luxury-balakutak {
     z-index: 2;
 }
 
-.theme-oxford-luxury-balakutak .page-header-premium .breadcrumb {
+.theme-oxford-luxury-browngold-balakutak .page-header-premium .breadcrumb {
     background: transparent !important;
     padding: 0;
     margin-bottom: 1.5rem;
@@ -338,8 +389,8 @@ body.theme-oxford-luxury-balakutak {
     z-index: 2;
 }
 
-.theme-oxford-luxury-balakutak .page-header-premium .breadcrumb-item,
-.theme-oxford-luxury-balakutak .page-header-premium .breadcrumb-item a {
+.theme-oxford-luxury-browngold-balakutak .page-header-premium .breadcrumb-item,
+.theme-oxford-luxury-browngold-balakutak .page-header-premium .breadcrumb-item a {
     color: var(--lux-gold) !important;
     font-weight: 700 !important;
     text-transform: uppercase;
@@ -348,12 +399,12 @@ body.theme-oxford-luxury-balakutak {
     text-decoration: none;
 }
 
-.theme-oxford-luxury-balakutak .page-header-premium .breadcrumb-item.active {
+.theme-oxford-luxury-browngold-balakutak .page-header-premium .breadcrumb-item.active {
     color: #fff !important;
     opacity: 0.7;
 }
 
-.theme-oxford-luxury-balakutak .page-header-logo {
+.theme-oxford-luxury-browngold-balakutak .page-header-logo {
     opacity: 0.1;
     filter: brightness(0) invert(1) grayscale(1);
     transform: scale(2) rotate(-15deg);
@@ -363,7 +414,7 @@ body.theme-oxford-luxury-balakutak {
 }
 
 /* ========= GLOBAL MODULE/SECTION HEADERS ========= */
-.theme-oxford-luxury-balakutak .section-badge {
+.theme-oxford-luxury-browngold-balakutak .section-badge {
     background: transparent !important;
     color: var(--lux-gold) !important;
     font-weight: 800 !important;
@@ -377,13 +428,13 @@ body.theme-oxford-luxury-balakutak {
 }
 
 /* Section Header Refinement (Home Modules) */
-.theme-oxford-luxury-balakutak .lux-section-header {
+.theme-oxford-luxury-browngold-balakutak .lux-section-header {
     margin-bottom: 4rem;
     position: relative;
     padding-left: 2rem;
 }
 
-.theme-oxford-luxury-balakutak .lux-section-header::before {
+.theme-oxford-luxury-browngold-balakutak .lux-section-header::before {
     content: '';
     position: absolute;
     left: 0;
@@ -393,7 +444,7 @@ body.theme-oxford-luxury-balakutak {
     background: var(--lux-gold);
 }
 
-.theme-oxford-luxury-balakutak .lux-section-tagline {
+.theme-oxford-luxury-browngold-balakutak .lux-section-tagline {
     display: block;
     color: var(--lux-gold);
     font-weight: 800;
@@ -403,26 +454,26 @@ body.theme-oxford-luxury-balakutak {
     margin-bottom: 0.5rem;
 }
 
-.theme-oxford-luxury-balakutak .lux-section-title {
+.theme-oxford-luxury-browngold-balakutak .lux-section-title {
     font-family: var(--lux-serif);
     font-size: 3.2rem;
-    color: var(--lux-navy);
+    color: var(--lux-brown);
     line-height: 1.1;
     font-weight: 700;
 }
 
-.theme-oxford-luxury-balakutak .lux-section-title span {
+.theme-oxford-luxury-browngold-balakutak .lux-section-title span {
     color: var(--lux-gold);
     display: block;
 }
 
 /* Sub-page Specific: FAQ Refinement */
-.theme-oxford-luxury-balakutak .faq-container {
+.theme-oxford-luxury-browngold-balakutak .faq-container {
     background: #fff !important;
     background-image: none !important; 
 }
 
-.theme-oxford-luxury-balakutak .faq-search-wrapper input {
+.theme-oxford-luxury-browngold-balakutak .faq-search-wrapper input {
     border-radius: 0 !important;
     border: 1px solid #e2e8f0 !important;
     padding: 1.5rem 2rem 1.5rem 4rem !important;
@@ -430,18 +481,18 @@ body.theme-oxford-luxury-balakutak {
     font-size: 1.25rem !important;
 }
 
-.theme-oxford-luxury-balakutak .faq-accordion .card {
+.theme-oxford-luxury-browngold-balakutak .faq-accordion .card {
     border-radius: 0 !important;
     border: 1px solid #f1f5f9 !important;
 }
 
-.theme-oxford-luxury-balakutak .faq-accordion .btn-link {
+.theme-oxford-luxury-browngold-balakutak .faq-accordion .btn-link {
     font-family: var(--lux-serif);
     font-size: 1.25rem !important;
-    color: var(--lux-navy) !important;
+    color: var(--lux-brown) !important;
 }
 
-.theme-oxford-luxury-balakutak .faq-accordion .btn-link:not(.collapsed) {
+.theme-oxford-luxury-browngold-balakutak .faq-accordion .btn-link:not(.collapsed) {
     background: #f8fafc !important;
     border-left: 4px solid var(--lux-gold) !important;
     color: var(--lux-gold) !important;
@@ -449,73 +500,73 @@ body.theme-oxford-luxury-balakutak {
 
 /* Responsiveness for Headers */
 @media (max-width: 991px) {
-    .theme-oxford-luxury-balakutak .lux-section-title { font-size: 2.3rem !important; }
-    .theme-oxford-luxury-balakutak .page-header-premium { padding: 5rem 0 !important; border-bottom-width: 3px; }
-    .theme-oxford-luxury-balakutak .page-header-logo { display: none; }
+    .theme-oxford-luxury-browngold-balakutak .lux-section-title { font-size: 2.3rem !important; }
+    .theme-oxford-luxury-browngold-balakutak .page-header-premium { padding: 5rem 0 !important; border-bottom-width: 3px; }
+    .theme-oxford-luxury-browngold-balakutak .page-header-logo { display: none; }
 }
 
 /* ========= LUXURY EVENT CARDS ========= */
-.theme-oxford-luxury-balakutak .lux-event-card {
+.theme-oxford-luxury-browngold-balakutak .lux-event-card {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 1;
 }
 
-.theme-oxford-luxury-balakutak .lux-event-card:hover {
+.theme-oxford-luxury-browngold-balakutak .lux-event-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
     border-color: var(--lux-gold) !important;
 }
 
-.theme-oxford-luxury-balakutak .lux-event-date span:first-child {
+.theme-oxford-luxury-browngold-balakutak .lux-event-date span:first-child {
     font-family: var(--lux-serif);
 }
 
-.theme-oxford-luxury-balakutak .lux-event-title a {
-    color: var(--lux-navy);
+.theme-oxford-luxury-browngold-balakutak .lux-event-title a {
+    color: var(--lux-brown);
     transition: color 0.3s ease;
 }
 
-.theme-oxford-luxury-balakutak .lux-event-card:hover .lux-event-title a {
+.theme-oxford-luxury-browngold-balakutak .lux-event-card:hover .lux-event-title a {
     color: var(--lux-gold);
 }
 
 /* ========= LUXURY TESTIMONIAL CARDS ========= */
-.theme-oxford-luxury-balakutak .lux-testimonial-card {
+.theme-oxford-luxury-browngold-balakutak .lux-testimonial-card {
     background: #fff;
     border: 1px solid #f1f5f9;
 }
 
-.theme-oxford-luxury-balakutak .lux-testimonial-text {
+.theme-oxford-luxury-browngold-balakutak .lux-testimonial-text {
     font-family: var(--lux-serif);
     font-style: italic;
-    color: var(--lux-navy);
+    color: var(--lux-brown);
 }
 
-.theme-oxford-luxury-balakutak .lux-author-img-wrap img {
+.theme-oxford-luxury-browngold-balakutak .lux-author-img-wrap img {
     border-width: 2px !important;
     transition: all 0.4s ease;
 }
 
-.theme-oxford-luxury-balakutak .lux-testimonial-card:hover .lux-author-img-wrap img {
+.theme-oxford-luxury-browngold-balakutak .lux-testimonial-card:hover .lux-author-img-wrap img {
     transform: scale(1.1);
     border-color: var(--lux-gold) !important;
 }
 
-.theme-oxford-luxury-balakutak .testimonial-swiper .swiper-pagination-bullet-active {
+.theme-oxford-luxury-browngold-balakutak .testimonial-swiper .swiper-pagination-bullet-active {
     background: var(--lux-gold) !important;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .theme-oxford-luxury-balakutak .lux-testimonial-card { padding: 2.5rem 1.5rem !important; }
+    .theme-oxford-luxury-browngold-balakutak .lux-testimonial-card { padding: 2.5rem 1.5rem !important; }
 }
 /* ========= LUXURY FOOTER OVERRIDES ========= */
-.theme-oxford-luxury-balakutak footer {
-    background: var(--lux-navy) !important;
+.theme-oxford-luxury-browngold-balakutak footer {
+    background: var(--lux-brown) !important;
     border-top: 5px solid var(--lux-gold);
 }
 
-.theme-oxford-luxury-balakutak .footer-heading {
+.theme-oxford-luxury-browngold-balakutak .footer-heading {
     font-family: var(--lux-serif);
     color: var(--lux-gold) !important;
     font-size: 1.4rem;
@@ -523,11 +574,11 @@ body.theme-oxford-luxury-balakutak {
     letter-spacing: 0;
 }
 
-.theme-oxford-luxury-balakutak .footer-divider {
+.theme-oxford-luxury-browngold-balakutak .footer-divider {
     border-color: rgba(198, 146, 20, 0.2) !important;
 }
 
-.theme-oxford-luxury-balakutak .social-btn {
+.theme-oxford-luxury-browngold-balakutak .social-btn {
     background: transparent !important;
     border: 1px solid var(--lux-gold);
     color: var(--lux-gold) !important;
@@ -535,20 +586,20 @@ body.theme-oxford-luxury-balakutak {
     transition: var(--lux-transition);
 }
 
-.theme-oxford-luxury-balakutak .social-btn:hover {
+.theme-oxford-luxury-browngold-balakutak .social-btn:hover {
     background: var(--lux-gold) !important;
-    color: var(--lux-navy) !important;
+    color: var(--lux-brown) !important;
 }
 
 /* ========= AURORA CTA SECTION (Oxford Luxury) ========= */
-.theme-oxford-luxury-balakutak .aurora-cta-section {
-    background: #002147 !important; /* Oxford Navy */
-    background: linear-gradient(135deg, #002147 0%, #00152b 100%) !important;
+.theme-oxford-luxury-browngold-balakutak .aurora-cta-section {
+    background: #5D4037 !important; /* Oxford Brown */
+    background: linear-gradient(135deg, #5D4037 0%, #3e2b25 100%) !important;
     padding: 100px 0 !important;
     border-top: 1px solid rgba(198, 146, 20, 0.2);
 }
 
-.theme-oxford-luxury-balakutak .aurora-cta-title {
+.theme-oxford-luxury-browngold-balakutak .aurora-cta-title {
     font-family: var(--lux-serif) !important;
     font-weight: 700 !important;
     font-size: 3.2rem !important;
@@ -556,7 +607,7 @@ body.theme-oxford-luxury-balakutak {
     letter-spacing: 0px !important;
 }
 
-.theme-oxford-luxury-balakutak .aurora-btn-premium {
+.theme-oxford-luxury-browngold-balakutak .aurora-btn-premium {
     background: var(--lux-gold) !important;
     color: #ffffff !important;
     border: 1px solid var(--lux-gold) !important;
@@ -565,12 +616,12 @@ body.theme-oxford-luxury-balakutak {
     letter-spacing: 1px;
 }
 
-.theme-oxford-luxury-balakutak .aurora-btn-premium:hover {
+.theme-oxford-luxury-browngold-balakutak .aurora-btn-premium:hover {
     background: transparent !important;
     color: var(--lux-gold) !important;
 }
 
-.theme-oxford-luxury-balakutak .aurora-btn-outline {
+.theme-oxford-luxury-browngold-balakutak .aurora-btn-outline {
     background: transparent !important;
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;

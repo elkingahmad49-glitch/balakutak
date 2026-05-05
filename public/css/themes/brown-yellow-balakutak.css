@@ -860,6 +860,36 @@ html.dark .theme-brown-yellow-balakutak .section-title {
 .letter-spacing-2 { letter-spacing: 2px; }
 .tracking-widest { letter-spacing: 0.15em; }
 
+/* ========= AURORA CTA SECTION (Brown Yellow) ========= */
+.theme-brown-yellow-balakutak .aurora-cta-section {
+    background: #21130D !important; /* Deepest Brown */
+    background: linear-gradient(135deg, #21130D 0%, #3E2723 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-brown-yellow-balakutak .aurora-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-brown-yellow-balakutak .aurora-btn-premium {
+    background: #FFD700 !important; /* Gold */
+    color: #21130D !important;
+    border: 2px solid #FFD700 !important;
+}
+
+.theme-brown-yellow-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #FFD700 !important;
+}
+
+.theme-brown-yellow-balakutak .aurora-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}
+
 .news-immersive-title a {
     transition: opacity 0.3s;
 }

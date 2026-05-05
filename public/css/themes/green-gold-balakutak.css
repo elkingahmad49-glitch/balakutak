@@ -1210,6 +1210,39 @@ html.dark .theme-green-gold-balakutak .acc-btn:hover {
 .letter-spacing-2 { letter-spacing: 2px; }
 .tracking-widest { letter-spacing: 0.15em; }
 
+/* ========= AURORA CTA SECTION (Green Gold) ========= */
+.theme-green-gold-balakutak .aurora-cta-section {
+    background: #002211 !important; /* Deepest Forest */
+    background: linear-gradient(135deg, #002211 0%, #013220 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-green-gold-balakutak .aurora-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-green-gold-balakutak .aurora-btn-premium {
+    background: #D4AF37 !important; /* Royal Gold */
+    color: #002211 !important;
+    border: 2px solid #D4AF37 !important;
+    border-radius: 0 !important;
+}
+
+.theme-green-gold-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #D4AF37 !important;
+}
+
+.theme-green-gold-balakutak .aurora-btn-outline {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 0 !important;
+}
+
 .news-immersive-title a {
     transition: opacity 0.3s;
 }

@@ -12,12 +12,17 @@
         $siteTheme = \App\Models\Setting::get('site_theme', 'navy-blue-balakutak'); 
         $premiumThemes = [
             'oxford-luxury-balakutak',
+            'oxford-luxury-navygold-balakutak',
+            'oxford-luxury-redgold-balakutak',
+            'oxford-luxury-greengold-balakutak',
+            'oxford-luxury-blackgold-balakutak',
+            'oxford-luxury-browngold-balakutak',
             'swiss-minimalist-balakutak',
             'emerald-velvet-balakutak',
             'nordic-slate-balakutak',
             'midnight-gold-balakutak'
         ];
-        $isPremium = in_array($siteTheme, $premiumThemes);
+        $isPremium = in_array($siteTheme, $premiumThemes) || str_contains($siteTheme, 'oxford-luxury');
         $isAurora = ($siteTheme == 'aurora-glass-balakutak');
     @endphp
 
@@ -213,7 +218,7 @@
                 <div class="swiper-wrapper">
                     @foreach($sliders as $slider)
                     <div class="swiper-slide hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('{{ asset('storage/'.$slider->image) }}')">
-                        @if($siteTheme == 'midnight-gold-balakutak' || $siteTheme == 'midnight-landscape-balakutak' || $siteTheme == 'stanford-grow-balakutak')
+                        @if($siteTheme == 'midnight-gold-balakutak' || $siteTheme == 'midnight-landscape-balakutak' || $siteTheme == 'stanford-grow-brown-balakutak' || $siteTheme == 'stanford-grow-navy-balakutak' || $siteTheme == 'stanford-grow-green-balakutak' || $siteTheme == 'stanford-grow-red-balakutak' || $siteTheme == 'stanford-grow-goldenorange-balakutak' || $siteTheme == 'stanford-grow-blacksilver-balakutak')
                             <div class="midnight-hero-globe-overlay"></div>
                             <div class="midnight-hero-grid-overlay"></div>
                         @endif
@@ -414,7 +419,7 @@
                 </div>
             </div>
 
-            @if($siteTheme == 'oxford-luxury-balakutak')
+            @if(str_contains($siteTheme, 'oxford-luxury'))
                 <div class="row g-4">
                     @forelse($latestNews->take(4) as $index => $news)
                         @if($index === 0)

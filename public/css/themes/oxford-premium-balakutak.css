@@ -257,3 +257,37 @@ html.dark .theme-oxford-premium-balakutak .news-immersive-card {
     background: var(--ox-gold) !important;
     color: #FFF !important;
 }
+
+/* ========= AURORA CTA SECTION (Oxford Premium) ========= */
+.theme-oxford-premium-balakutak .aurora-cta-section {
+    background: #002147 !important; /* Oxford Blue */
+    background: linear-gradient(135deg, #002147 0%, #00152b 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-oxford-premium-balakutak .aurora-cta-title {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-oxford-premium-balakutak .aurora-btn-premium {
+    background: var(--ox-gold) !important;
+    color: #ffffff !important;
+    border: 2px solid var(--ox-gold) !important;
+    border-radius: 4px !important;
+    font-weight: 700;
+}
+
+.theme-oxford-premium-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: var(--ox-gold) !important;
+}
+
+.theme-oxford-premium-balakutak .aurora-btn-outline {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    border-radius: 4px !important;
+}

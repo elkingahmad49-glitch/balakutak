@@ -1321,6 +1321,141 @@ html.dark .theme-royal-purple-balakutak .acc-header {
     border-bottom-color: rgba(192, 132, 252, 0.1);
 }
 
+/* ========= AURORA GREETING SECTION (Ported for Royal Purple) ========= */
+.theme-royal-purple-balakutak .aurora-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 2.5px !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    color: var(--gold-dark) !important;
+    display: block !important;
+}
+
+.theme-royal-purple-balakutak .aurora-greet-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 2.6rem !important;
+    color: var(--p-dark) !important;
+    letter-spacing: -1.2px !important;
+    line-height: 1.1 !important;
+}
+
+.theme-royal-purple-balakutak .aurora-quote-box {
+    position: relative !important;
+}
+
+.theme-royal-purple-balakutak .aurora-quote-icon {
+    position: absolute !important;
+    left: -1.5rem !important;
+    top: -1.5rem !important;
+    font-size: 4rem !important;
+    color: var(--gold) !important;
+    opacity: 0.15 !important;
+    z-index: -1 !important;
+}
+
+.theme-royal-purple-balakutak .aurora-quote-text {
+    font-size: 1.1rem !important;
+    color: var(--text-main) !important;
+    line-height: 1.8 !important;
+    opacity: 0.9;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-link {
+    color: var(--gold-dark) !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 0.9rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    transition: all 0.3s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-link:hover {
+    color: var(--rose) !important;
+    transform: translateX(10px) !important;
+}
+
+.theme-royal-purple-balakutak .aurora-video-frame {
+    border-radius: 32px !important;
+    overflow: hidden !important;
+    box-shadow: 0 25px 60px rgba(26, 10, 46, 0.2) !important;
+    border: 1px solid rgba(192, 132, 252, 0.2) !important;
+}
+
+/* ========= AURORA CTA SECTION (Ported for Royal Purple) ========= */
+.theme-royal-purple-balakutak .aurora-cta-section {
+    background: #1a0a2e !important;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-royal-purple-balakutak .aurora-cta-title {
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    letter-spacing: -1.5px !important;
+    color: #fff !important;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.theme-royal-purple-balakutak .aurora-cta-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.1rem !important;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-premium {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%) !important;
+    color: #fff !important;
+    padding: 1rem 2.5rem !important;
+    border-radius: 100px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    box-shadow: 0 10px 25px rgba(244, 114, 182, 0.3) !important;
+    transition: all 0.3s ease !important;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-premium:hover {
+    transform: translateY(-5px) scale(1.05) !important;
+    box-shadow: 0 15px 35px rgba(244, 114, 182, 0.4) !important;
+    color: #fff !important;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-outline {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 1rem 2.5rem !important;
+    border-radius: 100px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+}
+
+.theme-royal-purple-balakutak .aurora-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-5px) !important;
+    color: #fff !important;
+}
+
+.theme-royal-purple-balakutak .aurora-cta-bg-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.15), transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 /* ========= UTILITY CLASSES ========= */
 .letter-spacing-1 { letter-spacing: 1px; }
 .letter-spacing-2 { letter-spacing: 2px; }

@@ -1,0 +1,1149 @@
+/* ===============================================
+   StanfordGrow-Navy-BalaKutaK Theme
+   Inspired by grow.stanford.edu
+   Clean, Academic, and High-Impact
+   Stanford Navy: #002147
+   =============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+:root {
+    --stanford-navy: #002147;
+    --stanford-navy-dark: #00152b;
+    --stanford-navy-light: #003366;
+    --stanford-grey: #2e2d29;
+    --stanford-beige: #f4f4f4;
+    --stanford-white: #ffffff;
+    
+    --p-dark: var(--stanford-navy);
+    --p-emerald: var(--stanford-navy-dark);
+    --gold: var(--stanford-navy);
+    --gold-light: var(--stanford-navy-light);
+    --gold-dark: var(--stanford-navy-dark);
+    --bg-silk: var(--stanford-white);
+    --text-main: var(--stanford-grey);
+}
+
+/* ========= GLOBAL REFINEMENTS ========= */
+body.theme-stanford-grow-navy-balakutak {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-silk);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.theme-stanford-grow-navy-balakutak h1,
+.theme-stanford-grow-navy-balakutak h2,
+.theme-stanford-grow-navy-balakutak h3,
+.theme-stanford-grow-navy-balakutak h4,
+.theme-stanford-grow-navy-balakutak h5,
+.theme-stanford-grow-navy-balakutak h6,
+.theme-stanford-grow-navy-balakutak .elegant-brand-title {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    color: var(--stanford-navy);
+}
+
+/* ========= TOP MENU & NAVBAR ========= */
+.theme-stanford-grow-navy-balakutak .top-menu-wrapper,
+.theme-stanford-grow-navy-balakutak .utility-bar {
+    background: #002147 !important; /* Solid Stanford Navy */
+    border: none !important;
+    padding: 0.25rem 0 !important;
+    position: relative;
+    z-index: 1100 !important; /* Higher than main navbar z-index */
+    line-height: 1 !important;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+.theme-stanford-grow-navy-balakutak .top-utilities .top-btn,
+.theme-stanford-grow-navy-balakutak .top-utilities .top-btn-utility {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #FFF !important;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    padding: 0.2rem 0.6rem !important; /* Slimmer buttons */
+    font-size: 0.7rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .top-utilities .top-btn:hover,
+.theme-stanford-grow-navy-balakutak .top-utilities .top-btn-utility:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.theme-stanford-grow-navy-balakutak .top-menu-link {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    color: #FFF !important;
+    opacity: 0.9;
+}
+
+/* Specific slim style for Dashboard button in top menu */
+.theme-stanford-grow-navy-balakutak .btn-premium-dashboard {
+    padding: 0.2rem 0.8rem !important;
+    font-size: 0.7rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak #main-navbar.elegant-navbar {
+    background: linear-gradient(to bottom, rgba(0, 33, 71, 0.95) 0%, rgba(0, 33, 71, 0.7) 50%, transparent 100%) !important;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    position: absolute;
+    top: 46px; /* Moved down slightly to prevent logo clipping */
+    left: 0;
+    width: 100%;
+    z-index: 1050 !important;
+    transition: all 0.4s ease;
+}
+
+.theme-stanford-grow-navy-balakutak #main-navbar.elegant-navbar .dropdown-menu {
+    z-index: 9999 !important;
+}
+
+.theme-stanford-grow-navy-balakutak #main-navbar.elegant-navbar.scrolled {
+    background: rgba(0, 33, 71, 0.98) !important;
+    padding: 0.35rem 0;
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    z-index: 1100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .elegant-navbar .container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.theme-stanford-grow-navy-balakutak .navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    margin-right: 2rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .site-branding-text {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .main-nav-link {
+    font-weight: 700 !important;
+    color: #FFF !important;
+    text-transform: uppercase;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.5px;
+    margin: 0 12px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+}
+
+.theme-stanford-grow-navy-balakutak .elegant-brand-title {
+    color: #FFF !important;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.theme-stanford-grow-navy-balakutak .elegant-brand-subtitle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.theme-stanford-grow-navy-balakutak .navbar-toggler {
+    border: 1px solid rgba(255,255,255,0.5) !important;
+    padding: 0.5rem;
+}
+
+.theme-stanford-grow-navy-balakutak .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* ========= HERO SECTION (NEW FULL WIDTH) ========= */
+.theme-stanford-grow-navy-balakutak .hero-section {
+    position: relative;
+    /* Match the side color of the stats-bar gradient for seamless transition */
+    background: #001229 !important; 
+    z-index: 8;
+}
+
+/* Elegant Convex (Menonjol) Curve */
+.theme-stanford-grow-navy-balakutak .hero-swiper {
+    height: 90vh !important;
+    clip-path: ellipse(120% 100% at 50% 0%);
+    background: #002147;
+}
+
+/* Stats Bar - Complete Cleanup */
+.theme-stanford-grow-navy-balakutak .stats-bar-decorative,
+.theme-stanford-grow-navy-balakutak .stats-bar-blob {
+    display: none !important;
+}
+
+.theme-stanford-grow-navy-balakutak .stats-bar {
+    background: linear-gradient(135deg, #001229 0%, #002147 50%, #001229 100%) !important;
+    position: relative;
+    border: none !important;
+    padding: 0.5rem 0 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .stat-item {
+    border: none !important;
+    margin-bottom: 0 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper {
+    height: 90vh !important;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-slide {
+    height: 90vh !important;
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    background-color: #000;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-slide::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0, 15, 43, 0.7) 50%, rgba(0, 5, 15, 0.4) 100%);
+    z-index: 1;
+}
+
+/* Technical Overlays - Grid Hidden */
+.theme-stanford-grow-navy-balakutak .midnight-hero-grid-overlay {
+    display: none;
+}
+
+.theme-stanford-grow-navy-balakutak .midnight-hero-globe-overlay {
+    position: absolute;
+    right: -10%;
+    top: -10%;
+    width: 80%;
+    height: 120%;
+    background: radial-gradient(circle at center, rgba(0, 150, 136, 0.1) 0%, transparent 70%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.theme-stanford-grow-navy-balakutak .midnight-hero-globe-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M250 50 A200 200 0 0 1 250 450 A200 200 0 0 1 250 50' fill='none' stroke='rgba(0, 255, 150, 0.08)' stroke-width='1'/%3E%3Cpath d='M50 250 L450 250' stroke='rgba(0, 255, 150, 0.05)' stroke-width='1'/%3E%3Cpath d='M250 50 L250 450' stroke='rgba(0, 255, 150, 0.05)' stroke-width='1'/%3E%3Ccircle cx='250' cy='250' r='100' fill='none' stroke='rgba(0, 255, 150, 0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    animation: slow-rotate 120s linear infinite;
+}
+
+@keyframes slow-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.theme-stanford-grow-navy-balakutak .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 140px;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: clamp(1.6rem, 4.5vw, 2.5rem) !important;
+    line-height: 1.2 !important;
+    font-weight: 700 !important;
+    color: #FFF !important;
+    margin-bottom: 1.2rem !important;
+    letter-spacing: -0.01em !important;
+    text-shadow: 1px 2px 15px rgba(0,0,0,0.4) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-subtitle {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.95rem !important;
+    color: rgba(255,255,255,0.85) !important;
+    margin-bottom: 2.5rem !important;
+    max-width: 500px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+    text-shadow: 1px 1px 8px rgba(0,0,0,0.3) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .btn-primary {
+    background: var(--stanford-navy) !important;
+    color: #FFF !important;
+    border-radius: 50px !important;
+    padding: 0.6rem 1.6rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none !important;
+    box-shadow: 0 8px 25px rgba(0, 33, 71, 0.25) !important;
+    transition: all 0.4s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .btn-primary:hover {
+    background-color: var(--stanford-navy-dark) !important;
+    transform: translateY(-3px);
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-pagination {
+    bottom: 30px !important;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #FFF;
+    opacity: 0.4;
+    margin: 0 4px !important;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-pagination-bullet-active {
+    width: 14px;
+    border-radius: 4px;
+    background: var(--stanford-navy) !important;
+    opacity: 1;
+}
+
+/* Custom Arrows */
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-next,
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-prev {
+    color: #FFF !important;
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-next::after,
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-prev::after {
+    font-size: 1.8rem;
+    font-weight: 200;
+}
+
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-next:hover,
+.theme-stanford-grow-navy-balakutak .hero-swiper .swiper-button-prev:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* ========= INFOGRAPHICS SECTION (NEW) ========= */
+.theme-stanford-grow-navy-balakutak .section-infographics {
+    background: #FFF;
+    padding: 60px 0;
+    position: relative;
+    z-index: 5;
+}
+
+.theme-stanford-grow-navy-balakutak .stanford-info-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    transition: all 0.4s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .info-icon-wrap {
+    width: 60px;
+    height: 60px;
+    background: var(--stanford-beige);
+    color: var(--stanford-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    transition: all 0.4s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .stanford-info-box:hover .info-icon-wrap {
+    background: var(--stanford-navy);
+    color: #FFF;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.theme-stanford-grow-navy-balakutak .info-data h2 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 800;
+    color: var(--stanford-grey);
+    margin: 0;
+    line-height: 1;
+    font-size: 2.2rem;
+}
+
+.theme-stanford-grow-navy-balakutak .info-data span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--stanford-navy);
+    display: block;
+    margin-top: 5px;
+}
+
+/* ========= SECTIONS REFINEMENT ========= */
+.theme-stanford-grow-navy-balakutak .section-badge {
+    background: transparent !important;
+    color: var(--stanford-navy) !important;
+    padding: 0 !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 3px !important;
+    border: none !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--stanford-grey);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.theme-stanford-grow-navy-balakutak .section-title::after {
+    display: none;
+}
+
+
+.theme-stanford-grow-navy-balakutak .lux-section-header .lux-section-tagline {
+    color: var(--stanford-navy);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.theme-stanford-grow-navy-balakutak .lux-section-header .lux-section-title {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 900;
+    color: var(--stanford-grey);
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: -1px;
+}
+
+.theme-stanford-grow-navy-balakutak .lux-section-header .lux-section-title span {
+    color: var(--stanford-navy);
+}
+
+/* News Cards */
+.theme-stanford-grow-navy-balakutak .news-card,
+.theme-stanford-grow-navy-balakutak .lux-news-card-featured {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: 1px solid #e5e7eb !important;
+    transition: all 0.3s ease;
+    background: #FFF;
+}
+
+.theme-stanford-grow-navy-balakutak .news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+    border-color: var(--stanford-navy) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .lux-news-category {
+    background: var(--stanford-navy) !important;
+    border-radius: 0 !important;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.65rem;
+}
+
+.theme-stanford-grow-navy-balakutak .lux-read-more {
+    color: var(--stanford-navy) !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ========= FOOTER ========= */
+.theme-stanford-grow-navy-balakutak footer {
+    background-color: var(--stanford-navy) !important;
+    padding: 80px 0 40px !important;
+    border-top: 10px solid var(--stanford-navy-dark);
+    color: #FFF !important;
+}
+
+.theme-stanford-grow-navy-balakutak footer .footer-heading {
+    color: #FFF;
+    font-family: 'Source Serif 4', serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+}
+
+.theme-stanford-grow-navy-balakutak footer a {
+    color: #FFF !important;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak footer a:hover {
+    opacity: 1;
+    text-decoration: underline !important;
+}
+
+.theme-stanford-grow-navy-balakutak .social-btn {
+    border-radius: 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFF !important;
+}
+
+/* ========= PAGE HEADER ========= */
+.theme-stanford-grow-navy-balakutak .page-header-premium {
+    background: var(--stanford-navy) !important;
+    padding: 5rem 0 !important;
+    border-bottom: none !important;
+}
+
+.theme-stanford-grow-navy-balakutak .display-4 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 800 !important;
+    color: #FFF;
+}
+
+/* ========= SCROLLBAR & SELECTION ========= */
+.theme-stanford-grow-navy-balakutak ::selection {
+    background: var(--stanford-navy);
+    color: #FFF;
+}
+
+/* ========= DARK MODE FIXES ========= */
+html.dark body.theme-stanford-grow-navy-balakutak {
+    background-color: #1a1915;
+}
+
+html.dark .theme-stanford-grow-navy-balakutak #main-navbar.elegant-navbar {
+    background-color: #2e2d29 !important;
+}
+
+html.dark .theme-stanford-grow-navy-balakutak .lux-hero-title,
+html.dark .theme-stanford-grow-navy-balakutak .lux-hero-desc,
+html.dark .theme-stanford-grow-navy-balakutak .lux-section-title {
+    color: #FFF !important;
+}
+
+html.dark .theme-stanford-grow-navy-balakutak .bg-white {
+    background-color: #1a1915 !important;
+}
+
+/* ========= FLOATING BUTTONS (Character Redesign) ========= */
+.theme-stanford-grow-navy-balakutak .acc-toggle {
+    background: #172B4D !important; /* Elegant Navy Slate */
+    color: #FFF !important;
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 16px !important; /* Modern Squircle shape */
+    box-shadow: 0 10px 25px rgba(23, 43, 77, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.3rem !important;
+    right: 30px !important;
+    bottom: 105px !important;
+    position: fixed !important;
+    z-index: 1060 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    border: 2px solid rgba(255,255,255,0.1) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chatbot-toggle {
+    background: linear-gradient(135deg, #002147 0%, #001a33 100%) !important;
+    color: #FFF !important;
+    width: 62px !important;
+    height: 62px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 15px 35px rgba(0, 33, 71, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1.6rem !important;
+    right: 28px !important;
+    bottom: 25px !important;
+    position: fixed !important;
+    z-index: 1060 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    animation: floating-pulse 3s infinite ease-in-out;
+}
+
+@keyframes floating-pulse {
+    0% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 33, 71, 0.4); }
+    50% { transform: scale(1.04); box-shadow: 0 18px 40px rgba(0, 33, 71, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 33, 71, 0.4); }
+}
+
+.theme-stanford-grow-navy-balakutak .acc-toggle:hover,
+.theme-stanford-grow-navy-balakutak .chatbot-toggle:hover {
+    transform: scale(1.15) rotate(5deg) !important;
+}
+
+/* GREETING SECTION MODERNIZATION */
+.theme-stanford-grow-navy-balakutak .section-greeting {
+    position: relative;
+    padding: 8rem 0 !important;
+    background: #FFF;
+    overflow: hidden;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+    radial-gradient(circle at 20% 30%, rgba(0, 33, 71, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(0, 33, 71, 0.02) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting .section-badge {
+    display: inline-flex;
+    align-items: center;
+    background: #002147 !important;
+    color: #FFFFFF !important;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting .section-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.2rem;
+    color: #2c2c2c;
+    line-height: 1.3;
+    margin-bottom: 1.2rem !important;
+    font-weight: 600 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting .section-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 2rem !important;
+    text-align: justify;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting .btn-outline-primary {
+    border: 1px solid #002147;
+    color: #002147 !important;
+    background: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    padding: 0.7rem 1.8rem;
+    border-radius: 50px !important;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .section-greeting .btn-outline-primary:hover {
+    background: var(--stanford-navy) !important;
+    color: #FFF !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 33, 71, 0.3);
+}
+
+.theme-stanford-grow-navy-balakutak .video-wrapper-premium {
+    position: relative;
+    padding: 20px;
+    background: #FFF;
+    border-radius: 30px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .video-wrapper-premium:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 50px 100px rgba(0,0,0,0.15);
+}
+
+.theme-stanford-grow-navy-balakutak .video-wrapper-premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(0, 33, 71, 0.1);
+    border-radius: 30px;
+    pointer-events: none;
+}
+
+.theme-stanford-grow-navy-balakutak .video-wrapper-premium::before {
+    content: 'PLAY';
+    position: absolute;
+    top: -15px;
+    right: 40px;
+    background: var(--stanford-navy);
+    color: #FFF;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    z-index: 10;
+}
+
+.theme-stanford-grow-navy-balakutak .video-wrapper-premium .ratio {
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* CTA SECTION MODERNIZATION */
+.theme-stanford-grow-navy-balakutak .section-cta {
+    background: #002147 !important;
+    padding: 5rem 0 10rem !important; /* Proportional padding for footer overlap */
+    margin-top: 75px; 
+    margin-bottom: 0 !important;
+    overflow: visible; 
+    position: relative;
+    z-index: 1;
+}
+
+.theme-stanford-grow-navy-balakutak .lux-cta-background {
+    position: absolute;
+    bottom: -80px;
+    right: -80px;
+    width: 450px;
+    height: 450px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.12; 
+    filter: brightness(0) invert(1);
+    transform: rotate(-20deg); 
+    pointer-events: none;
+    z-index: 1;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta::before {
+    display: none; 
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.22rem !important; /* Proportional & Elegant */
+    color: #FFF !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.2rem !important;
+    position: relative;
+    z-index: 2;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta p {
+    font-family: 'Inter', sans-serif !important;
+    color: rgba(255,255,255,0.6) !important;
+    font-size: 1rem !important; /* Soft & refined */
+    max-width: 600px;
+    margin: 0 auto 2.5rem !important;
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta .btn {
+    padding: 0.8rem 2rem !important; /* Proportionally smaller buttons */
+    font-size: 0.85rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta .btn-light {
+    background: #FFF !important;
+    border: none !important;
+    color: #000 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(255,255,255,0.2) !important;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta .btn-light:hover {
+    background: #002147 !important;
+    color: #FFF !important;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 33, 71, 0.4) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta .btn-outline-light {
+    border: 2px solid rgba(255,255,255,0.3) !important;
+    color: #FFF !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.theme-stanford-grow-navy-balakutak .section-cta .btn-outline-light:hover {
+    border-color: #FFF !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: translateY(-5px);
+}
+
+/* TESTIMONIAL SECTION MODERNIZATION (Soft & Elegant) */
+.theme-stanford-grow-navy-balakutak .section-testimonials {
+    padding: 10rem 0 !important;
+    background: #F9F8F6 !important; /* Soft Sandstone Background */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Background Element */
+.theme-stanford-grow-navy-balakutak .section-testimonials::after {
+    content: "TESTIMONIALS";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    font-weight: 900;
+    color: rgba(0, 33, 71, 0.02);
+    z-index: 0;
+    pointer-events: none;
+    letter-spacing: 20px;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .section-badge {
+    background: transparent !important;
+    color: #002147 !important;
+    border: 1px solid rgba(0, 33, 71, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 2rem !important;
+    position: relative;
+    z-index: 1;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials h2 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2rem; /* Reduced from 3rem */
+    font-weight: 700 !important;
+    color: #1a1a1a;
+    margin-bottom: 3rem !important;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials h2 i {
+    font-size: 1.5rem !important; /* Smaller icon */
+    color: #002147 !important;
+    opacity: 0.8;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 30px !important;
+    padding: 3.5rem 3rem !important;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.03) !important;
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin: 30px 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Large Background Quote */
+.theme-stanford-grow-navy-balakutak .section-testimonials .card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    color: #002147;
+    opacity: 0.03;
+    line-height: 1;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 60px 120px rgba(0,0,0,0.08) !important;
+    background: #FFF !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card img {
+    border-radius: 20px !important;
+    width: 80px !important;
+    height: 80px !important;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card p {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.1rem !important;
+    color: #4a4a4a !important;
+    line-height: 1.8 !important;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card h6 {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    font-size: 1.25rem !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    margin-bottom: 0.3rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-testimonials .card small {
+    color: #002147 !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+}
+
+/* PARTNERS SECTION MODERNIZATION */
+.theme-stanford-grow-navy-balakutak .section-partners {
+    padding: 8rem 0 !important;
+    background: #FFF;
+    position: relative;
+}
+
+.theme-stanford-grow-navy-balakutak .section-partners::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100px;
+    background: linear-gradient(to bottom, #002147, transparent);
+}
+
+.theme-stanford-grow-navy-balakutak .section-partners .section-badge {
+    color: #002147 !important;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    margin-bottom: 1.5rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .section-partners h5 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #777;
+    margin-bottom: 4rem;
+}
+
+.theme-stanford-grow-navy-balakutak .partners-marquee-item {
+    filter: grayscale(100%) opacity(0.3);
+    transition: all 0.6s ease;
+    padding: 0 3rem;
+}
+
+.theme-stanford-grow-navy-balakutak .partners-marquee-item:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+}
+
+/* FOOTER MODERNIZATION - OVAL TOP (No Gaps) */
+.theme-stanford-grow-navy-balakutak footer {
+    background-color: #002147 !important;
+    position: relative;
+    padding-top: 6rem !important;
+    margin-top: -60px; /* Overlap with CTA */
+    z-index: 5; 
+    clip-path: ellipse(120% 100% at 50% 100%); /* Full width curve without corner gaps */
+    border-top: none !important;
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.1);
+}
+
+.theme-stanford-grow-navy-balakutak footer .footer-wave-container {
+    display: none; /* Removed wave */
+}
+
+.theme-stanford-grow-navy-balakutak footer .footer-heading {
+    font-family: 'Playfair Display', serif !important;
+    color: #FFF !important;
+    font-weight: 700;
+    font-size: 0.95rem; /* More elegant & modern size */
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.theme-stanford-grow-navy-balakutak footer a,
+.theme-stanford-grow-navy-balakutak footer p,
+.theme-stanford-grow-navy-balakutak footer span,
+.theme-stanford-grow-navy-balakutak footer li {
+    font-family: 'Inter', sans-serif !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.85rem !important; /* Elegant compact size */
+    line-height: 1.8 !important;
+    transition: all 0.3s ease;
+    text-decoration: none !important;
+}
+
+.theme-stanford-grow-navy-balakutak footer a:hover {
+    color: #FFF !important;
+    padding-left: 4px;
+}
+
+/* GLOBAL CONTENT PADDING FOR FOOTER OVERLAP (Only for internal/non-CTA pages) */
+.theme-stanford-grow-navy-balakutak main > section:last-of-type:not(.section-cta),
+.theme-stanford-grow-navy-balakutak main > div:last-child:not(.section-cta) {
+    padding-bottom: 180px !important; 
+}
+/* CHATBOT WINDOW THEME CUSTOMIZATION */
+.theme-stanford-grow-navy-balakutak .chatbot-window {
+    border: none !important;
+    border-radius: 20px !important;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chatbot-header {
+    background: #002147 !important; /* Stanford Navy */
+    padding: 1.2rem !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chatbot-header span {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chatbot-input button {
+    background: #002147 !important;
+    color: #FFF !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chat-bubble.bot {
+    background: #F9F8F6 !important; /* Soft sandstone */
+    border-left: 3px solid #002147 !important;
+    color: #333 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .chat-bubble.user {
+    background: #333 !important;
+    color: #FFF !important;
+}
+
+/* INTERNAL PAGE HEADER MODERNIZATION */
+.theme-stanford-grow-navy-balakutak .page-header-premium {
+    background: linear-gradient(135deg, #002147 0%, #001a33 100%) !important;
+    padding: 140px 0 100px !important; /* Increased for curve space */
+    position: relative;
+    overflow: hidden;
+    clip-path: ellipse(120% 100% at 50% 0%); /* Oval Bottom similar to footer top */
+}
+
+.theme-stanford-grow-navy-balakutak .page-header-premium .page-header-pattern {
+    display: none !important; 
+}
+
+.theme-stanford-grow-navy-balakutak .page-header-premium h1 {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.5rem !important; /* Reduced for better elegance */
+    font-weight: 700 !important;
+    letter-spacing: -0.5px;
+    color: #FFF !important;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 0 !important;
+    line-height: 1.2;
+}
+
+.theme-stanford-grow-navy-balakutak .page-header-premium .breadcrumb-item {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    opacity: 0.8;
+}
+
+.theme-stanford-grow-navy-balakutak .page-header-premium .page-header-logo {
+    display: none !important;
+}
+
+/* ========= AURORA CTA SECTION (Stanford Grow) ========= */
+.theme-stanford-grow-navy-balakutak .aurora-cta-section {
+    background: #002147 !important; /* Stanford Navy */
+    background: linear-gradient(135deg, #002147 0%, #00152b 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-stanford-grow-navy-balakutak .aurora-cta-title {
+    font-family: 'Source Serif 4', serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-stanford-grow-navy-balakutak .aurora-btn-premium {
+    background: #ffffff !important;
+    color: #002147 !important;
+    border: 2px solid #ffffff !important;
+}
+
+.theme-stanford-grow-navy-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.theme-stanford-grow-navy-balakutak .aurora-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}

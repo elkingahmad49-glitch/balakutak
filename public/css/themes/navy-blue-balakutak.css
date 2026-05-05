@@ -864,6 +864,36 @@ html.dark .theme-navy-blue-balakutak .section-title {
 .letter-spacing-2 { letter-spacing: 2px; }
 .tracking-widest { letter-spacing: 0.15em; }
 
+/* ========= AURORA CTA SECTION (Navy Blue) ========= */
+.theme-navy-blue-balakutak .aurora-cta-section {
+    background: #0a192f !important; /* Deepest Navy */
+    background: linear-gradient(135deg, #0a192f 0%, #112240 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-navy-blue-balakutak .aurora-cta-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-navy-blue-balakutak .aurora-btn-premium {
+    background: #2563eb !important; /* Primary Blue */
+    color: #ffffff !important;
+    border: 2px solid #2563eb !important;
+}
+
+.theme-navy-blue-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.theme-navy-blue-balakutak .aurora-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+}
+
 .news-immersive-title a {
     transition: opacity 0.3s;
 }

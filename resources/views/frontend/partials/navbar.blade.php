@@ -117,7 +117,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
         border-bottom: 1px solid rgba(100, 255, 218, 0.1);
         position: relative;
-        z-index: 1040;
+        z-index: 1100 !important; /* Higher than main navbar z-index */
         padding: 5px 0; 
         overflow: visible;
     }
@@ -255,6 +255,11 @@
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
         color: #0a192f;
+    }
+
+    /* Fix for language dropdown being covered */
+    .top-menu-wrapper .dropdown-menu {
+        z-index: 9999 !important;
     }
 </style>
 
@@ -448,6 +453,7 @@
         background: linear-gradient(120deg, #ffffff 0%, #f6f9fc 50%, #e9ecef 100%);
         border-bottom: 1px solid rgba(0, 86, 179, 0.1) !important;
         position: relative;
+        z-index: 1050 !important; /* Lower than top-menu-wrapper but high enough for content */
         overflow: visible;
     }
     .elegant-navbar::before {

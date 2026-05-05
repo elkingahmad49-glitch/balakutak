@@ -1,31 +1,31 @@
 /* ===============================================
-   StanfordGrow-BalaKutaK Theme
+   StanfordGrow-Green-BalaKutaK Theme
    Inspired by grow.stanford.edu
    Clean, Academic, and High-Impact
-   Cardinal Red: #8C1515
+   Stanford Green: #064e3b
    =============================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600&family=Source+Sans+3:wght@300;400;600&display=swap');
 
 :root {
-    --cardinal-red: #8C1515;
-    --cardinal-red-dark: #6a1010;
-    --cardinal-red-light: #b01a1a;
+    --stanford-green: #064e3b;
+    --stanford-green-dark: #022c22;
+    --stanford-green-light: #059669;
     --stanford-grey: #2e2d29;
     --stanford-beige: #f4f4f4;
     --stanford-white: #ffffff;
     
-    --p-dark: var(--cardinal-red);
-    --p-emerald: var(--cardinal-red-dark);
-    --gold: var(--cardinal-red);
-    --gold-light: var(--cardinal-red-light);
-    --gold-dark: var(--cardinal-red-dark);
+    --p-dark: var(--stanford-green);
+    --p-emerald: var(--stanford-green-dark);
+    --gold: var(--stanford-green);
+    --gold-light: var(--stanford-green-light);
+    --gold-dark: var(--stanford-green-dark);
     --bg-silk: var(--stanford-white);
     --text-main: var(--stanford-grey);
 }
 
 /* ========= GLOBAL REFINEMENTS ========= */
-body.theme-stanford-grow-balakutak {
+body.theme-stanford-grow-green-balakutak {
     font-family: 'Source Sans 3', sans-serif;
     color: var(--text-main);
     background-color: var(--bg-silk);
@@ -33,26 +33,26 @@ body.theme-stanford-grow-balakutak {
     line-height: 1.6;
 }
 
-.theme-stanford-grow-balakutak h1,
-.theme-stanford-grow-balakutak h2,
-.theme-stanford-grow-balakutak h3,
-.theme-stanford-grow-balakutak h4,
-.theme-stanford-grow-balakutak h5,
-.theme-stanford-grow-balakutak h6,
-.theme-stanford-grow-balakutak .elegant-brand-title {
+.theme-stanford-grow-green-balakutak h1,
+.theme-stanford-grow-green-balakutak h2,
+.theme-stanford-grow-green-balakutak h3,
+.theme-stanford-grow-green-balakutak h4,
+.theme-stanford-grow-green-balakutak h5,
+.theme-stanford-grow-green-balakutak h6,
+.theme-stanford-grow-green-balakutak .elegant-brand-title {
     font-family: 'Source Serif 4', serif;
     font-weight: 700;
-    color: var(--cardinal-red);
+    color: var(--stanford-green);
 }
 
 /* ========= TOP MENU & NAVBAR ========= */
-.theme-stanford-grow-balakutak .top-menu-wrapper,
-.theme-stanford-grow-balakutak .utility-bar {
-    background: #8C1515 !important; /* Solid Cardinal Red */
+.theme-stanford-grow-green-balakutak .top-menu-wrapper,
+.theme-stanford-grow-green-balakutak .utility-bar {
+    background: #064e3b !important; /* Solid Stanford Green */
     border: none !important;
     padding: 0.25rem 0 !important;
     position: relative;
-    z-index: 1050;
+    z-index: 1100 !important; /* Higher than main navbar z-index */
     line-height: 1 !important;
     min-height: 42px;
     display: flex;
@@ -60,8 +60,8 @@ body.theme-stanford-grow-balakutak {
     box-shadow: inset 0 -2px 5px rgba(0,0,0,0.1);
 }
 
-.theme-stanford-grow-balakutak .top-utilities .top-btn,
-.theme-stanford-grow-balakutak .top-utilities .top-btn-utility {
+.theme-stanford-grow-green-balakutak .top-utilities .top-btn,
+.theme-stanford-grow-green-balakutak .top-utilities .top-btn-utility {
     background: rgba(255, 255, 255, 0.1) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     color: #FFF !important;
@@ -71,14 +71,14 @@ body.theme-stanford-grow-balakutak {
     font-size: 0.7rem !important;
 }
 
-.theme-stanford-grow-balakutak .top-utilities .top-btn:hover,
-.theme-stanford-grow-balakutak .top-utilities .top-btn-utility:hover {
+.theme-stanford-grow-green-balakutak .top-utilities .top-btn:hover,
+.theme-stanford-grow-green-balakutak .top-utilities .top-btn-utility:hover {
     background: rgba(255, 255, 255, 0.2) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-.theme-stanford-grow-balakutak .top-menu-link {
+.theme-stanford-grow-green-balakutak .top-menu-link {
     font-size: 0.72rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.5px !important;
@@ -87,13 +87,13 @@ body.theme-stanford-grow-balakutak {
 }
 
 /* Specific slim style for Dashboard button in top menu */
-.theme-stanford-grow-balakutak .btn-premium-dashboard {
+.theme-stanford-grow-green-balakutak .btn-premium-dashboard {
     padding: 0.2rem 0.8rem !important;
     font-size: 0.7rem !important;
 }
 
-.theme-stanford-grow-balakutak #main-navbar.elegant-navbar {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%) !important;
+.theme-stanford-grow-green-balakutak #main-navbar.elegant-navbar {
+    background: linear-gradient(to bottom, rgba(6, 78, 59, 0.95) 0%, rgba(6, 78, 59, 0.7) 50%, transparent 100%) !important;
     padding: 0.6rem 0;
     border-bottom: 1px solid rgba(255,255,255,0.15) !important;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
@@ -101,16 +101,16 @@ body.theme-stanford-grow-balakutak {
     top: 46px; /* Moved down slightly to prevent logo clipping */
     left: 0;
     width: 100%;
-    z-index: 1040 !important;
+    z-index: 1050 !important;
     transition: all 0.4s ease;
 }
 
-.theme-stanford-grow-balakutak #main-navbar.elegant-navbar .dropdown-menu {
+.theme-stanford-grow-green-balakutak #main-navbar.elegant-navbar .dropdown-menu {
     z-index: 9999 !important;
 }
 
-.theme-stanford-grow-balakutak #main-navbar.elegant-navbar.scrolled {
-    background: rgba(140, 21, 21, 0.95) !important;
+.theme-stanford-grow-green-balakutak #main-navbar.elegant-navbar.scrolled {
+    background: rgba(6, 78, 59, 0.98) !important;
     padding: 0.35rem 0;
     backdrop-filter: blur(10px);
     position: fixed;
@@ -119,27 +119,27 @@ body.theme-stanford-grow-balakutak {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
 }
 
-.theme-stanford-grow-balakutak .elegant-navbar .container {
+.theme-stanford-grow-green-balakutak .elegant-navbar .container {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
 }
 
-.theme-stanford-grow-balakutak .navbar-brand {
+.theme-stanford-grow-green-balakutak .navbar-brand {
     display: flex !important;
     align-items: center !important;
     padding: 0 !important;
     margin-right: 2rem !important;
 }
 
-.theme-stanford-grow-balakutak .site-branding-text {
+.theme-stanford-grow-green-balakutak .site-branding-text {
     display: flex !important;
     flex-direction: column !important;
     justify-content: center !important;
     line-height: 1.2 !important;
 }
 
-.theme-stanford-grow-balakutak .main-nav-link {
+.theme-stanford-grow-green-balakutak .main-nav-link {
     font-weight: 700 !important;
     color: #FFF !important;
     text-transform: uppercase;
@@ -152,7 +152,7 @@ body.theme-stanford-grow-balakutak {
     height: 100% !important;
 }
 
-.theme-stanford-grow-balakutak .elegant-brand-title {
+.theme-stanford-grow-green-balakutak .elegant-brand-title {
     color: #FFF !important;
     font-size: 1.6rem;
     letter-spacing: -0.5px;
@@ -161,7 +161,7 @@ body.theme-stanford-grow-balakutak {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.theme-stanford-grow-balakutak .elegant-brand-subtitle {
+.theme-stanford-grow-green-balakutak .elegant-brand-subtitle {
     color: rgba(255, 255, 255, 0.8) !important;
     background: none !important;
     -webkit-text-fill-color: initial !important;
@@ -169,53 +169,53 @@ body.theme-stanford-grow-balakutak {
     text-shadow: 0 1px 5px rgba(0,0,0,0.5);
 }
 
-.theme-stanford-grow-balakutak .navbar-toggler {
+.theme-stanford-grow-green-balakutak .navbar-toggler {
     border: 1px solid rgba(255,255,255,0.5) !important;
     padding: 0.5rem;
 }
 
-.theme-stanford-grow-balakutak .navbar-toggler-icon {
+.theme-stanford-grow-green-balakutak .navbar-toggler-icon {
     filter: brightness(0) invert(1);
 }
 
 /* ========= HERO SECTION (NEW FULL WIDTH) ========= */
-.theme-stanford-grow-balakutak .hero-section {
+.theme-stanford-grow-green-balakutak .hero-section {
     position: relative;
     /* Match the side color of the stats-bar gradient for seamless transition */
-    background: #6a0e0e !important; 
+    background: #022c22 !important; 
     z-index: 8;
 }
 
 /* Elegant Convex (Menonjol) Curve */
-.theme-stanford-grow-balakutak .hero-swiper {
+.theme-stanford-grow-green-balakutak .hero-swiper {
     height: 90vh !important;
     clip-path: ellipse(120% 100% at 50% 0%);
-    background: #8C1515;
+    background: #064e3b;
 }
 
 /* Stats Bar - Complete Cleanup */
-.theme-stanford-grow-balakutak .stats-bar-decorative,
-.theme-stanford-grow-balakutak .stats-bar-blob {
+.theme-stanford-grow-green-balakutak .stats-bar-decorative,
+.theme-stanford-grow-green-balakutak .stats-bar-blob {
     display: none !important;
 }
 
-.theme-stanford-grow-balakutak .stats-bar {
-    background: linear-gradient(135deg, #6a0e0e 0%, #8C1515 50%, #6a0e0e 100%) !important;
+.theme-stanford-grow-green-balakutak .stats-bar {
+    background: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022c22 100%) !important;
     position: relative;
     border: none !important;
     padding: 0.5rem 0 !important;
 }
 
-.theme-stanford-grow-balakutak .stat-item {
+.theme-stanford-grow-green-balakutak .stat-item {
     border: none !important;
     margin-bottom: 0 !important;
 }
 
-.theme-stanford-grow-balakutak .hero-swiper {
+.theme-stanford-grow-green-balakutak .hero-swiper {
     height: 90vh !important;
 }
 
-.theme-stanford-grow-balakutak .hero-slide {
+.theme-stanford-grow-green-balakutak .hero-slide {
     height: 90vh !important;
     background-size: cover !important;
     background-position: center !important;
@@ -223,36 +223,36 @@ body.theme-stanford-grow-balakutak {
     background-color: #000;
 }
 
-.theme-stanford-grow-balakutak .hero-slide::before {
+.theme-stanford-grow-green-balakutak .hero-slide::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(10, 30, 25, 0.7) 50%, rgba(0, 10, 10, 0.4) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(2, 44, 34, 0.7) 50%, rgba(1, 10, 5, 0.4) 100%);
     z-index: 1;
 }
 
 /* Technical Overlays - Grid Hidden */
-.theme-stanford-grow-balakutak .midnight-hero-grid-overlay {
+.theme-stanford-grow-green-balakutak .midnight-hero-grid-overlay {
     display: none;
 }
 
-.theme-stanford-grow-balakutak .midnight-hero-globe-overlay {
+.theme-stanford-grow-green-balakutak .midnight-hero-globe-overlay {
     position: absolute;
     right: -10%;
     top: -10%;
     width: 80%;
     height: 120%;
-    background: radial-gradient(circle at center, rgba(0, 150, 136, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 136, 80, 0.1) 0%, transparent 70%);
     z-index: 1;
     pointer-events: none;
     opacity: 0.8;
 }
 
-.theme-stanford-grow-balakutak .midnight-hero-globe-overlay::after {
+.theme-stanford-grow-green-balakutak .midnight-hero-globe-overlay::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M250 50 A200 200 0 0 1 250 450 A200 200 0 0 1 250 50' fill='none' stroke='rgba(0, 255, 150, 0.08)' stroke-width='1'/%3E%3Cpath d='M50 250 L450 250' stroke='rgba(0, 255, 150, 0.05)' stroke-width='1'/%3E%3Cpath d='M250 50 L250 450' stroke='rgba(0, 255, 150, 0.05)' stroke-width='1'/%3E%3Ccircle cx='250' cy='250' r='100' fill='none' stroke='rgba(0, 255, 150, 0.03)' stroke-width='1'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='500' height='500' viewBox='0 0 500 500' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M250 50 A200 200 0 0 1 250 450 A200 200 0 0 1 250 50' fill='none' stroke='rgba(0, 255, 100, 0.08)' stroke-width='1'/%3E%3Cpath d='M50 250 L450 250' stroke='rgba(0, 255, 100, 0.05)' stroke-width='1'/%3E%3Cpath d='M250 50 L250 450' stroke='rgba(0, 255, 100, 0.05)' stroke-width='1'/%3E%3Ccircle cx='250' cy='250' r='100' fill='none' stroke='rgba(0, 255, 100, 0.03)' stroke-width='1'/%3E%3C/svg%3E");
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.5;
@@ -264,13 +264,13 @@ body.theme-stanford-grow-balakutak {
     to { transform: rotate(360deg); }
 }
 
-.theme-stanford-grow-balakutak .hero-content {
+.theme-stanford-grow-green-balakutak .hero-content {
     position: relative;
     z-index: 2;
     padding-top: 140px;
 }
 
-.theme-stanford-grow-balakutak .hero-title {
+.theme-stanford-grow-green-balakutak .hero-title {
     font-family: 'Playfair Display', serif !important;
     font-size: clamp(1.6rem, 4.5vw, 2.5rem) !important;
     line-height: 1.2 !important;
@@ -281,7 +281,7 @@ body.theme-stanford-grow-balakutak {
     text-shadow: 1px 2px 15px rgba(0,0,0,0.4) !important;
 }
 
-.theme-stanford-grow-balakutak .hero-subtitle {
+.theme-stanford-grow-green-balakutak .hero-subtitle {
     font-family: 'Inter', sans-serif !important;
     font-size: 0.95rem !important;
     color: rgba(255,255,255,0.85) !important;
@@ -292,8 +292,8 @@ body.theme-stanford-grow-balakutak {
     text-shadow: 1px 1px 8px rgba(0,0,0,0.3) !important;
 }
 
-.theme-stanford-grow-balakutak .btn-primary {
-    background: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak .btn-primary {
+    background: var(--stanford-green) !important;
     color: #FFF !important;
     border-radius: 50px !important;
     padding: 0.6rem 1.6rem !important;
@@ -302,20 +302,20 @@ body.theme-stanford-grow-balakutak {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     border: none !important;
-    box-shadow: 0 8px 25px rgba(140, 21, 21, 0.25) !important;
+    box-shadow: 0 8px 25px rgba(6, 78, 59, 0.25) !important;
     transition: all 0.4s ease;
 }
 
-.theme-stanford-grow-balakutak .btn-primary:hover {
-    background-color: var(--cardinal-red-dark) !important;
+.theme-stanford-grow-green-balakutak .btn-primary:hover {
+    background-color: var(--stanford-green-dark) !important;
     transform: translateY(-3px);
 }
 
-.theme-stanford-grow-balakutak .hero-swiper .swiper-pagination {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-pagination {
     bottom: 30px !important;
 }
 
-.theme-stanford-grow-balakutak .hero-swiper .swiper-pagination-bullet {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-pagination-bullet {
     width: 6px;
     height: 6px;
     background: #FFF;
@@ -324,43 +324,43 @@ body.theme-stanford-grow-balakutak {
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak .hero-swiper .swiper-pagination-bullet-active {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-pagination-bullet-active {
     width: 14px;
     border-radius: 4px;
-    background: var(--cardinal-red) !important;
+    background: var(--stanford-green) !important;
     opacity: 1;
 }
 
 /* Custom Arrows */
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-next,
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-prev {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-next,
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-prev {
     color: #FFF !important;
     width: 50px;
     height: 50px;
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-next::after,
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-prev::after {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-next::after,
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-prev::after {
     font-size: 1.8rem;
     font-weight: 200;
 }
 
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-next:hover,
-.theme-stanford-grow-balakutak .hero-swiper .swiper-button-prev:hover {
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-next:hover,
+.theme-stanford-grow-green-balakutak .hero-swiper .swiper-button-prev:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
 
 /* ========= INFOGRAPHICS SECTION (NEW) ========= */
-.theme-stanford-grow-balakutak .section-infographics {
+.theme-stanford-grow-green-balakutak .section-infographics {
     background: #FFF;
     padding: 60px 0;
     position: relative;
     z-index: 5;
 }
 
-.theme-stanford-grow-balakutak .stanford-info-box {
+.theme-stanford-grow-green-balakutak .stanford-info-box {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -368,11 +368,11 @@ body.theme-stanford-grow-balakutak {
     transition: all 0.4s ease;
 }
 
-.theme-stanford-grow-balakutak .info-icon-wrap {
+.theme-stanford-grow-green-balakutak .info-icon-wrap {
     width: 60px;
     height: 60px;
     background: var(--stanford-beige);
-    color: var(--cardinal-red);
+    color: var(--stanford-green);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -381,13 +381,13 @@ body.theme-stanford-grow-balakutak {
     transition: all 0.4s ease;
 }
 
-.theme-stanford-grow-balakutak .stanford-info-box:hover .info-icon-wrap {
-    background: var(--cardinal-red);
+.theme-stanford-grow-green-balakutak .stanford-info-box:hover .info-icon-wrap {
+    background: var(--stanford-green);
     color: #FFF;
     transform: scale(1.1) rotate(-5deg);
 }
 
-.theme-stanford-grow-balakutak .info-data h2 {
+.theme-stanford-grow-green-balakutak .info-data h2 {
     font-family: 'Source Serif 4', serif;
     font-weight: 800;
     color: var(--stanford-grey);
@@ -396,19 +396,19 @@ body.theme-stanford-grow-balakutak {
     font-size: 2.2rem;
 }
 
-.theme-stanford-grow-balakutak .info-data span {
+.theme-stanford-grow-green-balakutak .info-data span {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: var(--cardinal-red);
+    color: var(--stanford-green);
     display: block;
     margin-top: 5px;
 }
 
 /* ========= SECTIONS REFINEMENT ========= */
-.theme-stanford-grow-balakutak .section-badge {
+.theme-stanford-grow-green-balakutak .section-badge {
     background: transparent !important;
-    color: var(--cardinal-red) !important;
+    color: var(--stanford-green) !important;
     padding: 0 !important;
     margin-bottom: 1.5rem !important;
     font-weight: 800 !important;
@@ -416,7 +416,7 @@ body.theme-stanford-grow-balakutak {
     border: none !important;
 }
 
-.theme-stanford-grow-balakutak .section-title {
+.theme-stanford-grow-green-balakutak .section-title {
     font-family: 'Source Serif 4', serif;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
     color: var(--stanford-grey);
@@ -425,13 +425,13 @@ body.theme-stanford-grow-balakutak {
     letter-spacing: -1px;
 }
 
-.theme-stanford-grow-balakutak .section-title::after {
+.theme-stanford-grow-green-balakutak .section-title::after {
     display: none;
 }
 
 
-.theme-stanford-grow-balakutak .lux-section-header .lux-section-tagline {
-    color: var(--cardinal-red);
+.theme-stanford-grow-green-balakutak .lux-section-header .lux-section-tagline {
+    color: var(--stanford-green);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -440,7 +440,7 @@ body.theme-stanford-grow-balakutak {
     margin-bottom: 1rem;
 }
 
-.theme-stanford-grow-balakutak .lux-section-header .lux-section-title {
+.theme-stanford-grow-green-balakutak .lux-section-header .lux-section-title {
     font-family: 'Source Serif 4', serif;
     font-weight: 900;
     color: var(--stanford-grey);
@@ -448,13 +448,13 @@ body.theme-stanford-grow-balakutak {
     letter-spacing: -1px;
 }
 
-.theme-stanford-grow-balakutak .lux-section-header .lux-section-title span {
-    color: var(--cardinal-red);
+.theme-stanford-grow-green-balakutak .lux-section-header .lux-section-title span {
+    color: var(--stanford-green);
 }
 
 /* News Cards */
-.theme-stanford-grow-balakutak .news-card,
-.theme-stanford-grow-balakutak .lux-news-card-featured {
+.theme-stanford-grow-green-balakutak .news-card,
+.theme-stanford-grow-green-balakutak .lux-news-card-featured {
     border-radius: 0 !important;
     box-shadow: none !important;
     border: 1px solid #e5e7eb !important;
@@ -462,22 +462,22 @@ body.theme-stanford-grow-balakutak {
     background: #FFF;
 }
 
-.theme-stanford-grow-balakutak .news-card:hover {
+.theme-stanford-grow-green-balakutak .news-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
-    border-color: var(--cardinal-red) !important;
+    border-color: var(--stanford-green) !important;
 }
 
-.theme-stanford-grow-balakutak .lux-news-category {
-    background: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak .lux-news-category {
+    background: var(--stanford-green) !important;
     border-radius: 0 !important;
     text-transform: uppercase;
     font-weight: 800;
     font-size: 0.65rem;
 }
 
-.theme-stanford-grow-balakutak .lux-read-more {
-    color: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak .lux-read-more {
+    color: var(--stanford-green) !important;
     font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
@@ -488,14 +488,14 @@ body.theme-stanford-grow-balakutak {
 }
 
 /* ========= FOOTER ========= */
-.theme-stanford-grow-balakutak footer {
-    background-color: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak footer {
+    background-color: var(--stanford-green) !important;
     padding: 80px 0 40px !important;
-    border-top: 10px solid var(--cardinal-red-dark);
+    border-top: 10px solid var(--stanford-green-dark);
     color: #FFF !important;
 }
 
-.theme-stanford-grow-balakutak footer .footer-heading {
+.theme-stanford-grow-green-balakutak footer .footer-heading {
     color: #FFF;
     font-family: 'Source Serif 4', serif;
     font-weight: 800;
@@ -507,18 +507,18 @@ body.theme-stanford-grow-balakutak {
     padding-bottom: 10px;
 }
 
-.theme-stanford-grow-balakutak footer a {
+.theme-stanford-grow-green-balakutak footer a {
     color: #FFF !important;
     opacity: 0.85;
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak footer a:hover {
+.theme-stanford-grow-green-balakutak footer a:hover {
     opacity: 1;
     text-decoration: underline !important;
 }
 
-.theme-stanford-grow-balakutak .social-btn {
+.theme-stanford-grow-green-balakutak .social-btn {
     border-radius: 0 !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
     background: rgba(255, 255, 255, 0.1);
@@ -526,45 +526,45 @@ body.theme-stanford-grow-balakutak {
 }
 
 /* ========= PAGE HEADER ========= */
-.theme-stanford-grow-balakutak .page-header-premium {
-    background: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak .page-header-premium {
+    background: var(--stanford-green) !important;
     padding: 5rem 0 !important;
     border-bottom: none !important;
 }
 
-.theme-stanford-grow-balakutak .display-4 {
+.theme-stanford-grow-green-balakutak .display-4 {
     font-family: 'Source Serif 4', serif;
     font-weight: 800 !important;
     color: #FFF;
 }
 
 /* ========= SCROLLBAR & SELECTION ========= */
-.theme-stanford-grow-balakutak ::selection {
-    background: var(--cardinal-red);
+.theme-stanford-grow-green-balakutak ::selection {
+    background: var(--stanford-green);
     color: #FFF;
 }
 
 /* ========= DARK MODE FIXES ========= */
-html.dark body.theme-stanford-grow-balakutak {
+html.dark body.theme-stanford-grow-green-balakutak {
     background-color: #1a1915;
 }
 
-html.dark .theme-stanford-grow-balakutak #main-navbar.elegant-navbar {
+html.dark .theme-stanford-grow-green-balakutak #main-navbar.elegant-navbar {
     background-color: #2e2d29 !important;
 }
 
-html.dark .theme-stanford-grow-balakutak .lux-hero-title,
-html.dark .theme-stanford-grow-balakutak .lux-hero-desc,
-html.dark .theme-stanford-grow-balakutak .lux-section-title {
+html.dark .theme-stanford-grow-green-balakutak .lux-hero-title,
+html.dark .theme-stanford-grow-green-balakutak .lux-hero-desc,
+html.dark .theme-stanford-grow-green-balakutak .lux-section-title {
     color: #FFF !important;
 }
 
-html.dark .theme-stanford-grow-balakutak .bg-white {
+html.dark .theme-stanford-grow-green-balakutak .bg-white {
     background-color: #1a1915 !important;
 }
 
 /* ========= FLOATING BUTTONS (Character Redesign) ========= */
-.theme-stanford-grow-balakutak .acc-toggle {
+.theme-stanford-grow-green-balakutak .acc-toggle {
     background: #172B4D !important; /* Elegant Navy Slate */
     color: #FFF !important;
     width: 56px !important;
@@ -583,13 +583,13 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     border: 2px solid rgba(255,255,255,0.1) !important;
 }
 
-.theme-stanford-grow-balakutak .chatbot-toggle {
-    background: linear-gradient(135deg, #8C1515 0%, #5E1010 100%) !important;
+.theme-stanford-grow-green-balakutak .chatbot-toggle {
+    background: linear-gradient(135deg, #064e3b 0%, #022c22 100%) !important;
     color: #FFF !important;
     width: 62px !important;
     height: 62px !important;
     border-radius: 50% !important;
-    box-shadow: 0 15px 35px rgba(140, 21, 21, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(6, 78, 59, 0.4) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -603,25 +603,25 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
 }
 
 @keyframes floating-pulse {
-    0% { transform: scale(1); box-shadow: 0 15px 35px rgba(140, 21, 21, 0.4); }
-    50% { transform: scale(1.04); box-shadow: 0 18px 40px rgba(140, 21, 21, 0.5); }
-    100% { transform: scale(1); box-shadow: 0 15px 35px rgba(140, 21, 21, 0.4); }
+    0% { transform: scale(1); box-shadow: 0 15px 35px rgba(6, 78, 59, 0.4); }
+    50% { transform: scale(1.04); box-shadow: 0 18px 40px rgba(6, 78, 59, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 15px 35px rgba(6, 78, 59, 0.4); }
 }
 
-.theme-stanford-grow-balakutak .acc-toggle:hover,
-.theme-stanford-grow-balakutak .chatbot-toggle:hover {
+.theme-stanford-grow-green-balakutak .acc-toggle:hover,
+.theme-stanford-grow-green-balakutak .chatbot-toggle:hover {
     transform: scale(1.15) rotate(5deg) !important;
 }
 
 /* GREETING SECTION MODERNIZATION */
-.theme-stanford-grow-balakutak .section-greeting {
+.theme-stanford-grow-green-balakutak .section-greeting {
     position: relative;
     padding: 8rem 0 !important;
     background: #FFF;
     overflow: hidden;
 }
 
-.theme-stanford-grow-balakutak .section-greeting::before {
+.theme-stanford-grow-green-balakutak .section-greeting::before {
     content: '';
     position: absolute;
     top: 0;
@@ -629,15 +629,15 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(140, 21, 21, 0.02) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(140, 21, 21, 0.02) 0%, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(6, 78, 59, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(6, 78, 59, 0.02) 0%, transparent 50%);
     pointer-events: none;
 }
 
-.theme-stanford-grow-balakutak .section-greeting .section-badge {
+.theme-stanford-grow-green-balakutak .section-greeting .section-badge {
     display: inline-flex;
     align-items: center;
-    background: #8C1515 !important;
+    background: #064e3b !important;
     color: #FFFFFF !important;
     padding: 0.4rem 1rem;
     border-radius: 4px;
@@ -648,7 +648,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     margin-bottom: 1.5rem !important;
 }
 
-.theme-stanford-grow-balakutak .section-greeting .section-title {
+.theme-stanford-grow-green-balakutak .section-greeting .section-title {
     font-family: 'Playfair Display', serif !important;
     font-size: 2.2rem;
     color: #2c2c2c;
@@ -657,7 +657,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     font-weight: 600 !important;
 }
 
-.theme-stanford-grow-balakutak .section-greeting .section-desc {
+.theme-stanford-grow-green-balakutak .section-greeting .section-desc {
     font-family: 'Inter', sans-serif !important;
     font-size: 1rem;
     color: #666;
@@ -666,9 +666,9 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     text-align: justify;
 }
 
-.theme-stanford-grow-balakutak .section-greeting .btn-outline-primary {
-    border: 1px solid #8C1515;
-    color: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .section-greeting .btn-outline-primary {
+    border: 1px solid #064e3b;
+    color: #064e3b !important;
     background: transparent;
     font-weight: 600;
     text-transform: uppercase;
@@ -679,14 +679,14 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak .section-greeting .btn-outline-primary:hover {
-    background: var(--cardinal-red) !important;
+.theme-stanford-grow-green-balakutak .section-greeting .btn-outline-primary:hover {
+    background: var(--stanford-green) !important;
     color: #FFF !important;
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(140, 21, 21, 0.3);
+    box-shadow: 0 15px 30px rgba(6, 78, 59, 0.3);
 }
 
-.theme-stanford-grow-balakutak .video-wrapper-premium {
+.theme-stanford-grow-green-balakutak .video-wrapper-premium {
     position: relative;
     padding: 20px;
     background: #FFF;
@@ -695,26 +695,26 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transition: all 0.5s ease;
 }
 
-.theme-stanford-grow-balakutak .video-wrapper-premium:hover {
+.theme-stanford-grow-green-balakutak .video-wrapper-premium:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 50px 100px rgba(0,0,0,0.15);
 }
 
-.theme-stanford-grow-balakutak .video-wrapper-premium::after {
+.theme-stanford-grow-green-balakutak .video-wrapper-premium::after {
     content: '';
     position: absolute;
     inset: 0;
-    border: 1px solid rgba(140, 21, 21, 0.1);
+    border: 1px solid rgba(6, 78, 59, 0.1);
     border-radius: 30px;
     pointer-events: none;
 }
 
-.theme-stanford-grow-balakutak .video-wrapper-premium::before {
+.theme-stanford-grow-green-balakutak .video-wrapper-premium::before {
     content: 'PLAY';
     position: absolute;
     top: -15px;
     right: 40px;
-    background: var(--cardinal-red);
+    background: var(--stanford-green);
     color: #FFF;
     font-size: 0.7rem;
     font-weight: 900;
@@ -724,15 +724,15 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 10;
 }
 
-.theme-stanford-grow-balakutak .video-wrapper-premium .ratio {
+.theme-stanford-grow-green-balakutak .video-wrapper-premium .ratio {
     border-radius: 20px;
     overflow: hidden;
     z-index: 2;
 }
 
 /* CTA SECTION MODERNIZATION */
-.theme-stanford-grow-balakutak .section-cta {
-    background: #000 !important;
+.theme-stanford-grow-green-balakutak .section-cta {
+    background: #064E3B !important;
     padding: 5rem 0 10rem !important; /* Proportional padding for footer overlap */
     margin-top: 75px; 
     margin-bottom: 0 !important;
@@ -741,7 +741,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 1;
 }
 
-.theme-stanford-grow-balakutak .lux-cta-background {
+.theme-stanford-grow-green-balakutak .lux-cta-background {
     position: absolute;
     bottom: -80px;
     right: -80px;
@@ -757,11 +757,11 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 1;
 }
 
-.theme-stanford-grow-balakutak .section-cta::before {
+.theme-stanford-grow-green-balakutak .section-cta::before {
     display: none; 
 }
 
-.theme-stanford-grow-balakutak .section-cta h2 {
+.theme-stanford-grow-green-balakutak .section-cta h2 {
     font-family: 'Playfair Display', serif !important;
     font-size: 2.22rem !important; /* Proportional & Elegant */
     color: #FFF !important;
@@ -772,7 +772,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 2;
 }
 
-.theme-stanford-grow-balakutak .section-cta p {
+.theme-stanford-grow-green-balakutak .section-cta p {
     font-family: 'Inter', sans-serif !important;
     color: rgba(255,255,255,0.6) !important;
     font-size: 1rem !important; /* Soft & refined */
@@ -783,12 +783,12 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     line-height: 1.6;
 }
 
-.theme-stanford-grow-balakutak .section-cta .btn {
+.theme-stanford-grow-green-balakutak .section-cta .btn {
     padding: 0.8rem 2rem !important; /* Proportionally smaller buttons */
     font-size: 0.85rem !important;
 }
 
-.theme-stanford-grow-balakutak .section-cta .btn-light {
+.theme-stanford-grow-green-balakutak .section-cta .btn-light {
     background: #FFF !important;
     border: none !important;
     color: #000 !important;
@@ -800,14 +800,14 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak .section-cta .btn-light:hover {
-    background: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .section-cta .btn-light:hover {
+    background: #064e3b !important;
     color: #FFF !important;
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(140, 21, 21, 0.4) !important;
+    box-shadow: 0 15px 40px rgba(6, 78, 59, 0.4) !important;
 }
 
-.theme-stanford-grow-balakutak .section-cta .btn-outline-light {
+.theme-stanford-grow-green-balakutak .section-cta .btn-outline-light {
     border: 2px solid rgba(255,255,255,0.3) !important;
     color: #FFF !important;
     font-weight: 700;
@@ -817,22 +817,22 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transition: all 0.3s ease;
 }
 
-.theme-stanford-grow-balakutak .section-cta .btn-outline-light:hover {
+.theme-stanford-grow-green-balakutak .section-cta .btn-outline-light:hover {
     border-color: #FFF !important;
-    background: rgba(255,255,255,0.1) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     transform: translateY(-5px);
 }
 
 /* TESTIMONIAL SECTION MODERNIZATION (Soft & Elegant) */
-.theme-stanford-grow-balakutak .section-testimonials {
+.theme-stanford-grow-green-balakutak .section-testimonials {
     padding: 10rem 0 !important;
-    background: #F9F8F6 !important; /* Soft Sandstone Background */
+    background: #F9F9F9 !important; /* Soft Grey Background */
     position: relative;
     overflow: hidden;
 }
 
 /* Decorative Background Element */
-.theme-stanford-grow-balakutak .section-testimonials::after {
+.theme-stanford-grow-green-balakutak .section-testimonials::after {
     content: "TESTIMONIALS";
     position: absolute;
     top: 50%;
@@ -840,16 +840,16 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transform: translate(-50%, -50%);
     font-size: 15vw;
     font-weight: 900;
-    color: rgba(140, 21, 21, 0.02);
+    color: rgba(6, 78, 59, 0.02);
     z-index: 0;
     pointer-events: none;
     letter-spacing: 20px;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .section-badge {
+.theme-stanford-grow-green-balakutak .section-testimonials .section-badge {
     background: transparent !important;
-    color: #8C1515 !important;
-    border: 1px solid rgba(140, 21, 21, 0.2);
+    color: #064e3b !important;
+    border: 1px solid rgba(6, 78, 59, 0.2);
     padding: 0.5rem 1.5rem;
     border-radius: 50px;
     font-size: 0.7rem;
@@ -860,9 +860,9 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 1;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials h2 {
+.theme-stanford-grow-green-balakutak .section-testimonials h2 {
     font-family: 'Playfair Display', serif !important;
-    font-size: 2rem; /* Reduced from 3rem */
+    font-size: 2rem; 
     font-weight: 700 !important;
     color: #1a1a1a;
     margin-bottom: 3rem !important;
@@ -874,13 +874,13 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     gap: 15px;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials h2 i {
-    font-size: 1.5rem !important; /* Smaller icon */
-    color: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .section-testimonials h2 i {
+    font-size: 1.5rem !important; 
+    color: #064e3b !important;
     opacity: 0.8;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card {
+.theme-stanford-grow-green-balakutak .section-testimonials .card {
     background: rgba(255, 255, 255, 0.9) !important;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5) !important;
@@ -894,25 +894,25 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
 }
 
 /* Large Background Quote */
-.theme-stanford-grow-balakutak .section-testimonials .card::before {
+.theme-stanford-grow-green-balakutak .section-testimonials .card::before {
     content: '"';
     position: absolute;
     top: -20px;
     left: 20px;
     font-family: 'Playfair Display', serif;
     font-size: 10rem;
-    color: #8C1515;
+    color: #064e3b;
     opacity: 0.03;
     line-height: 1;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card:hover {
+.theme-stanford-grow-green-balakutak .section-testimonials .card:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 60px 120px rgba(0,0,0,0.08) !important;
     background: #FFF !important;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card img {
+.theme-stanford-grow-green-balakutak .section-testimonials .card img {
     border-radius: 20px !important;
     width: 80px !important;
     height: 80px !important;
@@ -922,7 +922,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card p {
+.theme-stanford-grow-green-balakutak .section-testimonials .card p {
     font-family: 'Inter', sans-serif !important;
     font-size: 1.1rem !important;
     color: #4a4a4a !important;
@@ -934,7 +934,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     z-index: 1;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card h6 {
+.theme-stanford-grow-green-balakutak .section-testimonials .card h6 {
     font-family: 'Playfair Display', serif !important;
     font-weight: 700 !important;
     color: #1a1a1a !important;
@@ -944,8 +944,8 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     margin-bottom: 0.3rem !important;
 }
 
-.theme-stanford-grow-balakutak .section-testimonials .card small {
-    color: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .section-testimonials .card small {
+    color: #064e3b !important;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
@@ -953,13 +953,13 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
 }
 
 /* PARTNERS SECTION MODERNIZATION */
-.theme-stanford-grow-balakutak .section-partners {
+.theme-stanford-grow-green-balakutak .section-partners {
     padding: 8rem 0 !important;
     background: #FFF;
     position: relative;
 }
 
-.theme-stanford-grow-balakutak .section-partners::before {
+.theme-stanford-grow-green-balakutak .section-partners::before {
     content: "";
     position: absolute;
     top: 0;
@@ -967,11 +967,11 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     transform: translateX(-50%);
     width: 1px;
     height: 100px;
-    background: linear-gradient(to bottom, #8C1515, transparent);
+    background: linear-gradient(to bottom, #064e3b, transparent);
 }
 
-.theme-stanford-grow-balakutak .section-partners .section-badge {
-    color: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .section-partners .section-badge {
+    color: #064e3b !important;
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -979,7 +979,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     margin-bottom: 1.5rem !important;
 }
 
-.theme-stanford-grow-balakutak .section-partners h5 {
+.theme-stanford-grow-green-balakutak .section-partners h5 {
     font-family: 'Playfair Display', serif !important;
     font-size: 1.5rem;
     font-weight: 500;
@@ -987,20 +987,20 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     margin-bottom: 4rem;
 }
 
-.theme-stanford-grow-balakutak .partners-marquee-item {
+.theme-stanford-grow-green-balakutak .partners-marquee-item {
     filter: grayscale(100%) opacity(0.3);
     transition: all 0.6s ease;
     padding: 0 3rem;
 }
 
-.theme-stanford-grow-balakutak .partners-marquee-item:hover {
+.theme-stanford-grow-green-balakutak .partners-marquee-item:hover {
     filter: grayscale(0%) opacity(1);
     transform: scale(1.1);
 }
 
 /* FOOTER MODERNIZATION - OVAL TOP (No Gaps) */
-.theme-stanford-grow-balakutak footer {
-    background-color: #8C1515 !important;
+.theme-stanford-grow-green-balakutak footer {
+    background-color: #064e3b !important;
     position: relative;
     padding-top: 6rem !important;
     margin-top: -60px; /* Overlap with CTA */
@@ -1010,93 +1010,89 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     box-shadow: 0 -15px 40px rgba(0,0,0,0.1);
 }
 
-.theme-stanford-grow-balakutak footer .footer-wave-container {
+.theme-stanford-grow-green-balakutak footer .footer-wave-container {
     display: none; /* Removed wave */
 }
 
-.theme-stanford-grow-balakutak footer .footer-heading {
+.theme-stanford-grow-green-balakutak footer .footer-heading {
     font-family: 'Playfair Display', serif !important;
     color: #FFF !important;
     font-weight: 700;
-    font-size: 0.95rem; /* More elegant & modern size */
+    font-size: 0.95rem; 
     letter-spacing: 1.5px;
     margin-bottom: 22px;
     text-transform: uppercase;
     opacity: 0.9;
 }
 
-.theme-stanford-grow-balakutak footer a,
-.theme-stanford-grow-balakutak footer p,
-.theme-stanford-grow-balakutak footer span,
-.theme-stanford-grow-balakutak footer li {
+.theme-stanford-grow-green-balakutak footer a,
+.theme-stanford-grow-green-balakutak footer p,
+.theme-stanford-grow-green-balakutak footer span,
+.theme-stanford-grow-green-balakutak footer li {
     font-family: 'Inter', sans-serif !important;
     color: rgba(255,255,255,0.7) !important;
-    font-size: 0.85rem !important; /* Elegant compact size */
+    font-size: 0.85rem !important; 
     line-height: 1.8 !important;
     transition: all 0.3s ease;
     text-decoration: none !important;
 }
 
-.theme-stanford-grow-balakutak footer a:hover {
+.theme-stanford-grow-green-balakutak footer a:hover {
     color: #FFF !important;
     padding-left: 4px;
 }
 
 /* GLOBAL CONTENT PADDING FOR FOOTER OVERLAP (Only for internal/non-CTA pages) */
-.theme-stanford-grow-balakutak main > section:last-of-type:not(.section-cta),
-.theme-stanford-grow-balakutak main > div:last-child:not(.section-cta) {
+.theme-stanford-grow-green-balakutak main > section:last-of-type:not(.section-cta),
+.theme-stanford-grow-green-balakutak main > div:last-child:not(.section-cta) {
     padding-bottom: 180px !important; 
 }
 /* CHATBOT WINDOW THEME CUSTOMIZATION */
-.theme-stanford-grow-balakutak .chatbot-window {
+.theme-stanford-grow-green-balakutak .chatbot-window {
     border: none !important;
     border-radius: 20px !important;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
 }
 
-.theme-stanford-grow-balakutak .chatbot-header {
-    background: #8C1515 !important; /* Cardinal Red */
+.theme-stanford-grow-green-balakutak .chatbot-header {
+    background: #064e3b !important; /* Stanford Green */
     padding: 1.2rem !important;
 }
 
-.theme-stanford-grow-balakutak .chatbot-header span {
+.theme-stanford-grow-green-balakutak .chatbot-header span {
     font-family: 'Playfair Display', serif !important;
     font-weight: 700 !important;
 }
 
-.theme-stanford-grow-balakutak .chatbot-input button {
-    background: #8C1515 !important;
+.theme-stanford-grow-green-balakutak .chatbot-input button {
+    background: #064e3b !important;
     color: #FFF !important;
 }
 
-.theme-stanford-grow-balakutak .chat-bubble.bot {
-    background: #F9F8F6 !important; /* Soft sandstone */
-    border-left: 3px solid #8C1515 !important;
+.theme-stanford-grow-green-balakutak .chat-bubble.bot {
+    background: #F0F4F0 !important; /* Soft green tint */
+    border-left: 3px solid #064e3b !important;
     color: #333 !important;
 }
 
-.theme-stanford-grow-balakutak .chat-bubble.user {
+.theme-stanford-grow-green-balakutak .chat-bubble.user {
     background: #333 !important;
     color: #FFF !important;
 }
 
 /* INTERNAL PAGE HEADER MODERNIZATION */
-.theme-stanford-grow-balakutak .page-header-premium {
-    background: linear-gradient(135deg, #8C1515 0%, #5E1010 100%) !important;
+.theme-stanford-grow-green-balakutak .page-header-premium {
+    background: linear-gradient(135deg, #064e3b 0%, #022c22 100%) !important;
     padding: 140px 0 100px !important; /* Increased for curve space */
     position: relative;
     overflow: hidden;
     clip-path: ellipse(120% 100% at 50% 0%); /* Oval Bottom similar to footer top */
 }
 
-.theme-stanford-grow-balakutak .page-header-premium .page-header-pattern {
-    display: none !important; 
-}
-
-.theme-stanford-grow-balakutak .page-header-premium h1 {
+.theme-stanford-grow-green-balakutak .page-header-premium h1 {
     font-family: 'Playfair Display', serif !important;
-    font-size: 2.5rem !important; /* Reduced for better elegance */
+    font-size: 2.5rem !important; 
     font-weight: 700 !important;
     letter-spacing: -0.5px;
     color: #FFF !important;
@@ -1105,7 +1101,7 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     line-height: 1.2;
 }
 
-.theme-stanford-grow-balakutak .page-header-premium .breadcrumb-item {
+.theme-stanford-grow-green-balakutak .page-header-premium .breadcrumb-item {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500;
     letter-spacing: 0.5px;
@@ -1114,6 +1110,36 @@ html.dark .theme-stanford-grow-balakutak .bg-white {
     opacity: 0.8;
 }
 
-.theme-stanford-grow-balakutak .page-header-premium .page-header-logo {
+.theme-stanford-grow-green-balakutak .page-header-premium .page-header-logo {
     display: none !important;
+}
+
+/* ========= AURORA CTA SECTION (Stanford Grow) ========= */
+.theme-stanford-grow-green-balakutak .aurora-cta-section {
+    background: #064e3b !important; /* Stanford Green */
+    background: linear-gradient(135deg, #064e3b 0%, #022c22 100%) !important;
+    padding: 100px 0 !important;
+}
+
+.theme-stanford-grow-green-balakutak .aurora-cta-title {
+    font-family: 'Source Serif 4', serif !important;
+    font-weight: 800 !important;
+    font-size: 3.2rem !important;
+    color: #ffffff !important;
+}
+
+.theme-stanford-grow-green-balakutak .aurora-btn-premium {
+    background: #ffffff !important;
+    color: #064e3b !important;
+    border: 2px solid #ffffff !important;
+}
+
+.theme-stanford-grow-green-balakutak .aurora-btn-premium:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+}
+
+.theme-stanford-grow-green-balakutak .aurora-btn-outline {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
 }
