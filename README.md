@@ -10,15 +10,34 @@
 
 ## ✨ Fitur Utama (Premium Features)
 
-*   **💎 Premium Immersive UI**: Antarmuka modern dengan efek gradasi sinematik, animasi AOS, dan elemen dekoratif yang mewah.
-*   **🎨 Dynamic Theme Engine**: Mendukung pergantian tema secara instan dengan berbagai pilihan palet warna (NavyBlue, GreenGold, dll).
-*   **🛠️ Drag & Drop Menu Builder**: Memudahkan pengelolaan navigasi website secara visual dan dinamis.
-*   **💾 Integrated Backup System**: Fitur pencadangan database dan file aplikasi secara otomatis maupun manual untuk keamanan data.
-*   **🤝 Sponsor Management**: Modul khusus untuk mengelola logotipe mitra dan sponsor yang terintegrasi di footer.
-*   **🎓 Academic Suite**: Pengelolaan lengkap untuk kalender akademik, layanan kurikulum, profil dosen, dan agenda kegiatan.
-*   **🛡️ Secure Admin Panel**: Didukung oleh AdminLTE 3 dengan sistem Role & Permission yang ketat (Super Admin & Admin).
-*   **📱 Ultra Responsive**: Tampilan optimal di perangkat mobile, tablet, maupun desktop.
-*   **🔍 SEO Optimized**: Struktur HTML semantik, meta tag dinamis, dan performa loading yang cepat.
+### 🎨 Immersive Experience & Design
+*   **💎 Premium Immersive UI**: Antarmuka modern dengan efek gradasi sinematik, glassmorphism, dan animasi AOS (Animate On Scroll) yang halus.
+*   **🎭 Dynamic Theme Engine**: Ganti suasana website secara instan dengan berbagai pilihan palet warna premium (NavyBlue, GreenGold, RoyalPurple, AuroraGlass, dll).
+*   **🌓 Smart Dark Mode**: Dukungan mode gelap otomatis yang nyaman di mata untuk seluruh halaman frontend dan admin.
+*   **🌐 Multilingual Support**: Fitur perpindahan bahasa (ID/EN) yang terintegrasi di seluruh bagian website.
+
+### 📝 Content & Academic Management
+*   **📰 Advanced News & Articles**: Pengelolaan konten berita dengan sistem kategori, tag, dan editor teks kaya (Rich Text Editor).
+*   **🎓 Academic Suite**: Modul lengkap untuk institusi pendidikan meliputi:
+    *   **Sumber Daya Manusia**: Profil dosen dan staf akademik yang komprehensif.
+    *   **Kurikulum**: Detail mata kuliah dan struktur program studi.
+    *   **Kalender Akademik**: Visualisasi jadwal kegiatan akademik dalam bentuk list dan kalender.
+    *   **Layanan & Penelitian**: Portal informasi layanan mahasiswa dan hasil pengabdian masyarakat.
+*   **📅 Event & Agenda**: Pengelolaan agenda kegiatan dengan hitung mundur (countdown) dan detail lokasi.
+*   **📁 Centralized Document Manager**: Pusat unduhan dokumen resmi yang terorganisir.
+
+### 🛠️ Customization & Site Builder
+*   **🖱️ Drag & Drop Menu Builder**: Kelola navigasi website (header & footer) secara visual tanpa perlu menyentuh kode.
+*   **🧱 Page Builder Integration**: Memungkinkan pembuatan halaman statis dengan tata letak kustom yang fleksibel.
+*   **🖼️ Media Library & Gallery**: Manajemen aset gambar dan video yang terpusat dengan dukungan galeri album.
+*   **📊 Infographic & Sponsor Module**: Kelola data statistik visual (infografis) dan logotipe mitra kerjasama dengan mudah.
+
+### 🛡️ System & Security
+*   **🔐 Secure Admin Dashboard**: Panel administrasi berbasis AdminLTE 3 yang responsif dengan sistem keamanan berlapis.
+*   **👥 Role & Permission Management**: Kontrol akses pengguna (Super Admin & Admin) yang presisi menggunakan Laravel Permissions.
+*   **💾 Integrated Backup System**: Fitur pencadangan otomatis untuk database dan file aplikasi dalam format terkompresi (.zip).
+*   **🔍 SEO & Meta Management**: Pengaturan SEO dinamis untuk setiap halaman guna meningkatkan visibilitas di mesin pencari.
+*   **🤖 Integrated Chatbot & Accessibility**: Fitur widget chatbot dan aksesibilitas untuk membantu interaksi pengguna.
 
 ---
 
