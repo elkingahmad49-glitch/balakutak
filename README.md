@@ -20,6 +20,27 @@
 
 ---
 
+## 📸 Pratinjau Aplikasi (Screenshots)
+
+Berikut adalah beberapa tampilan dari BalaKutaK CMS:
+
+### 🏠 Frontend (Halaman Utama)
+![Home Page](docs/screenshots/home.png)
+
+### 🔐 Halaman Login
+![Login Page](docs/screenshots/login.png)
+
+### 📊 Admin Dashboard
+![Admin Dashboard](docs/screenshots/admin-dashboard.png)
+
+### 📝 Pengelolaan Konten (Posts)
+![Admin Posts](docs/screenshots/admin-posts.png)
+
+### 🖼️ Galeri Media
+![Admin Gallery](docs/screenshots/admin-gallery.png)
+
+---
+
 ## 🚀 Panduan Instalasi (Quick Start)
 
 Ikuti langkah-langkah berikut untuk menjalankan BalaKutaK CMS di lingkungan lokal Anda:
