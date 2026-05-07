@@ -64,6 +64,19 @@ body.theme-oxford-premium-balakutak {
     border-bottom: 1px solid rgba(0,0,0,0.05) !important;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03) !important;
     z-index: 1040 !important;
+    transition: all 0.3s ease;
+}
+
+.theme-oxford-premium-balakutak #main-navbar.elegant-navbar.scrolled {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    padding: 0.5rem 0;
+    backdrop-filter: blur(10px);
+    z-index: 1100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
 }
 
 .theme-oxford-premium-balakutak .dropdown-menu {

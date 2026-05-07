@@ -115,6 +115,8 @@ body.theme-stanford-grow-red-balakutak {
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
+    left: 0 !important;
+    width: 100% !important;
     z-index: 1100;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
 }
