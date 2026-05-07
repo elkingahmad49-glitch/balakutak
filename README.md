@@ -27,10 +27,10 @@
 Berikut adalah beberapa tampilan dari BalaKutaK CMS:
 
 ### 🏠 Frontend (Halaman Utama)
-![Home Page](docs/screenshots/home.png)
+![Home Page](docs/screenshots/home_v2.png)
 
 ### 🔐 Halaman Login
-![Login Page](docs/screenshots/login.png)
+![Login Page](docs/screenshots/login_v2.png)
 
 ### 📊 Admin Dashboard
 ![Admin Dashboard](docs/screenshots/admin-dashboard.png)
@@ -42,7 +42,7 @@ Berikut adalah beberapa tampilan dari BalaKutaK CMS:
 ![Admin Gallery](docs/screenshots/admin-gallery.png)
 
 ### 🛠️ Menu Builder
-![Admin Menus](docs/screenshots/admin-menus.png)
+![Admin Menus](docs/screenshots/admin_menus_v2.png)
 
 ### 💾 Sistem Backup
 ![Admin Backups](docs/screenshots/admin-backups.png)
