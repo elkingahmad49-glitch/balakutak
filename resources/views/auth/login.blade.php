@@ -63,11 +63,9 @@
                     <div class="mb-6 flex items-center justify-center">
                         @php $siteLogo = \App\Models\Setting::get('site_logo') @endphp
                         @if($siteLogo)
-                            <img src="{{ asset('storage/'.$siteLogo) }}?v={{ time() }}" alt="Site Logo" style="height: 95px !important; width: auto;" class="filter brightness-0 invert drop-shadow-2xl opacity-90">
+                            <img src="{{ asset('storage/'.$siteLogo) }}?v={{ time() }}" alt="Site Logo" style="height: 95px !important; width: auto; filter: brightness(0) invert(1);" class="drop-shadow-2xl opacity-90">
                         @else
-                            <div class="h-14 w-14 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
-                                <span class="text-white font-black text-2xl">B</span>
-                            </div>
+                            <img src="{{ asset('images/balakutak-logo-official.png') }}" alt="Default Logo" style="height: 90px !important; width: auto; filter: brightness(0) invert(1);" class="drop-shadow-2xl opacity-90">
                         @endif
                     </div>
 
