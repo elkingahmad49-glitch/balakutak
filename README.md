@@ -130,11 +130,28 @@ Akses Admin di: `http://127.0.0.1:8000/admin` (Login Default: `superadmin@prodi.
 
 ## 🛠️ Stack Teknologi
 
-*   **Backend**: Laravel 11 (PHP 8.2+)
-*   **Frontend**: Bootstrap 5, Alpine.js, Swiper.js, AOS (Animate On Scroll)
-*   **Admin Template**: AdminLTE 3
-*   **Icons**: Font Awesome 6
-*   **Typography**: Inter & Poppins (Google Fonts)
+### 🛡️ Backend (Core Engine)
+*   **Framework**: [Laravel 11](https://laravel.com) (PHP 8.2+)
+*   **Database**: MySQL / MariaDB / SQLite
+*   **Security**: [Spatie Permission](https://spatie.be/docs/laravel-permission) (Role & Permission), CSRF Protection, XSS Sanitization
+*   **Automation**: [Spatie Laravel Backup](https://spatie.be/docs/laravel-backup), [Spatie Sitemap](https://spatie.be/docs/laravel-sitemap)
+*   **Utilities**: Intervention Image (Image Processing), Laravel Excel (Export/Import), DomPDF (PDF Generation)
+
+### 🎨 Frontend (User Interface)
+*   **Styling**: [Tailwind CSS 3](https://tailwindcss.com) & Bootstrap 5
+*   **Interactivity**: [Alpine.js](https://alpinejs.dev) & Axios
+*   **Animations**: [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/), Animate.css, Swiper.js (Sliders)
+*   **Typography**: Google Fonts (Outfit, Inter, Poppins)
+
+### 🔐 Admin Panel (Dashboard)
+*   **Template**: [AdminLTE 3](https://adminlte.io)
+*   **Data Handling**: DataTables (Server-side rendering)
+*   **UI Components**: Select2, SweetAlert2, Toastr, Chart.js
+
+### ⚙️ Development Tools
+*   **Bundler**: Vite 5
+*   **Dependency Manager**: Composer (PHP) & NPM (Node.js)
+*   **Version Control**: Git
 
 ---
 
