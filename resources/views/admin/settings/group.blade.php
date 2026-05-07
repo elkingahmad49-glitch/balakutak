@@ -66,8 +66,16 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Logo Website</label>
                                 <div class="col-sm-9">
-                                    @if(isset($settings['site_logo']))
-                                        <div class="mb-2"><img src="{{ asset('storage/' . $settings['site_logo']) }}" style="max-height: 50px;"></div>
+                                    @if(isset($settings['site_logo']) && !empty($settings['site_logo']))
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <img src="{{ asset('storage/' . $settings['site_logo']) }}" style="max-height: 50px;" class="img-thumbnail mr-3">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="delete_site_logo" class="custom-control-input" id="delete_site_logo" value="1">
+                                                <label class="custom-control-label text-danger small" for="delete_site_logo">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Hapus Logo
+                                                </label>
+                                            </div>
+                                        </div>
                                     @endif
                                     <input type="file" name="site_logo" class="form-control-file">
                                 </div>
@@ -75,18 +83,36 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Logo Website (Versi Putih)</label>
                                 <div class="col-sm-9">
-                                    @if(isset($settings['site_logo_white']))
-                                        <div class="mb-2 bg-dark p-2 d-inline-block rounded"><img src="{{ asset('storage/' . $settings['site_logo_white']) }}" style="max-height: 50px;"></div>
+                                    @if(isset($settings['site_logo_white']) && !empty($settings['site_logo_white']))
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <div class="bg-dark p-2 rounded mr-3 d-inline-block">
+                                                <img src="{{ asset('storage/' . $settings['site_logo_white']) }}" style="max-height: 50px;">
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="delete_site_logo_white" class="custom-control-input" id="delete_site_logo_white" value="1">
+                                                <label class="custom-control-label text-danger small" for="delete_site_logo_white">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Hapus Logo Putih
+                                                </label>
+                                            </div>
+                                        </div>
                                     @endif
                                     <input type="file" name="site_logo_white" class="form-control-file">
-                                    <small class="text-muted">Gunakan untuk area dengan latar belakang gelap (seperti footer).</small>
+                                    <small class="text-muted d-block mt-1">Gunakan untuk area dengan latar belakang gelap (seperti footer).</small>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Favicon</label>
                                 <div class="col-sm-9">
-                                    @if(isset($settings['site_favicon']))
-                                        <div class="mb-2"><img src="{{ asset('storage/' . $settings['site_favicon']) }}" style="max-height: 32px;"></div>
+                                    @if(isset($settings['site_favicon']) && !empty($settings['site_favicon']))
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <img src="{{ asset('storage/' . $settings['site_favicon']) }}" style="max-height: 32px;" class="img-thumbnail mr-3">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="delete_site_favicon" class="custom-control-input" id="delete_site_favicon" value="1">
+                                                <label class="custom-control-label text-danger small" for="delete_site_favicon">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Hapus Favicon
+                                                </label>
+                                            </div>
+                                        </div>
                                     @endif
                                     <input type="file" name="site_favicon" class="form-control-file">
                                 </div>
@@ -117,9 +143,16 @@
                                 <label class="col-sm-3 col-form-label">Foto Ketua Institusi</label>
                                 <div class="col-sm-9">
                                     @if(!empty($settings['kaprodi_photo']))
-                                        <div class="mb-2">
-                                            <img src="{{ asset('storage/'.$settings['kaprodi_photo']) }}" alt="Foto Ketua" style="height:80px; width:80px; object-fit:cover; border-radius:50%; border:2px solid #dee2e6;">
-                                            <small class="d-block text-muted mt-1">Foto saat ini. Upload baru untuk mengganti.</small>
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <div class="mr-3 text-center">
+                                                <img src="{{ asset('storage/'.$settings['kaprodi_photo']) }}" alt="Foto Ketua" style="height:80px; width:80px; object-fit:cover; border-radius:50%; border:2px solid #dee2e6;">
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="delete_kaprodi_photo" class="custom-control-input" id="delete_kaprodi_photo" value="1">
+                                                <label class="custom-control-label text-danger small" for="delete_kaprodi_photo">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Hapus Foto
+                                                </label>
+                                            </div>
                                         </div>
                                     @endif
                                     <input type="file" name="kaprodi_photo" class="form-control-file" accept="image/*">
@@ -169,15 +202,22 @@
                                 <label class="col-sm-3 col-form-label">Sertifikat Akreditasi</label>
                                 <div class="col-sm-9">
                                     @if(!empty($settings['cert_accreditation']))
-                                        <div class="mb-2">
-                                            @if(Str::endsWith($settings['cert_accreditation'], ['.jpg','.jpeg','.png','.webp']))
-                                                <img src="{{ asset('storage/'.$settings['cert_accreditation']) }}" alt="Sertifikat Akreditasi" style="max-height:120px; border-radius:6px; border:1px solid #dee2e6;">
-                                            @else
-                                                <a href="{{ asset('storage/'.$settings['cert_accreditation']) }}" target="_blank" class="btn btn-sm btn-outline-primary">
-                                                    <i class="fas fa-file-pdf mr-1"></i> Lihat Sertifikat Saat Ini
-                                                </a>
-                                            @endif
-                                            <small class="d-block text-muted mt-1">File saat ini. Upload baru untuk mengganti.</small>
+                                        <div class="mb-2 d-flex align-items-center">
+                                            <div class="mr-3">
+                                                @if(Str::endsWith($settings['cert_accreditation'], ['.jpg','.jpeg','.png','.webp']))
+                                                    <img src="{{ asset('storage/'.$settings['cert_accreditation']) }}" alt="Sertifikat Akreditasi" style="max-height:80px; border-radius:6px; border:1px solid #dee2e6;">
+                                                @else
+                                                    <a href="{{ asset('storage/'.$settings['cert_accreditation']) }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                                        <i class="fas fa-file-pdf mr-1"></i> Lihat Sertifikat
+                                                    </a>
+                                                @endif
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name="delete_cert_accreditation" class="custom-control-input" id="delete_cert_accreditation" value="1">
+                                                <label class="custom-control-label text-danger small" for="delete_cert_accreditation">
+                                                    <i class="fas fa-trash-alt mr-1"></i> Hapus File
+                                                </label>
+                                            </div>
                                         </div>
                                     @endif
                                     <input type="file" name="cert_accreditation" class="form-control-file" accept="image/*,.pdf">

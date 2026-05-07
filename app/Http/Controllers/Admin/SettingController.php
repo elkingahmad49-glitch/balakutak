@@ -61,8 +61,29 @@ class SettingController extends Controller
 
         // Process all other regular settings (skip cert_other_* arrays)
         $skip = ['_token', 'group', 'cert_other_name', 'cert_other_file', 'cert_other_existing'];
+        
+        // Handle specific file deletions
+        foreach ($request->all() as $reqKey => $reqValue) {
+            if (str_starts_with($reqKey, 'delete_') && $reqValue == '1') {
+                $settingKey = str_replace('delete_', '', $reqKey);
+                $oldPath = Setting::get($settingKey);
+                if ($oldPath && Storage::disk('public')->exists($oldPath)) {
+                    Storage::disk('public')->delete($oldPath);
+                }
+                Setting::set($settingKey, null);
+                $skip[] = $reqKey; // Skip this from the main loop
+                $skip[] = $settingKey; // Also skip the original key if it's in the request (it shouldn't be for files, but just in case)
+            }
+        }
+
         foreach ($request->except($skip) as $key => $value) {
             if ($request->hasFile($key)) {
+                // Delete old file if exists
+                $oldPath = Setting::get($key);
+                if ($oldPath && Storage::disk('public')->exists($oldPath)) {
+                    Storage::disk('public')->delete($oldPath);
+                }
+                
                 $path = $request->file($key)->store('settings', 'public');
                 Setting::set($key, $path);
             }

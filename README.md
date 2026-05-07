@@ -11,7 +11,9 @@
 ## ✨ Fitur Utama (Premium Features)
 
 *   **💎 Premium Immersive UI**: Antarmuka modern dengan efek gradasi sinematik, animasi AOS, dan elemen dekoratif yang mewah.
-*   **🎨 Dynamic Theme Engine**: Mendukung pergantian tema secara instan (tersedia tema *Navy Blue* & *Green Gold*).
+*   **🎨 Dynamic Theme Engine**: Mendukung pergantian tema secara instan dengan berbagai pilihan palet warna (NavyBlue, GreenGold, dll).
+*   **🛠️ Drag & Drop Menu Builder**: Memudahkan pengelolaan navigasi website secara visual dan dinamis.
+*   **💾 Integrated Backup System**: Fitur pencadangan database dan file aplikasi secara otomatis maupun manual untuk keamanan data.
 *   **🤝 Sponsor Management**: Modul khusus untuk mengelola logotipe mitra dan sponsor yang terintegrasi di footer.
 *   **🎓 Academic Suite**: Pengelolaan lengkap untuk kalender akademik, layanan kurikulum, profil dosen, dan agenda kegiatan.
 *   **🛡️ Secure Admin Panel**: Didukung oleh AdminLTE 3 dengan sistem Role & Permission yang ketat (Super Admin & Admin).
@@ -38,6 +40,15 @@ Berikut adalah beberapa tampilan dari BalaKutaK CMS:
 
 ### 🖼️ Galeri Media
 ![Admin Gallery](docs/screenshots/admin-gallery.png)
+
+### 🛠️ Menu Builder
+![Admin Menus](docs/screenshots/admin-menus.png)
+
+### 💾 Sistem Backup
+![Admin Backups](docs/screenshots/admin-backups.png)
+
+### 🎨 Pengaturan Tema
+![Admin Themes](docs/screenshots/admin-themes.png)
 
 ---
 
