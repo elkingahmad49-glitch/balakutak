@@ -13,13 +13,13 @@ class CurriculumImport implements ToModel, WithHeadingRow, WithValidation, Skips
     public function model(array $row)
     {
         return new Curriculum([
-            'code' => $row['kode'],
-            'name' => $row['nama'],
-            'semester' => $row['semester'],
-            'credits' => $row['sks'],
-            'description' => $row['deskripsi'],
-            'type' => strtolower($row['tipe']) === 'pilihan' ? 'pilihan' : 'wajib',
-            'concentration' => $row['konsentrasi'],
+            'code' => $row['kode'] ?? null,
+            'name' => $row['nama'] ?? null,
+            'semester' => $row['semester'] ?? null,
+            'credits' => $row['sks'] ?? null,
+            'description' => $row['deskripsi'] ?? null,
+            'type' => strtolower($row['tipe'] ?? '') === 'pilihan' ? 'pilihan' : 'wajib',
+            'concentration' => $row['konsentrasi'] ?? null,
             'is_active' => isset($row['aktif']) ? (bool)$row['aktif'] : true,
             'order' => Curriculum::max('order') + 1,
         ]);

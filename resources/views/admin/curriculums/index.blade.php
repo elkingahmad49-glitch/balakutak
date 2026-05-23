@@ -8,6 +8,10 @@
         <div class="alert alert-success alert-dismissible">{{ session('success') }}<button class="close" data-dismiss="alert">&times;</button></div>
     @endif
 
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible">{{ session('error') }}<button class="close" data-dismiss="alert">&times;</button></div>
+    @endif
+
     <div class="card mb-3">
         <div class="card-body py-2">
             <form method="GET" class="row g-2 align-items-center">
