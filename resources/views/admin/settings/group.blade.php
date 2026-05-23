@@ -140,6 +140,32 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Jabatan Ketua Institusi <span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    @php
+                                        $predefinedPositions = ['Dekan', 'Ketua Program Studi', 'Ketua Jurusan', 'Kepala Sekolah'];
+                                        $currentPosition = $settings['greeting_position'] ?? '';
+                                        $isPredefined = in_array($currentPosition, $predefinedPositions);
+                                        $isCustom = !$isPredefined && !empty($currentPosition);
+                                    @endphp
+                                    <select id="greeting_position_select" class="form-control mb-2" required>
+                                        <option value="" {{ empty($currentPosition) ? 'selected' : '' }} disabled>-- Pilih Jabatan --</option>
+                                        @foreach($predefinedPositions as $pos)
+                                            <option value="{{ $pos }}" {{ $currentPosition == $pos ? 'selected' : '' }}>{{ $pos }}</option>
+                                        @endforeach
+                                        <option value="Lainnya" {{ $isCustom ? 'selected' : '' }}>Lainnya</option>
+                                    </select>
+                                    
+                                    <!-- Container for custom editor -->
+                                    <div id="greeting_position_custom_container" style="{{ $isCustom ? '' : 'display: none;' }}">
+                                        <textarea id="greeting_position_custom" class="form-control editor" rows="2" placeholder="Masukkan jabatan kustom...">{{ $isCustom ? $currentPosition : '' }}</textarea>
+                                    </div>
+                                    
+                                    <!-- Hidden input that actually gets submitted -->
+                                    <input type="hidden" name="greeting_position" id="greeting_position" value="{{ $currentPosition }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Foto Ketua Institusi</label>
                                 <div class="col-sm-9">
                                     @if(!empty($settings['kaprodi_photo']))
@@ -714,6 +740,34 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
+
+    // Position select handling
+    const positionSelect = document.getElementById('greeting_position_select');
+    const customContainer = document.getElementById('greeting_position_custom_container');
+    const customTextarea = document.getElementById('greeting_position_custom');
+    const actualInput = document.getElementById('greeting_position');
+
+    if (positionSelect) {
+        const form = positionSelect.closest('form');
+        
+        positionSelect.addEventListener('change', function () {
+            if (this.value === 'Lainnya') {
+                $(customContainer).show();
+            } else {
+                $(customContainer).hide();
+                actualInput.value = this.value;
+            }
+        });
+        
+        form.addEventListener('submit', function () {
+            if (positionSelect.value === 'Lainnya') {
+                const customVal = $(customTextarea).summernote('code');
+                actualInput.value = customVal;
+            } else {
+                actualInput.value = positionSelect.value;
+            }
+        });
+    }
 
     const list    = document.getElementById('cert-others-list');
     const addBtn  = document.getElementById('add-cert-row');

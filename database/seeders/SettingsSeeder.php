@@ -51,6 +51,7 @@ class SettingsSeeder extends Seeder
             ['key' => 'mission', 'value' => "1. Menyelenggarakan pendidikan berkualitas\n2. Mengembangkan penelitian inovatif\n3. Melaksanakan pengabdian masyarakat", 'group' => 'academic', 'type' => 'textarea', 'label' => 'Misi'],
             ['key' => 'greeting_text', 'value' => 'Selamat datang di Program Studi kami. Kami berkomitmen untuk menghasilkan lulusan yang kompeten dan berdaya saing global.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Sambutan Ketua Prodi'],
             ['key' => 'greeting_name', 'value' => 'Prof. Fulan bin Fulan, M.Kom.', 'group' => 'academic', 'type' => 'text', 'label' => 'Nama Ketua Prodi'],
+            ['key' => 'greeting_position', 'value' => 'Ketua Program Studi', 'group' => 'academic', 'type' => 'text', 'label' => 'Jabatan Ketua Prodi'],
             ['key' => 'profile_video_url', 'value' => 'https://www.youtube.com/watch?v=EpEDHCGKNW4', 'group' => 'academic', 'type' => 'text', 'label' => 'URL Video Profil (YouTube Embed)'],
             ['key' => 'about_institution', 'value' => 'BalaKutaK adalah sebuah Content Management System (CMS) berbasis open source yang dirancang untuk memberikan kemudahan, fleksibilitas, dan kebebasan dalam membangun serta mengelola website secara efisien. Dikembangkan dengan semangat kolaborasi dan keterbukaan, BalaKutaK hadir sebagai solusi bagi individu, institusi pendidikan, organisasi, hingga komunitas digital yang membutuhkan platform web yang ringan, adaptif, dan mudah dikembangkan.
 

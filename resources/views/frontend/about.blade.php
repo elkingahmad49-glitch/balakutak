@@ -136,6 +136,10 @@
     letter-spacing: 1px !important;
     margin-top: 6px !important;
 }
+.aurora-leader-badge p {
+    margin: 0 !important;
+    display: inline !important;
+}
 .aurora-tagline {
     font-size: 0.75rem !important;
     letter-spacing: 2.5px !important;
@@ -338,7 +342,7 @@
                         <div>
                             <h4 class="aurora-leader-name mb-1">{{ $headName }}</h4>
                             <div class="aurora-leader-badge">
-                                <i class="fas fa-award me-1"></i>{{ __('Ketua Program Studi') }}
+                                <i class="fas fa-award me-1"></i>{!! \App\Models\Setting::get('greeting_position', 'Ketua Program Studi') !!}
                             </div>
                         </div>
                     </div>
