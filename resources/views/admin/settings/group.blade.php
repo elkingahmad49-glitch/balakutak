@@ -143,7 +143,7 @@
                                 <label class="col-sm-3 col-form-label">Jabatan Ketua Institusi <span class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     @php
-                                        $predefinedPositions = ['Dekan', 'Ketua Program Studi', 'Ketua Jurusan', 'Kepala Sekolah'];
+                                        $predefinedPositions = ['Dekan', 'Ketua Program Studi', 'Ketua Jurusan', 'Kepala Sekolah', 'Direktur', 'Manager', 'Chief Executive Officer (CEO)'];
                                         $currentPosition = $settings['greeting_position'] ?? '';
                                         $isPredefined = in_array($currentPosition, $predefinedPositions);
                                         $isCustom = !$isPredefined && !empty($currentPosition);
