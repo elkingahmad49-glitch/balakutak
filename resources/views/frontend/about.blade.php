@@ -200,7 +200,13 @@
 }
 .vm-card.vision-card {
     background: linear-gradient(135deg, #0f172a, #1e3a5f);
-    color: #fff;
+    color: #fff !important;
+}
+.vm-card.vision-card p,
+.vm-card.vision-card span,
+.vm-card.vision-card strong,
+.vm-card.vision-card font {
+    color: #fff !important;
 }
 .vm-card.mission-card {
     background: #f8fafc;
