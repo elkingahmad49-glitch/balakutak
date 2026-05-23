@@ -13,7 +13,7 @@
     <div class="card mb-3">
         <div class="card-body py-2">
             <form method="GET" class="row g-2 align-items-center">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <input type="text" name="search" class="form-control form-control-sm" placeholder="{{ __('admin.search_posts') }}" value="{{ request('search') }}">
                 </div>
                 <div class="col-md-2">
@@ -32,7 +32,23 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-2 d-flex gap-1">
+                <div class="col-md-2">
+                    <select name="month" class="form-control form-control-sm">
+                        <option value="">Filter Bulan</option>
+                        @foreach($months as $num => $name)
+                        <option value="{{ $num }}" {{ request('month')==$num?'selected':'' }}>{{ $name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select name="year" class="form-control form-control-sm">
+                        <option value="">Filter Tahun</option>
+                        @foreach($years as $yr)
+                        <option value="{{ $yr }}" {{ request('year')==$yr?'selected':'' }}>{{ $yr }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-1 d-flex gap-1">
                     <button type="submit" class="btn btn-primary btn-sm"><i class="fas fa-search"></i></button>
                     <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary btn-sm"><i class="fas fa-times"></i></a>
                 </div>
