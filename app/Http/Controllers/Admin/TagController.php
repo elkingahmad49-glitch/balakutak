@@ -40,6 +40,11 @@ class TagController extends Controller
             ->with('success', 'Tag berhasil ditambahkan!');
     }
 
+    public function show(Tag $tag)
+    {
+        return redirect()->route('admin.tags.edit', $tag);
+    }
+
     public function edit(Tag $tag)
     {
         return view('admin.tags.edit', compact('tag'));

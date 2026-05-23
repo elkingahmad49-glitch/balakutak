@@ -47,6 +47,11 @@ class CategoryController extends Controller
             ->with('success', 'Kategori berhasil ditambahkan!');
     }
 
+    public function show(Category $category)
+    {
+        return redirect()->route('admin.categories.edit', $category);
+    }
+
     public function edit(Category $category)
     {
         $parentCategories = Category::whereNull('parent_id')->where('id', '!=', $category->id)->get();

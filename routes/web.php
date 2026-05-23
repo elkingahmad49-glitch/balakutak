@@ -57,8 +57,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     Route::resource('pages', PageController::class);
 
     // Categories & Tags
-    Route::resource('categories', CategoryController::class)->except(['show']);
-    Route::resource('tags', TagController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('tags', TagController::class);
 
     // Announcements
     Route::resource('announcements', AnnouncementController::class);
