@@ -75,6 +75,116 @@
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
+.leader-avatar-premium {
+    width: 150px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    background: #f1f5f9;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+}
+.leader-avatar-premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    border-radius: 12px;
+    pointer-events: none;
+}
+.leader-avatar-premium:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #3b82f6;
+}
+.leader-avatar-premium img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+.leader-avatar-premium:hover img {
+    transform: scale(1.08) !important;
+}
+.leader-placeholder-aurora {
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, #cbd5e1, #94a3b8) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #fff !important;
+}
+.aurora-leader-name {
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+}
+.aurora-leader-badge {
+    color: #3b82f6 !important;
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-top: 6px !important;
+}
+.aurora-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 2.5px !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    color: #3b82f6 !important;
+    display: block !important;
+}
+.aurora-greet-title {
+    font-weight: 800 !important;
+    font-size: 2.6rem !important;
+    color: #0f172a !important;
+    letter-spacing: -1px !important;
+    line-height: 1.1 !important;
+}
+.aurora-quote-box {
+    position: relative !important;
+    padding-left: 1.5rem !important;
+    border-left: 3px solid #3b82f6 !important;
+}
+.aurora-quote-icon {
+    position: absolute !important;
+    left: -1rem !important;
+    top: -1.5rem !important;
+    font-size: 3rem !important;
+    color: #3b82f6 !important;
+    opacity: 0.1 !important;
+    z-index: -1 !important;
+}
+.aurora-quote-text {
+    font-size: 1.1rem !important;
+    color: #4b5563 !important;
+    line-height: 1.8 !important;
+}
+.aurora-btn-link {
+    color: #3b82f6 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: all 0.3s !important;
+}
+.aurora-btn-link:hover {
+    color: #2563eb !important;
+    transform: translateX(5px) !important;
+}
 
 /* ── VISION / MISSION ── */
 .vm-card {

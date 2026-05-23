@@ -97,6 +97,7 @@
         </div>
     </div>
 </div>
+@include('admin.partials.media-modal')
 @stop
 
 @section('js')

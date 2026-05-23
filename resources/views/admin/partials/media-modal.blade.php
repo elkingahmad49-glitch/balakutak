@@ -163,6 +163,14 @@ function copyPickerUrl() {
 }
 
 $(document).ready(function() {
+    // Remove media handler
+    $(document).on('click', '.btn-remove-media', function(e) {
+        e.preventDefault();
+        const $wrapper = $(this).closest('.media-input-wrapper');
+        $wrapper.find('.media-target').val('');
+        $wrapper.find('.preview-container').html('<div class="text-muted small italic">Belum ada gambar dipilih.</div>');
+    });
+
     // Open from buttons
     $(document).on('click', '.btn-browse-media', function() {
         currentInput = $($(this).data('input'));

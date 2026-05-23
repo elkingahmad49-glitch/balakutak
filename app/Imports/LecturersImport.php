@@ -27,13 +27,33 @@ class LecturersImport implements ToModel, WithHeadingRow, WithValidation, SkipsE
             }
         }
 
+        // Sanitize NIP and NIDN
+        $nip = (isset($row['nip']) && trim((string)$row['nip']) !== '') ? trim((string)$row['nip']) : null;
+        $nidn = (isset($row['nidn']) && trim((string)$row['nidn']) !== '') ? trim((string)$row['nidn']) : null;
+
+        if ($nip) {
+            $nip = preg_replace('/\s+/', '', $nip); // Remove spaces
+            // If it is in scientific notation or not numeric, set it to null to prevent duplicates/corrupt data
+            if (str_contains(strtolower($nip), 'e+') || !is_numeric($nip)) {
+                $nip = null;
+            }
+        }
+
+        if ($nidn) {
+            $nidn = preg_replace('/\s+/', '', $nidn); // Remove spaces
+            // If it is in scientific notation or not numeric, set it to null to prevent duplicates/corrupt data
+            if (str_contains(strtolower($nidn), 'e+') || !is_numeric($nidn)) {
+                $nidn = null;
+            }
+        }
+
         // Find existing lecturer by NIP or NIDN to avoid unique violations and support updates
         $existing = null;
-        if (!empty($row['nip'])) {
-            $existing = Lecturer::where('nip', $row['nip'])->first();
+        if (!empty($nip)) {
+            $existing = Lecturer::where('nip', $nip)->first();
         }
-        if (!$existing && !empty($row['nidn'])) {
-            $existing = Lecturer::where('nidn', $row['nidn'])->first();
+        if (!$existing && !empty($nidn)) {
+            $existing = Lecturer::where('nidn', $nidn)->first();
         }
 
         if ($existing) {
@@ -59,8 +79,8 @@ class LecturersImport implements ToModel, WithHeadingRow, WithValidation, SkipsE
 
         return new Lecturer([
             'name' => $row['nama_lengkap'] ?? null,
-            'nip' => $row['nip'] ?? null,
-            'nidn' => $row['nidn'] ?? null,
+            'nip' => $nip,
+            'nidn' => $nidn,
             'type' => strtolower($row['tipe_dosentendik'] ?? '') === 'tendik' ? 'tendik' : 'dosen',
             'academic_title' => $row['jabatan_akademik'] ?? null,
             'functional_position' => $row['jabatan_struktural'] ?? null,

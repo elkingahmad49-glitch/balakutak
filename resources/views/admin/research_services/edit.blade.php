@@ -84,6 +84,7 @@
                                 <div class="form-group mb-4">
                                     <label class="small font-weight-bold text-muted mb-2 text-uppercase">Status Tampil</label>
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                        <input type="hidden" name="is_active" value="0">
                                         <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $researchService->is_active) ? 'checked' : '' }}>
                                         <label class="custom-control-label font-weight-normal" for="is_active">{{ __('admin.active') }} di Website</label>
                                     </div>

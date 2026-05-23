@@ -49,6 +49,7 @@
                         <div class="form-group">
                             <label>Status Aktif</label>
                             <div class="custom-control custom-switch mt-1">
+                                <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" class="custom-control-input @error('is_active') is-invalid @enderror" id="is_active" name="is_active" value="1" {{ old('is_active', $lecturer->is_active) ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="is_active">Aktif di Website</label>
                             </div>

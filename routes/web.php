@@ -57,8 +57,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     Route::resource('pages', PageController::class);
 
     // Categories & Tags
-    Route::resource('categories', CategoryController::class);
-    Route::resource('tags', TagController::class);
+    Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('tags', TagController::class)->except(['show']);
 
     // Announcements
     Route::resource('announcements', AnnouncementController::class);
@@ -99,6 +99,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     // Sliders / Banners
     Route::resource('sliders', SliderController::class);
     Route::patch('sliders/reorder', [SliderController::class , 'reorder'])->name('sliders.reorder');
+    Route::patch('sliders/{slider}/toggle-status', [SliderController::class, 'toggleStatus'])->name('sliders.toggleStatus');
 
     // Partners / Mitra Kerjasama
     Route::patch('partners/{partner}/toggle-status', [PartnerController::class , 'toggleStatus'])->name('partners.toggle-status');

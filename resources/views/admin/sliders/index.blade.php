@@ -49,11 +49,13 @@
                             @endif
                         </td>
                         <td class="align-middle">
-                            @if($slider->is_active)
-                                <span class="badge badge-success">{{ __('admin.active') }}</span>
-                            @else
-                                <span class="badge badge-secondary">{{ __('admin.inactive') }}</span>
-                            @endif
+                            <form action="{{ route('admin.sliders.toggleStatus', $slider) }}" method="POST" class="d-inline">
+                                @csrf @method('PATCH')
+                                <button type="submit" class="btn btn-sm {{ $slider->is_active ? 'btn-success' : 'btn-secondary' }}" title="Klik untuk {{ $slider->is_active ? 'nonaktifkan' : 'aktifkan' }}">
+                                    <i class="fas {{ $slider->is_active ? 'fa-toggle-on' : 'fa-toggle-off' }} me-1"></i>
+                                    {{ $slider->is_active ? __('admin.active') : __('admin.inactive') }}
+                                </button>
+                            </form>
                         </td>
                         <td class="align-middle">
                             <div class="btn-group btn-group-sm">

@@ -43,7 +43,7 @@ class SliderController extends Controller
         $path = $this->handleMedia('image', 'sliders', $slider->title);
         $slider->image = $path ?? 'placeholder.jpg';
         
-        $slider->is_active = $request->boolean('is_active', true);
+        $slider->is_active = $request->has('is_active') ? $request->boolean('is_active') : true;
         $slider->order = $validated['order'] ?? (Slider::max('order') + 1);
         $slider->save();
 
@@ -76,7 +76,7 @@ class SliderController extends Controller
             'button_text' => $validated['button_text'] ?? $slider->button_text,
             'button_url' => $validated['button_url'] ?? $slider->button_url,
             'image' => $path ?? $slider->image,
-            'is_active' => $request->boolean('is_active', true),
+            'is_active' => $request->boolean('is_active'),
             'order' => $validated['order'] ?? $slider->order,
         ]);
 
@@ -91,6 +91,14 @@ class SliderController extends Controller
         $slider->delete();
 
         return back()->with('success', 'Slider berhasil dihapus!');
+    }
+
+    public function toggleStatus(Slider $slider)
+    {
+        $slider->update(['is_active' => !$slider->is_active]);
+
+        $status = $slider->is_active ? 'diaktifkan' : 'dinonaktifkan';
+        return back()->with('success', "Slider berhasil {$status}!");
     }
 
     public function reorder(Request $request)

@@ -73,6 +73,7 @@
                         <label class="col-sm-3 col-form-label">Status</label>
                         <div class="col-sm-9">
                             <div class="custom-control custom-switch mt-2">
+                                <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" name="is_active" class="custom-control-input" id="isActiveSwitch" value="1" {{ $sponsor->is_active ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="isActiveSwitch">Aktifkan sponsor ini</label>
                             </div>

@@ -36,8 +36,8 @@ class LecturerController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:50',
-            'nidn' => 'nullable|string|max:50',
+            'nip' => 'nullable|string|max:50|unique:lecturers,nip',
+            'nidn' => 'nullable|string|max:50|unique:lecturers,nidn',
             'position' => 'nullable|string|max:255',
             'academic_title' => 'nullable|string|max:255',
             'functional_position' => 'nullable|string|max:255',
@@ -81,8 +81,8 @@ class LecturerController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:50',
-            'nidn' => 'nullable|string|max:50',
+            'nip' => 'nullable|string|max:50|unique:lecturers,nip,' . $lecturer->id,
+            'nidn' => 'nullable|string|max:50|unique:lecturers,nidn,' . $lecturer->id,
             'position' => 'nullable|string|max:255',
             'academic_title' => 'nullable|string|max:255',
             'functional_position' => 'nullable|string|max:255',

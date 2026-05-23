@@ -61,6 +61,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-sm-9 offset-sm-3">
                             <div class="custom-control custom-switch">
+                                <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $partner->is_active) ? 'checked' : '' }}>
                                 <label class="custom-control-label font-weight-bold" for="is_active">Tampilkan di Landing Page</label>
                             </div>
