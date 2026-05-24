@@ -356,7 +356,16 @@
                 </div>
             @endif
             <div class="notranslate" translate="no">
-                <div class="fw-bold elegant-brand-title" style="font-size:1.25rem;line-height:1.2; letter-spacing: -0.3px;">{{ \App\Models\Setting::get('site_name', 'Website Prodi') }}</div>
+                <div class="fw-bold elegant-brand-title" style="font-size:1.25rem;line-height:1.2; letter-spacing: -0.3px;">
+                    @php
+                        $siteName = \App\Models\Setting::get('site_name', 'Website Prodi');
+                        $escapedName = e($siteName);
+                        $siteNameDisplay = str_contains($escapedName, 'Program Studi') 
+                            ? str_replace('Program Studi', 'Program Studi<br>', $escapedName) 
+                            : $escapedName;
+                    @endphp
+                    {!! $siteNameDisplay !!}
+                </div>
                 <div class="elegant-brand-subtitle mt-1" style="font-size:.85rem;line-height:1; font-weight: 500;">{{ \App\Models\Setting::get('site_sub_name', '') }}</div>
             </div>
         </a>
