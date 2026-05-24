@@ -113,6 +113,9 @@
             images_upload_url: '{{ route("admin.media.upload") }}',
             relative_urls: false,
             remove_script_host: false,
+            verify_html: false,
+            extended_valid_elements: 'style[*],script[*],iframe[*],div[*],span[*],p[*],a[*],section[*],article[*],footer[*],header[*],nav[*]',
+            valid_children: '+body[style],+div[style],+span[style],+p[style],+section[style],+article[style]',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 if (meta.filetype === 'image') {

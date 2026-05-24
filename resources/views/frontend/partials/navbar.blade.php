@@ -751,11 +751,16 @@
     }
 
     /* Reset styles for any footer elements inside the main content area (e.g. copied/pasted in article editor) */
-    main footer,
-    .post-body footer,
-    .article-content footer,
-    .page-content footer {
+    body.frontend-body main footer,
+    body.frontend-body main .aurora-footer,
+    body.frontend-body .post-body footer,
+    body.frontend-body .post-body .aurora-footer,
+    body.frontend-body .article-content footer,
+    body.frontend-body .article-content .aurora-footer,
+    body.frontend-body .page-content footer,
+    body.frontend-body .page-content .aurora-footer {
         background: transparent !important;
+        background-image: none !important;
         border: none !important;
         padding: 0 !important;
         margin: 2rem 0 0 0 !important;
@@ -763,12 +768,47 @@
         box-shadow: none !important;
         height: auto !important;
         min-height: 0 !important;
+        position: static !important;
+        overflow: visible !important;
     }
-    main footer p,
-    main footer a,
-    main footer span,
-    main footer div {
-        color: inherit !important;
+    
+    body.frontend-body main footer::before,
+    body.frontend-body main footer::after,
+    body.frontend-body main .aurora-footer::before,
+    body.frontend-body main .aurora-footer::after,
+    body.frontend-body .post-body footer::before,
+    body.frontend-body .post-body footer::after,
+    body.frontend-body .post-body .aurora-footer::before,
+    body.frontend-body .post-body .aurora-footer::after,
+    body.frontend-body .article-content footer::before,
+    body.frontend-body .article-content footer::after,
+    body.frontend-body .article-content .aurora-footer::before,
+    body.frontend-body .article-content .aurora-footer::after,
+    body.frontend-body .page-content footer::before,
+    body.frontend-body .page-content footer::after,
+    body.frontend-body .page-content .aurora-footer::before,
+    body.frontend-body .page-content .aurora-footer::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    body.frontend-body main footer *,
+    body.frontend-body main .aurora-footer *,
+    body.frontend-body .post-body footer *,
+    body.frontend-body .post-body .aurora-footer *,
+    body.frontend-body .article-content footer *,
+    body.frontend-body .article-content .aurora-footer *,
+    body.frontend-body .page-content footer *,
+    body.frontend-body .page-content .aurora-footer * {
         background: transparent !important;
+        background-image: none !important;
+        color: inherit !important;
+        border: none !important;
+        box-shadow: none !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        position: static !important;
     }
 </style>

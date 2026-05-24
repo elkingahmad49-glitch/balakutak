@@ -303,7 +303,7 @@
                     <span class="section-label text-primary">{{ __('Detail Institusi') }}</span>
                     <div class="gradient-bar"></div>
                     <p class="text-secondary fs-5 lh-lg mb-0" style="text-align:justify;">
-                        {!! $aboutInstitution !!}
+                        @safeHtml($aboutInstitution)
                     </p>
                 </div>
             </div>
@@ -348,7 +348,7 @@
                         <div>
                             <h4 class="aurora-leader-name mb-1">{{ $headName }}</h4>
                             <div class="aurora-leader-badge">
-                                <i class="fas fa-award me-1"></i>{!! \App\Models\Setting::get('greeting_position', 'Ketua Program Studi') !!}
+                                <i class="fas fa-award me-1"></i>{{ \App\Models\Setting::get('greeting_position', 'Ketua Program Studi') }}
                             </div>
                         </div>
                     </div>
@@ -356,7 +356,7 @@
                     <div class="aurora-quote-box position-relative">
                         <i class="fas fa-quote-left aurora-quote-icon"></i>
                         <div class="aurora-quote-text lh-lg" style="text-align:justify;">
-                            {!! $greeting !!}
+                            @safeHtml($greeting)
                         </div>
                         
                         <div class="mt-4 pt-3">
@@ -405,7 +405,7 @@
                 <div class="vm-card vision-card h-100">
                     <div class="vm-icon"><i class="fas fa-eye"></i></div>
                     <h3 class="fw-bold mb-3">{{ __('Visi') }}</h3>
-                    <p class="opacity-85 lh-lg mb-0" style="text-align:justify;">{!! $vision !!}</p>
+                    <p class="opacity-85 lh-lg mb-0" style="text-align:justify;">@safeHtml($vision)</p>
                     <div class="deco-circle"></div>
                 </div>
             </div>
@@ -415,7 +415,7 @@
                 <div class="vm-card mission-card h-100">
                     <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
                     <h3 class="fw-bold mb-3 text-dark">{{ __('Misi') }}</h3>
-                    <div class="text-secondary lh-lg" style="text-align:justify;">{!! $mission !!}</div>
+                    <div class="text-secondary lh-lg" style="text-align:justify;">@safeHtml($mission)</div>
                     <div class="deco-circle" style="background:#1a56a0;"></div>
                 </div>
             </div>
