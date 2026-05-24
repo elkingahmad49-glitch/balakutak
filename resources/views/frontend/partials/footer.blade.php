@@ -22,6 +22,7 @@
                         <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white shadow-sm" style="width:45px;height:45px">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
+                    @endif
                     @php
                         $layout = \App\Models\Setting::get('site_name_layout', '1');
                         if ($layout == '2') {
