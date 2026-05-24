@@ -53,24 +53,7 @@
             <div class="col-12">
                 <article class="article-content bg-white p-4 p-md-5 rounded-4 shadow-sm" data-aos="fade-up">
 
-                    {{-- Author & Navigation (In front of text) --}}
-                    <div class="float-lg-end ms-lg-5 mb-4 px-3 px-lg-0" style="width: 100%; max-width: 300px; z-index: 10; position: relative;" data-aos="fade-left">
-                        
-                        <div class="bg-white rounded-4 shadow p-4 mb-4 text-center border-0" style="border-radius: 20px !important;">
-                            <img src="https://ui-avatars.com/api/?name={{ urlencode($post->user->name) }}&background=0D6EFD&color=fff&size=128" class="rounded-circle shadow-sm mx-auto mb-3" width="80" style="border: 3px solid #fff;">
-                            <h5 class="fw-bold mb-1" style="font-size: 1.1rem; color: #333;">{{ $post->user->name }}</h5>
-                            <p class="text-muted small mb-0" style="font-size: 0.85rem;">Penulis / Administrator</p>
-                        </div>
 
-                        <div class="bg-white rounded-4 shadow p-4 text-center d-grid gap-3 border-0" style="border-radius: 20px !important;">
-                            <a href="{{ route('posts.index') }}" class="btn btn-outline-secondary rounded-pill fw-medium d-flex justify-content-center align-items-center gap-2" style="border-color: #6c757d; color: #495057;">
-                                <i class="fas fa-list"></i> Kembali ke Daftar
-                            </a>
-                            <a href="{{ route('home') }}" class="btn btn-primary rounded-pill fw-medium d-flex justify-content-center align-items-center gap-2" style="background-color: #0d6efd; border: none;">
-                                <i class="fas fa-home"></i> Halaman Utama
-                            </a>
-                        </div>
-                    </div>
                     
                     {{-- Excerpt --}}
                     @if($post->excerpt)
@@ -163,6 +146,15 @@
 <style>
     .post-body {
         position: relative;
+    }
+    
+    /* Pastikan seluruh elemen block di dalam artikel (termasuk visual grid/kustom) */
+    /* tidak menabrak/slide ke bawah floated author/navigation card di layar desktop */
+    @media (min-width: 992px) {
+        .post-body > * {
+            display: flow-root;
+            clear: none;
+        }
     }
     
     .post-body p:has(img), .post-body p > img {
