@@ -638,8 +638,13 @@
                         @foreach($testimonials as $testimonial)
                         <div class="swiper-slide h-auto">
                             <div class="lux-testimonial-card bg-white p-5 text-center transition-all h-100 border border-light d-flex flex-column">
-                                <div class="lux-quote-icon mb-4">
+                                <div class="lux-quote-icon mb-2">
                                     <i class="fas fa-quote-left text-theme-accent opacity-50" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="mb-3 text-warning">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="fa-solid fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted opacity-25' }}" style="font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free' !important; font-weight: 900 !important; color: {{ $i <= $testimonial->rating ? '#ffc107' : 'inherit' }};"></i>
+                                    @endfor
                                 </div>
                                 <p class="lux-testimonial-text mb-4 italic text-navy" style="font-size: 1.1rem; line-height: 1.8; font-family: 'Crimson Pro', serif; font-style: italic;">
                                     "{{ $testimonial->content }}"
@@ -683,7 +688,12 @@
                                     @endif
                                     <div>
                                         <h6 class="fw-bold mb-0 text-dark">{{ $testimonial->name }}</h6>
-                                        <small class="text-muted">{{ $testimonial->position }}</small>
+                                        <small class="text-muted d-block">{{ $testimonial->position }}</small>
+                                        <div class="mt-1 text-warning" style="font-size: 0.85rem;">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                <i class="fa-solid fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted opacity-25' }}" style="font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free' !important; font-weight: 900 !important; color: {{ $i <= $testimonial->rating ? '#ffc107' : 'inherit' }};"></i>
+                                            @endfor
+                                        </div>
                                     </div>
                                 </div>
                                 <p class="mb-0 text-muted italic small"><i class="fas fa-quote-left me-2 text-primary opacity-50"></i>{{ $testimonial->content }}</p>
