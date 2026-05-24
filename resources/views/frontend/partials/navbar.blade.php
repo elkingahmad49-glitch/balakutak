@@ -749,4 +749,26 @@
     body[class*="theme-oxford-"] .aurora-cta-title {
         font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
     }
+
+    /* Reset styles for any footer elements inside the main content area (e.g. copied/pasted in article editor) */
+    main footer,
+    .post-body footer,
+    .article-content footer,
+    .page-content footer {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 2rem 0 0 0 !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        height: auto !important;
+        min-height: 0 !important;
+    }
+    main footer p,
+    main footer a,
+    main footer span,
+    main footer div {
+        color: inherit !important;
+        background: transparent !important;
+    }
 </style>
