@@ -55,8 +55,23 @@
                         <textarea name="excerpt" rows="2" class="form-control" placeholder="Ringkasan singkat artikel...">{{ old('excerpt', $post->excerpt ?? '') }}</textarea>
                     </div>
                     <div class="form-group">
-                        <label class="fw-semibold">Isi Artikel <span class="text-danger">*</span></label>
-                        <textarea name="content" id="contentEditor" class="form-control @error('content') is-invalid @enderror content-editor" rows="15">{{ old('content', $post->content ?? '') }}</textarea>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <label class="fw-semibold mb-0">Isi Artikel <span class="text-danger">*</span></label>
+                            
+                            <div class="btn-group btn-group-sm" role="group" aria-label="Editor Mode">
+                                <button type="button" class="btn btn-primary active" id="btn-mode-visual">
+                                    <i class="fas fa-eye mr-1"></i> Visual
+                                </button>
+                                <button type="button" class="btn btn-outline-primary" id="btn-mode-code">
+                                    <i class="fas fa-code mr-1"></i> Code (HTML)
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="editor-wrapper">
+                            <textarea name="content" id="contentEditor" class="form-control @error('content') is-invalid @enderror content-editor" rows="15">{{ old('content', $post->content ?? '') }}</textarea>
+                            <textarea id="codeEditor" class="form-control" style="display: none; height: 600px; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e293b; color: #f8fafc; caret-color: #ffffff; border: 1px solid #475569; border-radius: 8px; padding: 1rem; line-height: 1.5; resize: vertical; direction: ltr; text-align: left;" placeholder="Tulis kode HTML di sini..."></textarea>
+                        </div>
                         @error('content') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
@@ -367,6 +382,83 @@ $(document).ready(function() {
     $('#tagsSelect').select2({ theme: 'default', width: '100%', tags: true, tokenSeparators: [','] });
     
     if(typeof bsCustomFileInput !== 'undefined') bsCustomFileInput.init();
+
+    // Tab Visual / Code toggles
+    const btnVisual = document.getElementById('btn-mode-visual');
+    const btnCode = document.getElementById('btn-mode-code');
+    const codeEditor = document.getElementById('codeEditor');
+    const contentEditor = document.getElementById('contentEditor');
+    let currentMode = 'visual';
+
+    if (btnVisual && btnCode && codeEditor) {
+        btnVisual.addEventListener('click', function () {
+            if (currentMode === 'visual') return;
+            
+            const codeVal = codeEditor.value;
+            const editor = tinymce.get('contentEditor');
+            if (editor) {
+                editor.setContent(codeVal);
+            } else {
+                contentEditor.value = codeVal;
+            }
+            
+            codeEditor.style.display = 'none';
+            const tinymceContainer = document.querySelector('.tox-tinymce');
+            if (tinymceContainer) {
+                tinymceContainer.style.display = 'flex';
+            }
+            
+            btnVisual.classList.add('btn-primary', 'active');
+            btnVisual.classList.remove('btn-outline-primary');
+            btnCode.classList.remove('btn-primary', 'active');
+            btnCode.classList.add('btn-outline-primary');
+            
+            currentMode = 'visual';
+        });
+
+        btnCode.addEventListener('click', function () {
+            if (currentMode === 'code') return;
+            
+            let htmlVal = '';
+            const editor = tinymce.get('contentEditor');
+            if (editor) {
+                htmlVal = editor.getContent();
+            } else {
+                htmlVal = contentEditor.value;
+            }
+            
+            codeEditor.value = htmlVal;
+            
+            const tinymceContainer = document.querySelector('.tox-tinymce');
+            if (tinymceContainer) {
+                tinymceContainer.style.display = 'none';
+            }
+            codeEditor.style.display = 'block';
+            
+            btnCode.classList.add('btn-primary', 'active');
+            btnCode.classList.remove('btn-outline-primary');
+            btnVisual.classList.remove('btn-primary', 'active');
+            btnVisual.classList.add('btn-outline-primary');
+            
+            currentMode = 'code';
+        });
+
+        const form = btnVisual.closest('form');
+        if (form) {
+            form.addEventListener('submit', function () {
+                if (currentMode === 'code') {
+                    const codeVal = codeEditor.value;
+                    const editor = tinymce.get('contentEditor');
+                    if (editor) {
+                        editor.setContent(codeVal);
+                        editor.save();
+                    } else {
+                        contentEditor.value = codeVal;
+                    }
+                }
+            });
+        }
+    }
 });
 </script>
 @stop
