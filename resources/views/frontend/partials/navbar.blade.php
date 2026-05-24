@@ -632,4 +632,19 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
+
+    /* Fix for Stanford themes menu overlapping with announcement bar */
+    [class*="theme-stanford-grow-"] #main-navbar.elegant-navbar:not(.scrolled) {
+        position: relative !important;
+        top: 0 !important;
+        background: var(--p-dark) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+    .dark [class*="theme-stanford-grow-"] #main-navbar.elegant-navbar:not(.scrolled) {
+        background: #2e2d29 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-content {
+        padding-top: 60px !important;
+    }
 </style>
