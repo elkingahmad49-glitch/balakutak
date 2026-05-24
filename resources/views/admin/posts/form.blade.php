@@ -70,7 +70,7 @@
                         
                         <div id="editor-wrapper">
                             <textarea name="content" id="contentEditor" class="form-control @error('content') is-invalid @enderror content-editor" rows="15">{{ old('content', $post->content ?? '') }}</textarea>
-                            <textarea id="codeEditor" class="form-control" style="display: none; height: 600px; font-family: 'Courier New', Courier, monospace; font-size: 14px; background-color: #1e293b; color: #f8fafc; caret-color: #ffffff; border: 1px solid #475569; border-radius: 8px; padding: 1rem; line-height: 1.5; resize: vertical; direction: ltr; text-align: left;" placeholder="Tulis kode HTML di sini..."></textarea>
+                            <textarea id="codeEditor" class="form-control" rows="25" style="display: none; height: 600px !important; min-height: 600px !important; font-family: 'Courier New', Courier, monospace !important; font-size: 14px !important; background-color: #1e293b !important; color: #f8fafc !important; caret-color: #ffffff !important; border: 1px solid #475569 !important; border-radius: 8px !important; padding: 1rem !important; line-height: 1.5 !important; resize: vertical !important; direction: ltr !important; text-align: left !important;" placeholder="Tulis kode HTML di sini..."></textarea>
                         </div>
                         @error('content') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
