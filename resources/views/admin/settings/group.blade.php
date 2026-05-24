@@ -40,9 +40,32 @@
                     <div class="card-body">
                         @if($currentGroup == 'general')
                             <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Format Nama Website</label>
+                                <div class="col-sm-9">
+                                    <select name="site_name_layout" id="site_name_layout" class="form-control">
+                                        <option value="1" {{ ($settings['site_name_layout'] ?? '1') == '1' ? 'selected' : '' }}>1 Baris</option>
+                                        <option value="2" {{ ($settings['site_name_layout'] ?? '1') == '2' ? 'selected' : '' }}>2 Baris</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row" id="container_site_name_1">
                                 <label class="col-sm-3 col-form-label">Nama Website / Institusi</label>
                                 <div class="col-sm-9">
                                     <input type="text" name="site_name" class="form-control" value="{{ $settings['site_name'] ?? '' }}">
+                                </div>
+                            </div>
+                            <div id="container_site_name_2" style="display: none;">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Website - Baris 1</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="site_name_line1" class="form-control" value="{{ $settings['site_name_line1'] ?? '' }}">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nama Website - Baris 2</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="site_name_line2" class="form-control" value="{{ $settings['site_name_line2'] ?? '' }}">
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -820,3 +843,45 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 @endpush
 @endif
+
+@if($currentGroup == 'general')
+@push('js')
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const layoutSelect = document.getElementById('site_name_layout');
+    const container1 = document.getElementById('container_site_name_1');
+    const container2 = document.getElementById('container_site_name_2');
+    const siteNameInput = document.querySelector('input[name="site_name"]');
+    const line1Input = document.querySelector('input[name="site_name_line1"]');
+    const line2Input = document.querySelector('input[name="site_name_line2"]');
+    
+    if (layoutSelect && container1 && container2) {
+        function toggleLayout() {
+            if (layoutSelect.value === '2') {
+                container1.style.display = 'none';
+                container2.style.display = 'block';
+            } else {
+                container1.style.display = 'flex';
+                container2.style.display = 'none';
+            }
+        }
+        
+        layoutSelect.addEventListener('change', toggleLayout);
+        toggleLayout();
+        
+        const form = layoutSelect.closest('form');
+        if (form) {
+            form.addEventListener('submit', function () {
+                if (layoutSelect.value === '2') {
+                    const l1 = (line1Input.value || '').trim();
+                    const l2 = (line2Input.value || '').trim();
+                    siteNameInput.value = (l1 + ' ' + l2).trim();
+                }
+            });
+        }
+    }
+});
+</script>
+@endpush
+@endif
+

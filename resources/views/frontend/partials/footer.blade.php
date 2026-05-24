@@ -22,8 +22,17 @@
                         <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white shadow-sm" style="width:45px;height:45px">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                    @endif
-                    <div class="footer-heading mb-0">{{ \App\Models\Setting::get('site_name', 'Program Studi') }}</div>
+                    @php
+                        $layout = \App\Models\Setting::get('site_name_layout', '1');
+                        if ($layout == '2') {
+                            $line1 = \App\Models\Setting::get('site_name_line1', '');
+                            $line2 = \App\Models\Setting::get('site_name_line2', '');
+                            $footerSiteName = e($line1) . '<br>' . e($line2);
+                        } else {
+                            $footerSiteName = e(\App\Models\Setting::get('site_name', 'Program Studi'));
+                        }
+                    @endphp
+                    <div class="footer-heading mb-0">{!! $footerSiteName !!}</div>
                 </div>
                 <p class="small mb-3 lh-lg" style="color:#94a3b8">{{ \App\Models\Setting::get('site_sub_name', '') }}</p>
                 <div class="d-flex gap-2">

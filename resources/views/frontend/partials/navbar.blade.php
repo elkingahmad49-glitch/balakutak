@@ -358,11 +358,18 @@
             <div class="notranslate" translate="no">
                 <div class="fw-bold elegant-brand-title" style="font-size:1.25rem;line-height:1.2; letter-spacing: -0.3px;">
                     @php
-                        $siteName = \App\Models\Setting::get('site_name', 'Website Prodi');
-                        $escapedName = e($siteName);
-                        $siteNameDisplay = str_contains($escapedName, 'Program Studi') 
-                            ? str_replace('Program Studi', 'Program Studi<br>', $escapedName) 
-                            : $escapedName;
+                        $layout = \App\Models\Setting::get('site_name_layout', '1');
+                        if ($layout == '2') {
+                            $line1 = \App\Models\Setting::get('site_name_line1', '');
+                            $line2 = \App\Models\Setting::get('site_name_line2', '');
+                            $siteNameDisplay = e($line1) . '<br>' . e($line2);
+                        } else {
+                            $siteName = \App\Models\Setting::get('site_name', 'Website Prodi');
+                            $escapedName = e($siteName);
+                            $siteNameDisplay = str_contains($escapedName, 'Program Studi') 
+                                ? str_replace('Program Studi', 'Program Studi<br>', $escapedName) 
+                                : $escapedName;
+                        }
                     @endphp
                     {!! $siteNameDisplay !!}
                 </div>

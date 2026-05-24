@@ -43,7 +43,17 @@
                             </div>
                         @empty
                             <div class="swiper-slide">
-                                <h1 class="aurora-title">{{ \App\Models\Setting::get('site_name') }}</h1>
+                                @php
+                                    $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                    if ($layout == '2') {
+                                        $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                        $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                        $homeSiteName = e($line1) . '<br>' . e($line2);
+                                    } else {
+                                        $homeSiteName = e(\App\Models\Setting::get('site_name'));
+                                    }
+                                @endphp
+                                <h1 class="aurora-title">{!! $homeSiteName !!}</h1>
                                 <p class="aurora-desc">{{ \App\Models\Setting::get('site_tagline') }}</p>
                                 <a href="{{ route('about') }}" class="aurora-cta">
                                     {{ __('Selengkapnya') }} <i class="fas fa-arrow-right"></i>
@@ -151,7 +161,17 @@
                                     <div class="col-xl-10 mx-auto">
                                         <div class="lux-hero-content" data-aos="fade-right">
                                             <span class="lux-hero-tagline">{{ \App\Models\Setting::get('site_abbreviation', 'PREMIUM EDUCATION') }}</span>
-                                            <h1 class="lux-hero-title mb-4">{{ \App\Models\Setting::get('site_name', 'Oxford Excellence') }}</h1>
+                                             @php
+                                                 $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                                 if ($layout == '2') {
+                                                     $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                                     $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                                     $luxHeroTitle = e($line1) . '<br>' . e($line2);
+                                                 } else {
+                                                     $luxHeroTitle = e(\App\Models\Setting::get('site_name', 'Oxford Excellence'));
+                                                 }
+                                             @endphp
+                                             <h1 class="lux-hero-title mb-4">{!! $luxHeroTitle !!}</h1>
                                             <p class="lux-hero-desc mb-5">{{ \App\Models\Setting::get('site_tagline', 'Developing the leaders of tomorrow through world-class academic programs and professional excellence.') }}</p>
                                             
                                             <div class="d-flex flex-wrap gap-3">
@@ -265,7 +285,17 @@
                             <span class="badge-theme-pill mb-4 d-inline-block px-4 py-2 uppercase tracking-widest" data-aos="fade-down" data-aos-delay="200">{{ $siteAbbr }}</span>
                             
                             <h1 class="hero-title display-3 fw-bold text-white mb-4 notranslate" translate="no" data-aos="fade-up" data-aos-delay="300">
-                                {{ \App\Models\Setting::get('site_name', __('menu.home_fallback_title')) }}
+                                @php
+                                    $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                    if ($layout == '2') {
+                                        $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                        $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                        $defaultHeroTitle = e($line1) . '<br>' . e($line2);
+                                    } else {
+                                        $defaultHeroTitle = e(\App\Models\Setting::get('site_name', __('menu.home_fallback_title')));
+                                    }
+                                @endphp
+                                {!! $defaultHeroTitle !!}
                             </h1>
                             
                             <div class="hero-divider-premium mx-auto mb-4" data-aos="stretch-width" data-aos-delay="400"></div>
