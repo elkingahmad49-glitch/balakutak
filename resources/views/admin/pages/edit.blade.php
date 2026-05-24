@@ -116,7 +116,7 @@
             remove_script_host: false,
             verify_html: false,
             extended_valid_elements: 'style[*],script[*],iframe[*],div[*],span[*],p[*],a[*],section[*],article[*],footer[*],header[*],nav[*]',
-            valid_children: '+body[style],+div[style],+span[style],+p[style],+section[style],+article[style]',
+            valid_children: '+body[style|script],+div[style|script],+span[style|script],+p[style|script],+section[style|script],+article[style|script],+header[style|script],+footer[style|script],+aside[style|script],+nav[style|script]',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 if (meta.filetype === 'image') {
