@@ -647,4 +647,68 @@
     [class*="theme-stanford-grow-"] .hero-content {
         padding-top: 60px !important;
     }
+
+    /* Softer and smaller typography for Stanford and Oxford themes */
+    
+    /* Stanford Themes overrides */
+    [class*="theme-stanford-grow-"] h1,
+    [class*="theme-stanford-grow-"] h2,
+    [class*="theme-stanford-grow-"] h3,
+    [class*="theme-stanford-grow-"] h4,
+    [class*="theme-stanford-grow-"] h5,
+    [class*="theme-stanford-grow-"] h6,
+    [class*="theme-stanford-grow-"] .elegant-brand-title {
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-title {
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-subtitle {
+        font-size: 0.9rem !important;
+        opacity: 0.8 !important;
+    }
+    [class*="theme-stanford-grow-"] .section-title,
+    [class*="theme-stanford-grow-"] .lux-section-header .lux-section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        font-weight: 600 !important;
+        letter-spacing: -0.5px !important;
+    }
+    [class*="theme-stanford-grow-"] .display-4 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .elegant-brand-title {
+        font-size: 1.35rem !important;
+    }
+
+    /* Oxford Themes overrides */
+    [class*="theme-oxford-"] h1,
+    [class*="theme-oxford-"] h2,
+    [class*="theme-oxford-"] h3,
+    [class*="theme-oxford-"] h4,
+    [class*="theme-oxford-"] h5,
+    [class*="theme-oxford-"] h6 {
+        font-weight: 600 !important;
+    }
+    [class*="theme-oxford-"] .lux-hero-title {
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem) !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+    }
+    [class*="theme-oxford-"] .lux-hero-desc {
+        font-size: 1.05rem !important;
+    }
+    [class*="theme-oxford-"] .lux-section-title {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-oxford-"] .display-4 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-oxford-"] .elegant-brand-title {
+        font-size: 1.35rem !important;
+        font-weight: 600 !important;
+    }
 </style>
