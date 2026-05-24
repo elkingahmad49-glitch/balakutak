@@ -81,7 +81,7 @@
 
                     {{-- Body --}}
                     <div class="post-body lh-lg" style="font-size: 1.1rem; text-align: justify;">
-                        {!! $post->content !!}
+                        @safeHtml($post->content)
                     </div>
 
                     {{-- Tags --}}

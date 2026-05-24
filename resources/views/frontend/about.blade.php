@@ -318,7 +318,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-9 fs-5 text-secondary" data-aos="fade-up" style="text-align:justify;">
-                {!! $page->content !!}
+                @safeHtml($page->content)
             </div>
         </div>
     </div>

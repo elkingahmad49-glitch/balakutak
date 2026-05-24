@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="text-dark leading-relaxed mb-5">
-                            {!! $event->description !!}
+                            @safeHtml($event->description)
                         </div>
 
                         @if($event->online_url)
