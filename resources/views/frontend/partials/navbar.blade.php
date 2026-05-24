@@ -699,32 +699,54 @@
     }
 
     /* Oxford Themes overrides */
-    [class*="theme-oxford-"] h1,
-    [class*="theme-oxford-"] h2,
-    [class*="theme-oxford-"] h3,
-    [class*="theme-oxford-"] h4,
-    [class*="theme-oxford-"] h5,
-    [class*="theme-oxford-"] h6 {
-        font-weight: 600 !important;
+    body[class*="theme-oxford-"] h1,
+    body[class*="theme-oxford-"] h2,
+    body[class*="theme-oxford-"] h3,
+    body[class*="theme-oxford-"] h4,
+    body[class*="theme-oxford-"] h5,
+    body[class*="theme-oxford-"] h6 {
+        font-weight: 650 !important;
     }
-    [class*="theme-oxford-"] .lux-hero-title {
-        font-size: clamp(1.8rem, 4.5vw, 2.8rem) !important;
+    body[class*="theme-oxford-"] .elegant-brand-title {
+        font-size: 1.15rem !important;
         font-weight: 600 !important;
         line-height: 1.2 !important;
     }
-    [class*="theme-oxford-"] .lux-hero-desc {
-        font-size: 1.05rem !important;
+    body[class*="theme-oxford-"] .elegant-brand-subtitle {
+        font-size: 0.8rem !important;
+        font-weight: 400 !important;
+        opacity: 0.85 !important;
     }
-    [class*="theme-oxford-"] .lux-section-title {
-        font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important;
+    body[class*="theme-oxford-"] .main-nav-link {
+        font-size: 0.95rem !important;
         font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
     }
-    [class*="theme-oxford-"] .display-4 {
+    body[class*="theme-oxford-"] .lux-hero-title {
+        font-size: clamp(1.8rem, 4vw, 2.6rem) !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1.5rem !important;
+    }
+    body[class*="theme-oxford-"] .lux-hero-desc {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+    }
+    body[class*="theme-oxford-"] .lux-section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        font-weight: 700 !important;
+    }
+    body[class*="theme-oxford-"] .display-4,
+    body[class*="theme-oxford-"] .page-header-premium h1 {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem) !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.5px !important;
+    }
+    body[class*="theme-oxford-"] .page-header-premium {
+        padding: 5rem 0 !important;
+    }
+    body[class*="theme-oxford-"] .aurora-cta-title {
         font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
-        font-weight: 600 !important;
-    }
-    [class*="theme-oxford-"] .elegant-brand-title {
-        font-size: 1.35rem !important;
-        font-weight: 600 !important;
     }
 </style>
