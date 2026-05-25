@@ -53,4 +53,40 @@ class Event extends Model
     {
         return 'slug';
     }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->slug = self::generateUniqueSlug($model->slug ?: \Illuminate\Support\Str::slug($model->title), $model->id);
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty('title') || $model->isDirty('slug')) {
+                $base = $model->isDirty('slug') ? $model->slug : \Illuminate\Support\Str::slug($model->title);
+                $model->slug = self::generateUniqueSlug($base, $model->id);
+            }
+        });
+    }
+
+    private static function generateUniqueSlug($titleOrSlug, $id = null)
+    {
+        $slug = \Illuminate\Support\Str::slug($titleOrSlug);
+        $slug = \Illuminate\Support\Str::limit($slug, 240, '');
+        $originalSlug = $slug;
+        $count = 2;
+
+        $query = self::query();
+        if (in_array(\Illuminate\Database\Eloquent\SoftDeletes::class, class_uses_recursive(self::class))) {
+            $query->withTrashed();
+        }
+
+        while ($query->clone()->where('slug', $slug)->where('id', '!=', $id)->exists()) {
+            $suffix = '-' . $count++;
+            $slug = \Illuminate\Support\Str::limit($originalSlug, 255 - strlen($suffix), '') . $suffix;
+        }
+
+        return $slug;
+    }
 }

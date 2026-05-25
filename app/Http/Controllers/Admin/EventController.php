@@ -67,14 +67,7 @@ class EventController extends Controller
 
             Log::info('Event Validation Passed');
 
-            $baseSlug = Str::slug($validated['title']);
-            $slug = $baseSlug;
-            $i = 1;
-            
-            // This query might fail if DB is unstable
-            while (Event::withTrashed()->where('slug', $slug)->exists()) {
-                $slug = $baseSlug . '-' . $i++;
-            }
+            $slug = Str::slug($validated['title']);
 
             Log::info('Generated Slug: ' . $slug);
 

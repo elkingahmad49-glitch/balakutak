@@ -13,6 +13,17 @@ class Announcement extends Model
         'is_published', 'expire_date', 'language',
     ];
 
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->slug)) {
+                $model->slug = \Illuminate\Support\Str::slug($model->title) . '-' . \Illuminate\Support\Str::random(5);
+            }
+        });
+    }
+
     protected $casts = [
         'is_published' => 'boolean',
         'expire_date' => 'date',

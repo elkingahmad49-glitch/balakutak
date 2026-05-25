@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+use App\Models\Event;
+
 class SlugUniquenessTest extends TestCase
 {
     use RefreshDatabase;
@@ -108,5 +110,38 @@ class SlugUniquenessTest extends TestCase
         ]);
         $post3->update(['title' => 'Berita Utama Hari Ini']);
         $this->assertEquals('berita-utama-hari-ini-3', $post3->slug);
+    }
+
+    public function test_event_slug_uniqueness()
+    {
+        $event1 = Event::create([
+            'user_id' => $this->user->id,
+            'title' => 'Workshop IT Modern 2026',
+            'description' => 'Deskripsi event 1',
+            'location' => 'Kampus Utama',
+            'start_date' => now()->addDays(5),
+        ]);
+
+        $event2 = Event::create([
+            'user_id' => $this->user->id,
+            'title' => 'Workshop IT Modern 2026',
+            'description' => 'Deskripsi event 2',
+            'location' => 'Kampus Utama',
+            'start_date' => now()->addDays(5),
+        ]);
+
+        $this->assertEquals('workshop-it-modern-2026', $event1->slug);
+        $this->assertEquals('workshop-it-modern-2026-2', $event2->slug);
+
+        // Update to match
+        $event3 = Event::create([
+            'user_id' => $this->user->id,
+            'title' => 'Seminar Berbeda',
+            'description' => 'Deskripsi',
+            'location' => 'Online',
+            'start_date' => now()->addDays(10),
+        ]);
+        $event3->update(['title' => 'Workshop IT Modern 2026']);
+        $this->assertEquals('workshop-it-modern-2026-3', $event3->slug);
     }
 }
