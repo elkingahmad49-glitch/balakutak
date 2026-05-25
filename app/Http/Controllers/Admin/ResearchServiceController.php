@@ -21,7 +21,7 @@ class ResearchServiceController extends Controller
                                                  ->orWhere('author', 'like', "%{$request->search}%"))
             ->when($request->type, fn($q) => $q->where('type', $request->type));
 
-        $data = $query->latest()->paginate(15)->withQueryString();
+        $data = $query->orderBy('year', 'desc')->latest()->paginate(15)->withQueryString();
 
         return view('admin.research_services.index', compact('data'));
     }
