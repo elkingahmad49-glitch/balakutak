@@ -60,8 +60,12 @@
                     <tr>
                         <td class="px-4 py-3">
                             <div class="d-flex align-items-center">
-                                <div class="icon-box me-3 bg-light text-warning shadow-sm">
-                                    <i class="{{ $service->icon ?: 'fas fa-link' }}"></i>
+                                <div class="icon-box me-3 bg-light text-warning shadow-sm d-flex align-items-center justify-content-center">
+                                    @if($service->icon && (Str::contains($service->icon, '/') || Str::contains($service->icon, '.')))
+                                        <img src="{{ asset('storage/' . $service->icon) }}" alt="icon" style="max-height: 28px; max-width: 28px; object-fit: contain;">
+                                    @else
+                                        <i class="{{ $service->icon ?: 'fas fa-link' }}"></i>
+                                    @endif
                                 </div>
                                 <div>
                                     <div class="text-dark fw-bold" style="font-size: 1rem;">{{ $service->title }}</div>
