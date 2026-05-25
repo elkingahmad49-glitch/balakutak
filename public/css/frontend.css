@@ -1628,3 +1628,14 @@ html.dark .acc-btn:hover {
     background: rgba(255, 255, 255, 0.15) !important;
     transform: translateY(-5px) !important;
 }
+
+/* Aurora CTA Section Pointer Fixes & Z-Index Layering */
+.aurora-cta-section .container {
+    position: relative;
+    z-index: 10 !important;
+}
+.aurora-cta-bg-glow,
+.aurora-cta-pattern,
+.aurora-cta-blob {
+    pointer-events: none !important;
+}
