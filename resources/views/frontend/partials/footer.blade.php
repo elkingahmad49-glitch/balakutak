@@ -60,24 +60,47 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-heading">{{ __('Link Cepat') }}</div>
                 <div class="row g-0">
-                    <div class="col-6">
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2"><a href="{{ route('home') }}">{{ __('menu.home') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('about') }}">{{ __('menu.about_prodi') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('academic') }}">{{ __('menu.academic') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('curriculum') }}">{{ __('menu.curriculum') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('calendar') }}">{{ __('menu.calendar') }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2"><a href="{{ route('research') }}">{{ __('menu.research') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('community') }}">{{ __('menu.community') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('gallery.index') }}">{{ __('menu.gallery') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('events.index') }}">{{ __('menu.agenda') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('contact.index') }}">{{ __('menu.contact') }}</a></li>
-                        </ul>
-                    </div>
+                    @if(isset($sharedMenus['footer-menu']) && $sharedMenus['footer-menu']->items->count() > 0)
+                        @php
+                            $items = $sharedMenus['footer-menu']->items;
+                            $count = $items->count();
+                            $half = ceil($count / 2);
+                            $chunks = $items->chunk($half);
+                        @endphp
+                        @foreach($chunks as $chunk)
+                            <div class="col-6">
+                                <ul class="list-unstyled small mb-0">
+                                    @foreach($chunk as $item)
+                                        <li class="mb-2">
+                                            <a href="{{ $item->resolved_url }}" target="{{ $item->target }}">
+                                                @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                                                {{ $item->label }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="col-6">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><a href="{{ route('home') }}">{{ __('menu.home') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('about') }}">{{ __('menu.about_prodi') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('academic') }}">{{ __('menu.academic') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('curriculum') }}">{{ __('menu.curriculum') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('calendar') }}">{{ __('menu.calendar') }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><a href="{{ route('research') }}">{{ __('menu.research') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('community') }}">{{ __('menu.community') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('gallery.index') }}">{{ __('menu.gallery') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('events.index') }}">{{ __('menu.agenda') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('contact.index') }}">{{ __('menu.contact') }}</a></li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
 
