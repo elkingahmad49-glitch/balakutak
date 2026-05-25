@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             PostSeeder::class,
             TestimonialSeeder::class,
             PartnerSeeder::class,
+            SponsorSeeder::class,
             MenuSeeder::class,
         ]);
     }

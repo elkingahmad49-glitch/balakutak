@@ -43,7 +43,7 @@
             <img src="{{ $siteLogoLightUrl }}" alt="{{ $siteName }}" class="img-fluid px-3 logo-for-light" style="max-height: 50px; opacity: 0.9;">
             <div class="mt-3">
                 <span class="adminlte-version-text badge rounded-pill" style="font-size: 0.8rem; letter-spacing: 0.5px; font-weight: 600; background-color: rgba(255,255,255,0.1); padding: 5px 12px; border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8);">
-                    Version 1.0
+                    Version 2.0.1
                 </span>
             </div>
         </div>

@@ -167,7 +167,7 @@
                  style="height: 57px !important; width: auto;" 
                  class="{{ $siteLogo ? '' : 'grayscale contrast-125' }}">
             <div class="px-3 py-1 bg-white/5 text-white/30 rounded-full text-[8px] font-black tracking-[0.3em] uppercase border border-white/5 whitespace-nowrap">
-                V.1.0.0
+                V.2.0.1
             </div>
         </div>
     </div>
