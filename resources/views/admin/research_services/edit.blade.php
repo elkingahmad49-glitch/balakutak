@@ -108,7 +108,7 @@
                                         <input type="file" name="file_path" class="custom-file-input" id="file_path" accept=".pdf">
                                         <label class="custom-file-label border-0 bg-light" for="file_path">Ubah File...</label>
                                     </div>
-                                    <small class="text-muted italic">Maksimal 20MB</small>
+                                    <small class="text-muted italic">Maksimal 30MB</small>
                                 </div>
                                 
                                 <div class="form-group mb-3">
