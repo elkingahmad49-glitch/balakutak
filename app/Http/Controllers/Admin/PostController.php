@@ -95,8 +95,7 @@ class PostController extends Controller
             'language' => 'nullable|string|max:5',
         ]);
 
-        $slug = Str::slug($validated['title']);
-        $slug = $this->uniqueSlug($slug, Post::class);
+        $slug = $request->slug ? Str::slug($request->slug) : Str::slug($validated['title']);
 
         $published_at = $validated['published_at'] ?? now();
         if ($validated['status'] !== 'published') {
@@ -223,7 +222,7 @@ class PostController extends Controller
                     }
                 }
 
-                $postSlug = $this->uniqueSlug($slug, Post::class);
+                $postSlug = $slug;
 
                 // Download all images in content and update URLs
                 $content = $this->processImportContentImages($content);
@@ -304,6 +303,7 @@ class PostController extends Controller
 
         $postData = [
             ...$validated,
+            'slug' => $request->slug ? Str::slug($request->slug) : Str::slug($validated['title']),
             'is_featured' => $request->boolean('is_featured'),
             'allow_comments' => $request->boolean('allow_comments', true),
             'published_at' => $published_at,
@@ -378,19 +378,7 @@ class PostController extends Controller
         return back()->with('success', 'Status artikel diperbarui!');
     }
 
-    protected function uniqueSlug(string $slug, string $model, int $limit = 255): string
-    {
-        // First truncate if it exceeds limit (leaving room for possible suffix)
-        $slug = Str::limit($slug, $limit - 10, '');
-        $original = $slug;
-        $i = 1;
-        while ($model::withTrashed()->where('slug', $slug)->exists()) {
-            $suffix = "-{$i}";
-            $slug = Str::limit($original, $limit - strlen($suffix), '') . $suffix;
-            $i++;
-        }
-        return $slug;
-    }
+
 
     private function processImportContentImages($content)
     {

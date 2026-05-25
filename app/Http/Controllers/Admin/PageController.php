@@ -52,16 +52,9 @@ class PageController extends Controller
             'is_builder' => 'boolean',
         ]);
 
-        $slug = \Illuminate\Support\Str::slug($validated['title']);
-        $i = 1;
-        while (\App\Models\Page::where('slug', $slug)->exists()) {
-            $slug = \Illuminate\Support\Str::slug($validated['title']) . '-' . $i++;
-        }
-
         $page = new \App\Models\Page();
         $page->user_id = auth()->id();
         $page->title = $validated['title'];
-        $page->slug = $slug;
         $page->content = $validated['content'] ?? '';
         $page->excerpt = $validated['excerpt'];
         $page->is_published = $request->boolean('is_published', true);
