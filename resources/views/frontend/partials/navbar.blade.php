@@ -431,6 +431,38 @@
     </div>
 </nav>
 
+@if(isset($sharedMenus['secondary-menu']) && $sharedMenus['secondary-menu']->items->count() > 0)
+    <div class="secondary-menu-wrapper py-2">
+        <div class="container d-flex justify-content-center align-items-center gap-2 flex-wrap">
+            @foreach($sharedMenus['secondary-menu']->items as $item)
+                @if($item->children->count() > 0)
+                    <div class="dropdown">
+                        <a class="secondary-menu-link dropdown-toggle py-1 px-3 text-decoration-none fw-semibold d-inline-flex align-items-center" href="#" id="secDrop{{ $item->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                            <span>{{ $item->label }}</span>
+                        </a>
+                        <ul class="dropdown-menu shadow-lg border-0 elegant-dropdown" aria-labelledby="secDrop{{ $item->id }}">
+                            @foreach($item->children as $child)
+                                <li>
+                                    <a class="dropdown-item elegant-dropdown-item py-2" href="{{ $child->resolved_url }}" target="{{ $child->target }}">
+                                        @if($child->icon) <i class="{{ $child->icon }} me-2 text-primary"></i> @endif
+                                        {{ $child->label }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @else
+                    <a href="{{ $item->resolved_url }}" class="secondary-menu-link py-1 px-3 text-decoration-none fw-semibold d-inline-flex align-items-center" target="{{ $item->target }}">
+                        @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                        <span>{{ $item->label }}</span>
+                    </a>
+                @endif
+            @endforeach
+        </div>
+    </div>
+@endif
+
 {{-- Search Modal --}}
 <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -464,6 +496,53 @@
 </div>
 
 <style>
+    /* Secondary Menu Styling */
+    .secondary-menu-wrapper {
+        background: #f8fafc;
+        border-bottom: 1px solid rgba(0, 86, 179, 0.05);
+        position: relative;
+        z-index: 1040;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+    .secondary-menu-link {
+        color: #475569;
+        font-size: 0.9rem;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease;
+        border-radius: 6px;
+    }
+    .secondary-menu-link:hover, .secondary-menu-link.show {
+        color: #0056b3;
+        background-color: rgba(0, 86, 179, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+        .secondary-menu-wrapper .container {
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
+            justify-content: start !important;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .secondary-menu-link {
+            white-space: nowrap;
+        }
+    }
+
+    /* Dark Mode for Secondary Menu */
+    .dark .secondary-menu-wrapper {
+        background: #0d1117;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .dark .secondary-menu-link {
+        color: #8b949e;
+    }
+    .dark .secondary-menu-link:hover, .dark .secondary-menu-link.show {
+        color: #64ffda;
+        background-color: rgba(100, 255, 218, 0.08);
+    }
+
     /* Elegant Main Menu Styling */
     .elegant-navbar {
         background: linear-gradient(120deg, #ffffff 0%, #f6f9fc 50%, #e9ecef 100%);
