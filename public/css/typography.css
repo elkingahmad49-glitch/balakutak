@@ -235,79 +235,41 @@ footer p, footer a, footer li {
 /* --------------------------------------------------------------------------
    5. TABLE BORDERS AND GRIDLINES IN USER CONTENT
    -------------------------------------------------------------------------- */
-.page-content table,
-.page-builder-content table,
-.post-body table,
-.article-content table,
-.about-card table,
-.leading-relaxed table {
+table:not(.table) {
     border-collapse: collapse !important;
     margin-bottom: 1.5rem !important;
     border: 1px solid #cbd5e1 !important;
+    width: 100% !important;
 }
 
-.page-content table th,
-.page-content table td,
-.page-builder-content table th,
-.page-builder-content table td,
-.post-body table th,
-.post-body table td,
-.article-content table th,
-.article-content table td,
-.about-card table th,
-.about-card table td,
-.leading-relaxed table th,
-.leading-relaxed table td {
+table:not(.table) th,
+table:not(.table) td {
     border: 1px solid #cbd5e1 !important;
     padding: 0.75rem 1rem !important;
     vertical-align: middle !important;
 }
 
 /* Clean Header Style Hierarchy (defaults) */
-.page-content table th,
-.page-builder-content table th,
-.post-body table th,
-.article-content table th,
-.about-card table th,
-.leading-relaxed table th {
+table:not(.table) th {
     background-color: #f8fafc;
     color: #0f172a;
     font-weight: 700;
 }
 
 /* Dark Mode support */
-html.dark .page-content table,
-html.dark .page-builder-content table,
-html.dark .post-body table,
-html.dark .article-content table,
-html.dark .about-card table,
-html.dark .leading-relaxed table {
+html.dark table:not(.table) {
     border: 1px solid #475569 !important;
 }
 
-html.dark .page-content table th,
-html.dark .page-content table td,
-html.dark .page-builder-content table th,
-html.dark .page-builder-content table td,
-html.dark .post-body table th,
-html.dark .post-body table td,
-html.dark .article-content table th,
-html.dark .article-content table td,
-html.dark .about-card table th,
-html.dark .about-card table td,
-html.dark .leading-relaxed table th,
-html.dark .leading-relaxed table td {
+html.dark table:not(.table) th,
+html.dark table:not(.table) td {
     border: 1px solid #475569 !important;
     color: #cbd5e1 !important;
 }
 
-html.dark .page-content table th,
-html.dark .page-builder-content table th,
-html.dark .post-body table th,
-html.dark .article-content table th,
-html.dark .about-card table th,
-html.dark .leading-relaxed table th {
+html.dark table:not(.table) th {
     background-color: #1e293b;
     color: #f8fafc;
 }
+
 
