@@ -226,7 +226,10 @@ Route::group([
     Route::get('/kalender-akademik', [\App\Http\Controllers\Frontend\AcademicCalendarController::class, 'index'])->name('calendar');
 
     // Academic Services
-    Route::get('/layanan-akademik', [\App\Http\Controllers\Frontend\AcademicServiceController::class, 'index'])->name('academic-services');
+    Route::get('/academic-services', [\App\Http\Controllers\Frontend\AcademicServiceController::class, 'index'])->name('academic-services');
+    Route::get('/layanan-akademik', function() {
+        return redirect()->route('academic-services', [], 301);
+    });
 
     // Static Pages (Catch-all for anything without a dedicated prefix)
     Route::get('/{slug}', [FrontFrontPageController::class , 'show'])->name('pages.show');
