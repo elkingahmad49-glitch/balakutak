@@ -13,7 +13,6 @@ class PageController extends Controller
     {
         $query = \App\Models\Page::query()
             ->with('user')
-            ->where('is_builder', false)
             ->when($request->search, fn($q) => $q->where('title', 'like', "%{$request->search}%"))
             ->when($request->status === 'published', fn($q) => $q->where('is_published', true))
             ->when($request->status === 'draft', fn($q) => $q->where('is_published', false));

@@ -53,6 +53,9 @@
                     <tr>
                         <td class="pl-3">
                             <strong>{{ $page->title }}</strong>
+                            @if($page->is_builder)
+                                <span class="badge badge-info ml-1" style="font-size: 0.75rem;"><i class="fas fa-tools mr-1 text-xs"></i> Page Builder</span>
+                            @endif
                         </td>
                         <td>
                             <code class="text-muted">{{ $page->slug }}</code>
