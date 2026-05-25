@@ -415,9 +415,13 @@ body.theme-royal-purple-balakutak h6 {
 }
 
 @media (min-width: 768px) {
+    .theme-royal-purple-balakutak .stats-bar .row {
+        flex-wrap: nowrap !important;
+    }
     .theme-royal-purple-balakutak .stat-item {
-        flex: 0 0 calc(25% - 1rem) !important;
-        max-width: calc(25% - 1rem) !important;
+        flex: 1 1 0px !important;
+        max-width: 100% !important;
+        width: auto !important;
         margin: 0 0.5rem !important;
     }
 }
