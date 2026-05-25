@@ -341,7 +341,7 @@
             @php 
                 $logo = \App\Models\Setting::get('site_logo');
                 $logoWhiteRaw = \App\Models\Setting::get('site_logo_white');
-                $logoWhite = (!$logoWhiteRaw || $logoWhiteRaw == 'images/logo_white.png') ? $logo : $logoWhiteRaw;
+                $logoWhite = !$logoWhiteRaw ? $logo : $logoWhiteRaw;
             @endphp
             @if($logo)
                 <div class="logo-container">

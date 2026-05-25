@@ -9,8 +9,8 @@
                         $logoWhite = \App\Models\Setting::get('site_logo_white');
                         $logoMain = \App\Models\Setting::get('site_logo');
                         
-                        // Use main logo if white logo is empty OR is still the default seeder path
-                        if (!$logoWhite || $logoWhite == 'images/logo_white.png') {
+                        // Use white logo if configured, fallback to main logo
+                        if (!$logoWhite) {
                             $logo = $logoMain;
                         } else {
                             $logo = $logoWhite;
