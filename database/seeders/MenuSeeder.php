@@ -41,7 +41,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Beranda',
             'url' => '/',
-            'icon' => 'fas fa-home',
+            'icon' => null,
             'target' => '_self',
             'order' => 1,
         ]);
@@ -52,7 +52,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Profil',
             'url' => '#',
-            'icon' => 'fas fa-user-graduation',
+            'icon' => null,
             'target' => '_self',
             'order' => 2,
         ]);
@@ -62,7 +62,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $profil->id,
             'label' => 'Tentang Prodi',
             'url' => '/tentang',
-            'icon' => 'fas fa-info-circle',
+            'icon' => null,
             'target' => '_self',
             'order' => 1,
         ]);
@@ -72,7 +72,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $profil->id,
             'label' => 'Dosen & SDM',
             'url' => '/dosen',
-            'icon' => 'fas fa-users',
+            'icon' => null,
             'target' => '_self',
             'order' => 2,
         ]);
@@ -83,7 +83,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Akademik',
             'url' => '#',
-            'icon' => 'fas fa-graduation-cap',
+            'icon' => null,
             'target' => '_self',
             'order' => 3,
         ]);
@@ -93,7 +93,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $akademik->id,
             'label' => 'Kurikulum',
             'url' => '/kurikulum',
-            'icon' => 'fas fa-book-reader',
+            'icon' => null,
             'target' => '_self',
             'order' => 1,
         ]);
@@ -103,7 +103,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $akademik->id,
             'label' => 'Kalender Akademik',
             'url' => '/kalender-akademik',
-            'icon' => 'fas fa-calendar-alt',
+            'icon' => null,
             'target' => '_self',
             'order' => 2,
         ]);
@@ -113,7 +113,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $akademik->id,
             'label' => 'Sistem & Layanan',
             'url' => '/academic-services',
-            'icon' => 'fas fa-cogs',
+            'icon' => null,
             'target' => '_self',
             'order' => 3,
         ]);
@@ -124,7 +124,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Riset & Pengabdian',
             'url' => '#',
-            'icon' => 'fas fa-microscope',
+            'icon' => null,
             'target' => '_self',
             'order' => 4,
         ]);
@@ -134,7 +134,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $riset->id,
             'label' => 'Penelitian',
             'url' => '/penelitian',
-            'icon' => 'fas fa-search',
+            'icon' => null,
             'target' => '_self',
             'order' => 1,
         ]);
@@ -144,7 +144,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $riset->id,
             'label' => 'Pengabdian Masyarakat',
             'url' => '/pengabdian',
-            'icon' => 'fas fa-handshake',
+            'icon' => null,
             'target' => '_self',
             'order' => 2,
         ]);
@@ -155,7 +155,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Publikasi',
             'url' => '#',
-            'icon' => 'fas fa-bullhorn',
+            'icon' => null,
             'target' => '_self',
             'order' => 5,
         ]);
@@ -165,7 +165,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $publikasi->id,
             'label' => 'Berita & Artikel',
             'url' => '/berita',
-            'icon' => 'fas fa-newspaper',
+            'icon' => null,
             'target' => '_self',
             'order' => 1,
         ]);
@@ -175,7 +175,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $publikasi->id,
             'label' => 'Agenda & Kegiatan',
             'url' => '/agenda',
-            'icon' => 'fas fa-calendar-day',
+            'icon' => null,
             'target' => '_self',
             'order' => 2,
         ]);
@@ -185,7 +185,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $publikasi->id,
             'label' => 'Galeri Foto',
             'url' => '/galeri',
-            'icon' => 'fas fa-images',
+            'icon' => null,
             'target' => '_self',
             'order' => 3,
         ]);
@@ -195,7 +195,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $publikasi->id,
             'label' => 'Prosedur & Form',
             'url' => '/dokumen',
-            'icon' => 'fas fa-file-download',
+            'icon' => null,
             'target' => '_self',
             'order' => 4,
         ]);
@@ -205,7 +205,7 @@ class MenuSeeder extends Seeder
             'parent_id' => $publikasi->id,
             'label' => 'FAQs',
             'url' => '/faqs',
-            'icon' => 'fas fa-question-circle',
+            'icon' => null,
             'target' => '_self',
             'order' => 5,
         ]);
@@ -216,7 +216,7 @@ class MenuSeeder extends Seeder
             'parent_id' => null,
             'label' => 'Kontak',
             'url' => '/kontak',
-            'icon' => 'fas fa-envelope',
+            'icon' => null,
             'target' => '_self',
             'order' => 6,
         ]);

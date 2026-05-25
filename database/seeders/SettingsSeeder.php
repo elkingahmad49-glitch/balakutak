@@ -59,7 +59,13 @@ Dengan arsitektur yang modular dan ramah pengembang, BalaKutaK memungkinkan peng
 
 Sebagai proyek open source, BalaKutaK membuka ruang kontribusi bagi siapa saja yang ingin berpartisipasi dalam pengembangan, peningkatan keamanan, maupun inovasi fitur. Hal ini menjadikan BalaKutaK bukan sekadar CMS, tetapi juga ekosistem kolaboratif yang terus berkembang.
 
-BalaKutaK hadir sebagai wujud komitmen untuk mendukung transformasi digital yang inklusif, khususnya dalam dunia pendidikan dan pengembangan teknologi berbasis komunitas.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Detail Institusi (Halaman Tentang)'],
+            BalaKutaK hadir sebagai wujud komitmen untuk mendukung transformasi digital yang inklusif, khususnya dalam dunia pendidikan dan pengembangan teknologi berbasis komunitas.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Detail Institusi (Halaman Tentang)'],
+            
+            // Appearance & Layout Defaults
+            ['key' => 'site_name_layout', 'value' => '2', 'group' => 'general', 'type' => 'select', 'label' => 'Tata Letak Nama Website'],
+            ['key' => 'site_name_line1', 'value' => 'Selamat Datang', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 1'],
+            ['key' => 'site_name_line2', 'value' => 'BalaKutaK CMS', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 2'],
+            ['key' => 'site_theme', 'value' => 'oxford-luxury-navygold-balakutak', 'group' => 'appearance', 'type' => 'select', 'label' => 'Tema Website'],
         ];
 
         foreach ($settings as $setting) {
