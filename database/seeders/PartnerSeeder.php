@@ -4,51 +4,68 @@ namespace Database\Seeders;
 
 use App\Models\Partner;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class PartnerSeeder extends Seeder
 {
     public function run(): void
     {
+        // Copy seed images to public storage
+        $this->ensureSeedAssets();
+
         $partners = [
             [
-                'name' => 'PT Telekomunikasi Indonesia Tbk',
-                'website_url' => 'https://telkom.co.id',
-                'description' => 'Kerjasama program magang bersertifikat dan penyelarasan kurikulum bidang jaringan telekomunikasi.',
+                'name' => 'Aetheric Labs',
+                'logo' => 'partners/partner_1.png',
+                'website_url' => 'https://aethericlabs.example.com',
+                'description' => 'Fictional partner Aetheric Labs focusing on hardware and biotechnology.',
                 'order' => 1,
                 'is_active' => true,
             ],
             [
-                'name' => 'Badan Siber dan Sandi Negara (BSSN)',
-                'website_url' => 'https://bssn.go.id',
-                'description' => 'Mitra kolaborasi pelatihan siber, kuliah tamu cyber security, dan pengujian kerentanan sistem.',
+                'name' => 'Nexus Dynamics',
+                'logo' => 'partners/partner_2.png',
+                'website_url' => 'https://nexusdynamics.example.com',
+                'description' => 'Fictional partner Nexus Dynamics focusing on cloud infrastructure and security.',
                 'order' => 2,
                 'is_active' => true,
             ],
             [
-                'name' => 'PT Bank Mandiri (Persero) Tbk',
-                'website_url' => 'https://bankmandiri.co.id',
-                'description' => 'Penyediaan beasiswa mahasiswa berprestasi, kerjasama riset finansial teknologi, dan rekrutmen alumni.',
+                'name' => 'Vortex Systems',
+                'logo' => 'partners/partner_3.png',
+                'website_url' => 'https://vortexsystems.example.com',
+                'description' => 'Fictional partner Vortex Systems focusing on machine learning and database systems.',
                 'order' => 3,
                 'is_active' => true,
             ],
             [
-                'name' => 'PT Tokopedia',
-                'website_url' => 'https://tokopedia.com',
-                'description' => 'Kerjasama program bootcamp developer, riset bersama kecerdasan buatan, dan magang studi independen.',
+                'name' => 'Apex Horizon',
+                'logo' => 'partners/partner_4.png',
+                'website_url' => 'https://apexhorizon.example.com',
+                'description' => 'Fictional partner Apex Horizon focusing on education and satellite imagery.',
                 'order' => 4,
-                'is_active' => true,
-            ],
-            [
-                'name' => 'Microsoft Indonesia',
-                'website_url' => 'https://microsoft.com/id-id',
-                'description' => 'Program sertifikasi kompetensi cloud computing (Azure) dan lisensi akademik perangkat lunak pengembang.',
-                'order' => 5,
                 'is_active' => true,
             ],
         ];
 
         foreach ($partners as $data) {
             Partner::create($data);
+        }
+    }
+
+    private function ensureSeedAssets()
+    {
+        $assetPath = database_path('seeders/assets/partners');
+        if (File::exists($assetPath)) {
+            if (!Storage::disk('public')->exists('partners')) {
+                Storage::disk('public')->makeDirectory('partners');
+            }
+            $files = File::files($assetPath);
+            foreach ($files as $file) {
+                $filename = $file->getFilename();
+                Storage::disk('public')->put("partners/$filename", File::get($file->getRealPath()));
+            }
         }
     }
 }

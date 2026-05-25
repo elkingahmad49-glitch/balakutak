@@ -65,7 +65,7 @@ Sebagai proyek open source, BalaKutaK membuka ruang kontribusi bagi siapa saja y
             ['key' => 'site_name_layout', 'value' => '2', 'group' => 'general', 'type' => 'select', 'label' => 'Tata Letak Nama Website'],
             ['key' => 'site_name_line1', 'value' => 'Selamat Datang', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 1'],
             ['key' => 'site_name_line2', 'value' => 'BalaKutaK CMS', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 2'],
-            ['key' => 'site_theme', 'value' => 'oxford-luxury-navygold-balakutak', 'group' => 'appearance', 'type' => 'select', 'label' => 'Tema Website'],
+            ['key' => 'site_theme', 'value' => 'green-gold-balakutak', 'group' => 'appearance', 'type' => 'select', 'label' => 'Tema Website'],
         ];
 
         foreach ($settings as $setting) {
