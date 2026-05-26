@@ -122,9 +122,11 @@
                             <div class="text-center">
                                 @if($event->registration_deadline && $event->registration_deadline->isPast())
                                 <button class="btn btn-secondary rounded-pill w-100 py-3 disabled" disabled>{{ __('Pendaftaran Ditutup') }}</button>
-                                @else
-                                <a href="#" class="btn btn-primary rounded-pill w-100 py-3 shadow-sm fw-bold">{{ __('Daftar Sekarang') }}</a>
+                                @elseif($event->registration_url)
+                                <a href="{{ $event->registration_url }}" target="_blank" class="btn btn-primary rounded-pill w-100 py-3 shadow-sm fw-bold">{{ __('Daftar Sekarang') }}</a>
                                 <small class="text-muted mt-2 d-block">{{ __('Batas pendaftaran:') }} {{ $event->registration_deadline ? $event->registration_deadline->format('d M Y') : '-' }}</small>
+                                @else
+                                <button class="btn btn-secondary rounded-pill w-100 py-3 disabled" disabled>{{ __('Pendaftaran Tidak Tersedia') }}</button>
                                 @endif
                             </div>
                         </div>
