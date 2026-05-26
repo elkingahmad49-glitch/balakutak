@@ -9,7 +9,7 @@
 
     {{-- HERO SLIDER --}}
     @php 
-        $siteTheme = \App\Models\Setting::get('site_theme', 'navy-blue-balakutak'); 
+        $siteTheme = \App\Models\Setting::get('site_theme', 'aurora-glass-balakutak'); 
         $premiumThemes = [
             'oxford-luxury-balakutak',
             'oxford-luxury-navygold-balakutak',

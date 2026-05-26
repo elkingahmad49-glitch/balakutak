@@ -44,7 +44,7 @@
 
     {{-- Theme Overrides --}}
     @php
-        $siteTheme = \App\Models\Setting::get('site_theme', 'navy-blue-balakutak');
+        $siteTheme = \App\Models\Setting::get('site_theme', 'aurora-glass-balakutak');
         $themeFile = "css/themes/{$siteTheme}.css";
     @endphp
     @if($siteTheme != 'default' && file_exists(public_path($themeFile)))
