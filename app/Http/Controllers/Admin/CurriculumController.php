@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\CurriculumImport;
 use App\Exports\CurriculumTemplateExport;
+use App\Exports\CurriculumsExport;
 
 class CurriculumController extends Controller
 {
@@ -119,6 +120,11 @@ class CurriculumController extends Controller
     public function downloadTemplate()
     {
         return Excel::download(new CurriculumTemplateExport, 'template_import_kurikulum.xlsx');
+    }
+
+    public function export()
+    {
+        return Excel::download(new CurriculumsExport, 'data_kurikulum.xlsx');
     }
 
     public function destroy(Curriculum $curriculum)

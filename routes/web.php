@@ -69,11 +69,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     // Lecturers
     Route::post('lecturers/import', [LecturerController::class , 'import'])->name('lecturers.import');
     Route::get('lecturers/template', [LecturerController::class , 'downloadTemplate'])->name('lecturers.template');
+    Route::get('lecturers/export', [LecturerController::class , 'export'])->name('lecturers.export');
     Route::resource('lecturers', LecturerController::class);
 
     // Curriculum
     Route::post('curriculums/import', [CurriculumController::class , 'import'])->name('curriculums.import');
     Route::get('curriculums/template', [CurriculumController::class , 'downloadTemplate'])->name('curriculums.template');
+    Route::get('curriculums/export', [CurriculumController::class , 'export'])->name('curriculums.export');
     Route::resource('curriculums', CurriculumController::class);
 
     // Academic Calendar
@@ -85,6 +87,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     // Research & Community Services
     Route::post('research-services/import', [ResearchServiceController::class , 'import'])->name('research-services.import');
     Route::get('research-services/template', [ResearchServiceController::class , 'downloadTemplate'])->name('research-services.template');
+    Route::get('research-services/export', [ResearchServiceController::class , 'export'])->name('research-services.export');
     Route::resource('research-services', ResearchServiceController::class);
 
     // Documents

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ResearchServicesImport;
 use App\Exports\ResearchServiceTemplateExport;
+use App\Exports\ResearchServicesExport;
 
 class ResearchServiceController extends Controller
 {
@@ -149,5 +150,10 @@ class ResearchServiceController extends Controller
     public function downloadTemplate()
     {
         return Excel::download(new ResearchServiceTemplateExport, 'template_import_penelitian_pengabdian.xlsx');
+    }
+
+    public function export()
+    {
+        return Excel::download(new ResearchServicesExport, 'data_penelitian_pengabdian.xlsx');
     }
 }

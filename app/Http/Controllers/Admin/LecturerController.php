@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\LecturersImport;
 use App\Exports\LecturerTemplateExport;
+use App\Exports\LecturersExport;
 
 class LecturerController extends Controller
 {
@@ -159,6 +160,11 @@ class LecturerController extends Controller
     public function downloadTemplate()
     {
         return Excel::download(new LecturerTemplateExport, 'template_import_dosen_staff.xlsx');
+    }
+
+    public function export()
+    {
+        return Excel::download(new LecturersExport, 'data_dosen_staff.xlsx');
     }
 
     public function destroy(Lecturer $lecturer)

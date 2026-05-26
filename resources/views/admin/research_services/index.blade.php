@@ -68,6 +68,9 @@
                         <button type="button" class="btn btn-success shadow-sm rounded-pill btn-sm px-3 mr-2 mb-2" data-toggle="modal" data-target="#importModal">
                             <i class="fas fa-file-import mr-1"></i> Import Excel
                         </button>
+                        <a href="{{ route('admin.research-services.export') }}" class="btn btn-outline-primary shadow-sm rounded-pill btn-sm px-3 mr-2 mb-2">
+                            <i class="fas fa-file-excel mr-1"></i> Export Excel
+                        </a>
                         <a href="{{ route('admin.research-services.create') }}" class="btn btn-primary shadow-sm rounded-pill btn-sm px-4 mb-2">
                             <i class="fas fa-plus mr-2"></i> {{ __('admin.add_research_service') }}
                         </a>

@@ -51,6 +51,9 @@
                 <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#importModal">
                     <i class="fas fa-file-import me-1"></i> Import Excel
                 </button>
+                <a href="{{ route('admin.curriculums.export') }}" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-file-excel me-1"></i> Export Excel
+                </a>
                 <a href="{{ route('admin.curriculums.create') }}" class="btn btn-primary btn-sm">
                     <i class="fas fa-plus me-1"></i> Tambah Mata Kuliah
                 </a>
