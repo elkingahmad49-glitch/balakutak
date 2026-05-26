@@ -291,4 +291,33 @@ return [
     'no_infographics' => 'No infographics found.',
     'save_infographic' => 'Save Infographic',
     'activate_infographic' => 'Activate',
+
+    // Research & Community Service
+    'research_services' => 'Research & Community Service',
+    'add_research_service' => 'Add Data',
+    'edit_research_service' => 'Edit Data',
+    'research_title' => 'Title',
+    'research_author' => 'Researcher / Author',
+    'research_year' => 'Year',
+    'research_type' => 'Activity Type',
+    'research_abstract' => 'Abstract / Summary',
+    'research_content' => 'Full Content',
+    'research_file' => 'Document File',
+    'research_external_link' => 'External Link (Optional)',
+    'no_research_services' => 'No research or community service data found.',
+    'save_research_service' => 'Save Data',
+    'search_research_services' => 'Search data...',
+    'type_research' => 'Research',
+    'type_community_service' => 'Community Service',
+
+    // FAQs
+    'faqs' => 'FAQs',
+    'add_faq' => 'Add FAQ',
+    'edit_faq' => 'Edit FAQ',
+    'faq_question' => 'Question',
+    'faq_answer' => 'Answer',
+    'faq_order' => 'Order',
+    'no_faqs' => 'No FAQs found.',
+    'save_faq' => 'Save FAQ',
+    'search_faqs' => 'Search FAQ question...',
 ];

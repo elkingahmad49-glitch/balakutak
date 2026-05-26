@@ -23,12 +23,21 @@
         </div>
     @endif
 
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show shadow-sm border-0 mb-4" role="alert">
+            <i class="fas fa-exclamation-circle mr-2"></i> {{ session('error') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <div class="card shadow-sm border-0" style="border-radius: 12px; overflow: hidden;">
         <div class="card-header bg-white py-3 border-0">
             <div class="row align-items-center">
-                <div class="col-md-8">
+                <div class="col-12 mb-3">
                     <form method="GET" class="row align-items-center mt-3 mt-md-0">
-                        <div class="col-md-5 mb-2 mb-md-0">
+                        <div class="col-md-4 mb-2 mb-md-0">
                             <div class="input-group input-group-sm">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-light border-right-0"><i class="fas fa-search"></i></span>
@@ -36,22 +45,33 @@
                                 <input type="text" name="search" class="form-control bg-light border-left-0" placeholder="{{ __('admin.search_research_services') }}" value="{{ request('search') }}">
                             </div>
                         </div>
-                        <div class="col-md-4 mb-2 mb-md-0">
+                        <div class="col-md-3 mb-2 mb-md-0">
                             <select name="type" class="form-control form-control-sm bg-light" onchange="this.form.submit()">
                                 <option value="">Semua Tipe</option>
                                 <option value="research" {{ request('type') == 'research' ? 'selected' : '' }}>{{ __('admin.type_research') }}</option>
                                 <option value="community_service" {{ request('type') == 'community_service' ? 'selected' : '' }}>{{ __('admin.type_community_service') }}</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 mb-2 mb-md-0">
                              <button type="submit" class="btn btn-primary btn-sm btn-block shadow-sm">Filter</button>
+                        </div>
+                        <div class="col-md-2">
+                             <a href="{{ route('admin.research-services.index') }}" class="btn btn-secondary btn-sm btn-block shadow-sm">Reset</a>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-4 text-right">
-                    <a href="{{ route('admin.research-services.create') }}" class="btn btn-primary shadow-sm rounded-pill btn-sm px-4">
-                        <i class="fas fa-plus mr-2"></i> {{ __('admin.add_research_service') }}
-                    </a>
+                <div class="col-12 mt-2">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center">
+                        <a href="{{ route('admin.research-services.template') }}" class="btn btn-outline-success shadow-sm rounded-pill btn-sm px-3 mr-2 mb-2">
+                            <i class="fas fa-file-excel mr-1"></i> Format Import
+                        </a>
+                        <button type="button" class="btn btn-success shadow-sm rounded-pill btn-sm px-3 mr-2 mb-2" data-toggle="modal" data-target="#importModal">
+                            <i class="fas fa-file-import mr-1"></i> Import Excel
+                        </button>
+                        <a href="{{ route('admin.research-services.create') }}" class="btn btn-primary shadow-sm rounded-pill btn-sm px-4 mb-2">
+                            <i class="fas fa-plus mr-2"></i> {{ __('admin.add_research_service') }}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -128,4 +148,54 @@
     .btn-white { background: #fff; border: 1px solid #f1f1f1; }
     .btn-white:hover { background: #f9f9f9; }
 </style>
+
+<!-- Import Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="border-radius: 12px; overflow: hidden;">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title font-weight-bold" id="importModalLabel"><i class="fas fa-file-import mr-2"></i>Import Data Penelitian & Pengabdian</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin.research-services.import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold">File Excel (.xlsx, .xls, .csv)</label>
+                        <div class="custom-file mb-3">
+                            <input type="file" name="file" class="custom-file-input" id="importFile" accept=".xlsx, .xls, .csv" required>
+                            <label class="custom-file-label" for="importFile">Pilih file...</label>
+                        </div>
+                        <div class="alert alert-info border-0 shadow-sm p-3 mb-0" style="border-radius: 8px;">
+                            <i class="fas fa-info-circle mr-2"></i> <strong>Petunjuk:</strong>
+                            <ul class="pl-3 mb-0 mt-2 small">
+                                <li>Gunakan format template yang telah disediakan.</li>
+                                <li>Kolom tipe harus diisi dengan "penelitian" atau "pengabdian".</li>
+                                <li>Data dengan judul dan tipe yang sama akan diperbarui secara otomatis.</li>
+                                <li>Maksimal ukuran file adalah 5MB.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary rounded-pill px-4 btn-sm" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success rounded-pill px-4 btn-sm shadow-sm">Mulai Import</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@stop
+
+@section('js')
+<script>
+    $(document).ready(function() {
+        $('#importFile').on('change', function() {
+            var fileName = $(this).val().split('\\').pop();
+            $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+    });
+</script>
 @stop

@@ -98,10 +98,10 @@
                                         </div>
                                     @endif
                                     <div class="custom-file">
-                                        <input type="file" name="featured_image" class="custom-file-input @error('featured_image') is-invalid @enderror" id="customFile" accept="image/*">
+                                        <input type="file" name="featured_image_file" class="custom-file-input @error('featured_image_file') is-invalid @enderror" id="customFile" accept="image/*">
                                         <label class="custom-file-label" for="customFile">Ganti gambar (opsional)</label>
                                     </div>
-                                    @error('featured_image')<span class="invalid-feedback d-block">{{ $message }}</span>@enderror
+                                    @error('featured_image_file')<span class="invalid-feedback d-block">{{ $message }}</span>@enderror
                                     <small class="text-muted">Format: JPG, PNG. Maks: 4MB.</small>
                                 </div>
                                 

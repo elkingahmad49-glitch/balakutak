@@ -183,8 +183,9 @@ class PostController extends Controller
 
             // Only import posts
             if ((string)$wpMeta->post_type === 'post') {
-                $title = (string)$item->title;
+                $title = trim(html_entity_decode((string)$item->title, ENT_QUOTES, 'UTF-8'));
                 $slug = (string)$wpMeta->post_name ?: Str::slug($title);
+                $slug = trim(html_entity_decode($slug, ENT_QUOTES, 'UTF-8'));
 
                 // Content mapped from <content:encoded>
                 $contentNode = $item->children($contentNamespace);
@@ -202,15 +203,20 @@ class PostController extends Controller
                 $categoryId = $defaultCategory->id;
                 foreach ($item->category as $cat) {
                     if ((string)$cat['domain'] === 'category') {
-                        $catName = (string)$cat;
+                        $catName = trim(html_entity_decode((string)$cat, ENT_QUOTES, 'UTF-8'));
                         // Avoid empty categories
-                        if (!empty(trim($catName))) {
+                        if (!empty($catName)) {
                             $catSlug = Str::limit(Str::slug($catName), 255, '');
                             $dbCategory = Category::where('name', $catName)
                                 ->orWhere('slug', $catSlug)
                                 ->first();
 
                             if (!$dbCategory) {
+                                $originalSlug = $catSlug;
+                                $count = 2;
+                                while (Category::withTrashed()->where('slug', $catSlug)->exists()) {
+                                    $catSlug = Str::limit($originalSlug, 255 - strlen('-' . $count), '') . '-' . $count++;
+                                }
                                 $dbCategory = Category::create([
                                     'name' => Str::limit($catName, 255, ''),
                                     'slug' => $catSlug

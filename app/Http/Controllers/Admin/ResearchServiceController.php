@@ -9,6 +9,9 @@ use App\Traits\HasMedia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ResearchServicesImport;
+use App\Exports\ResearchServiceTemplateExport;
 
 class ResearchServiceController extends Controller
 {
@@ -118,5 +121,33 @@ class ResearchServiceController extends Controller
         $researchService->delete();
 
         return back()->with('success', 'Data berhasil dihapus!');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv|max:5120'
+        ]);
+
+        try {
+            Excel::import(new ResearchServicesImport, $request->file('file'));
+            return back()->with('success', 'Data penelitian & pengabdian berhasil diimpor!');
+        }
+        catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
+            $failures = $e->failures();
+            $errorMsg = 'Gagal mengimpor data. Cek baris berikut: ';
+            foreach ($failures as $failure) {
+                $errorMsg .= "Baris " . $failure->row() . ": " . implode(', ', $failure->errors()) . ". ";
+            }
+            return back()->with('error', $errorMsg);
+        }
+        catch (\Exception $e) {
+            return back()->with('error', 'Gagal mengimpor data: ' . $e->getMessage());
+        }
+    }
+
+    public function downloadTemplate()
+    {
+        return Excel::download(new ResearchServiceTemplateExport, 'template_import_penelitian_pengabdian.xlsx');
     }
 }

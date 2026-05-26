@@ -83,6 +83,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     Route::resource('academic-services', AcademicServiceController::class);
 
     // Research & Community Services
+    Route::post('research-services/import', [ResearchServiceController::class , 'import'])->name('research-services.import');
+    Route::get('research-services/template', [ResearchServiceController::class , 'downloadTemplate'])->name('research-services.template');
     Route::resource('research-services', ResearchServiceController::class);
 
     // Documents
