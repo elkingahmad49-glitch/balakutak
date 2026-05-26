@@ -1667,6 +1667,13 @@ html.dark .acc-btn:hover {
     transform: scale(1.1) !important; /* Avoid rotation for accessibility gear icon */
 }
 
+[class*="theme-oxford"] .acc-widget {
+    position: fixed !important;
+    bottom: 9.5rem !important;
+    right: 2rem !important;
+    z-index: 9997 !important;
+}
+
 [class*="theme-oxford"] .chatbot-window {
     position: fixed !important;
     bottom: 9.5rem !important;
@@ -1755,4 +1762,21 @@ html.dark [class*="theme-oxford"] .acc-btn.active {
     background: var(--lux-gold, #c69214) !important;
     border-color: var(--lux-gold, #c69214) !important;
     color: #1a1a1a !important;
+}
+
+/* Mobile responsive adjustments for Oxford theme widgets */
+@media (max-width: 768px) {
+    [class*="theme-oxford"] .acc-widget {
+        bottom: 5.5rem !important;
+        right: 1rem !important;
+    }
+    [class*="theme-oxford"] .chatbot-toggle {
+        bottom: 9.5rem !important;
+        right: 1rem !important;
+    }
+    [class*="theme-oxford"] .chatbot-window {
+        bottom: 13.5rem !important;
+        right: 1rem !important;
+        width: calc(100vw - 2rem) !important;
+    }
 }
