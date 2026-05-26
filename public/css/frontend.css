@@ -1668,10 +1668,22 @@ html.dark .acc-btn:hover {
 }
 
 [class*="theme-oxford"] .chatbot-window {
+    position: fixed !important;
+    bottom: 9.5rem !important;
+    right: 2rem !important;
+    width: 320px !important;
+    height: 420px !important;
     border: 1px solid rgba(198, 146, 20, 0.3) !important;
     box-shadow: 0 15px 40px rgba(0, 33, 71, 0.25) !important;
     z-index: 9998 !important;
     border-radius: 16px !important;
+    display: none;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+[class*="theme-oxford"] .chatbot-window.open {
+    display: flex !important;
 }
 
 [class*="theme-oxford"] .chatbot-header {

@@ -1,11 +1,11 @@
-<button class="chatbot-toggle" onclick="document.querySelector('.chatbot-window').classList.toggle('open')" title="{{ __('menu.chatbot_title') }}">
+<button class="chatbot-toggle" id="chatbotToggle" title="{{ __('menu.chatbot_title') }}">
     <i class="fas fa-comment-dots"></i>
 </button>
 
 <div class="chatbot-window" id="chatbot">
     <div class="chatbot-header">
         <span><i class="fas fa-comment-dots me-2"></i>{{ __('menu.chatbot_assistant') }}</span>
-        <button onclick="document.getElementById('chatbot').classList.remove('open')" class="btn p-0 text-white btn-sm">
+        <button id="chatbotCloseBtn" class="btn p-0 text-white btn-sm">
             <i class="fas fa-times"></i>
         </button>
     </div>
@@ -63,4 +63,40 @@ function sendChat() {
 
     messages.scrollTop = messages.scrollHeight;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbotToggle = document.getElementById('chatbotToggle');
+    const chatbotWindow = document.getElementById('chatbot');
+    const chatbotCloseBtn = document.getElementById('chatbotCloseBtn');
+    
+    if (chatbotToggle && chatbotWindow) {
+        // Toggle window on click
+        chatbotToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            chatbotWindow.classList.toggle('open');
+        });
+        
+        // Close window on close button click
+        if (chatbotCloseBtn) {
+            chatbotCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                chatbotWindow.classList.remove('open');
+            });
+        }
+        
+        // Close when clicking outside of window and toggle button
+        document.addEventListener('click', function(e) {
+            if (!chatbotWindow.contains(e.target) && !chatbotToggle.contains(e.target)) {
+                chatbotWindow.classList.remove('open');
+            }
+        });
+        
+        // Prevent closing window when clicking inside it
+        chatbotWindow.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    }
+});
 </script>
