@@ -119,34 +119,18 @@
         <div class="aurora-stats-bar-wrapper">
             <div class="container">
                 <div class="aurora-stats-grid">
-                    <div class="aurora-stat-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                    @php 
+                        $icons = ['fa-user-graduate', 'fa-chalkboard-teacher', 'fa-users', 'fa-microscope', 'fa-book', 'fa-award'];
+                    @endphp
+                    @foreach($stats as $index => $stat)
+                    <div class="aurora-stat-card" data-aos="fade-up" data-aos-delay="{{ ($index + 1) * 100 }}">
+                        <div class="stat-icon"><i class="fas {{ $icons[$index % count($icons)] }}"></i></div>
                         <div class="stat-info">
-                            <h3 class="stat-value">1,250</h3>
-                            <p class="stat-label">Mahasiswa Aktif</p>
+                            <h3 class="stat-value counter-value" data-target="{{ $stat['value'] ?? 0 }}">0</h3>
+                            <p class="stat-label">{{ $stat['label'] ?? '-' }}</p>
                         </div>
                     </div>
-                    <div class="aurora-stat-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value">145</h3>
-                            <p class="stat-label">Dosen Ahli</p>
-                        </div>
-                    </div>
-                    <div class="aurora-stat-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="stat-icon"><i class="fas fa-users"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value">8,400</h3>
-                            <p class="stat-label">Alumni Tersebar</p>
-                        </div>
-                    </div>
-                    <div class="aurora-stat-card" data-aos="fade-up" data-aos-delay="400">
-                        <div class="stat-icon"><i class="fas fa-microscope"></i></div>
-                        <div class="stat-info">
-                            <h3 class="stat-value">320+</h3>
-                            <p class="stat-label">Penelitian</p>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -996,10 +980,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-const infoSection = document.querySelector('.stats-bar');
-if (infoSection) {
-    observer.observe(infoSection);
-}
+const infoSections = document.querySelectorAll('.stats-bar, .stats-bar-luxury-wrap, .aurora-stats-bar-wrapper');
+infoSections.forEach(section => {
+    observer.observe(section);
+});
 
 // Partner Swiper
 new Swiper('.partner-swiper', {
