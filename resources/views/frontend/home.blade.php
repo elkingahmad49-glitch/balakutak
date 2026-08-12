@@ -9,7 +9,7 @@
 
     {{-- HERO SLIDER --}}
     @php 
-        $siteTheme = \App\Models\Setting::get('site_theme', 'navy-blue-balakutak'); 
+        $siteTheme = \App\Models\Setting::get('site_theme', 'aurora-glass-balakutak'); 
         $premiumThemes = [
             'oxford-luxury-balakutak',
             'oxford-luxury-navygold-balakutak',
@@ -43,7 +43,17 @@
                             </div>
                         @empty
                             <div class="swiper-slide">
-                                <h1 class="aurora-title">{{ \App\Models\Setting::get('site_name') }}</h1>
+                                @php
+                                    $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                    if ($layout == '2') {
+                                        $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                        $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                        $homeSiteName = e($line1) . '<br>' . e($line2);
+                                    } else {
+                                        $homeSiteName = e(\App\Models\Setting::get('site_name'));
+                                    }
+                                @endphp
+                                <h1 class="aurora-title">{!! $homeSiteName !!}</h1>
                                 <p class="aurora-desc">{{ \App\Models\Setting::get('site_tagline') }}</p>
                                 <a href="{{ route('about') }}" class="aurora-cta">
                                     {{ __('Selengkapnya') }} <i class="fas fa-arrow-right"></i>
@@ -151,16 +161,48 @@
                                     <div class="col-xl-10 mx-auto">
                                         <div class="lux-hero-content" data-aos="fade-right">
                                             <span class="lux-hero-tagline">{{ \App\Models\Setting::get('site_abbreviation', 'PREMIUM EDUCATION') }}</span>
-                                            <h1 class="lux-hero-title mb-4">{{ \App\Models\Setting::get('site_name', 'Oxford Excellence') }}</h1>
-                                            <p class="lux-hero-desc mb-5">{{ \App\Models\Setting::get('site_tagline', 'Developing the leaders of tomorrow through world-class academic programs and professional excellence.') }}</p>
-                                            
-                                            <div class="d-flex flex-wrap gap-3">
-                                                <a href="{{ route('about') }}" class="btn btn-premium">
-                                                    {{ __('Explore Programmes') }}
-                                                </a>
-                                                <a href="{{ route('contact.index') }}" class="btn btn-outline-dark rounded-0 px-4 py-3 fw-bold text-uppercase" style="letter-spacing: 1px;">
-                                                    {{ __('Get In Touch') }}
-                                                </a>
+                                            <div class="swiper lux-text-swiper w-100">
+                                                <div class="swiper-wrapper">
+                                                    @forelse($sliders as $slider)
+                                                        <div class="swiper-slide">
+                                                            <h1 class="lux-hero-title mb-4">{{ $slider->title }}</h1>
+                                                            <p class="lux-hero-desc mb-5">{{ $slider->subtitle }}</p>
+                                                            
+                                                            <div class="d-flex flex-wrap gap-3">
+                                                                <a href="{{ $slider->button_url ?: route('about') }}" class="btn btn-premium">
+                                                                    {{ $slider->button_text ?: __('Explore Programmes') }}
+                                                                </a>
+                                                                <a href="{{ route('contact.index') }}" class="btn btn-outline-dark rounded-0 px-4 py-3 fw-bold text-uppercase" style="letter-spacing: 1px;">
+                                                                    {{ __('Get In Touch') }}
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @empty
+                                                        <div class="swiper-slide">
+                                                             @php
+                                                                 $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                                                 if ($layout == '2') {
+                                                                     $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                                                     $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                                                     $luxHeroTitle = e($line1) . '<br>' . e($line2);
+                                                                 } else {
+                                                                     $luxHeroTitle = e(\App\Models\Setting::get('site_name', 'Oxford Excellence'));
+                                                                 }
+                                                             @endphp
+                                                             <h1 class="lux-hero-title mb-4">{!! $luxHeroTitle !!}</h1>
+                                                            <p class="lux-hero-desc mb-5">{{ \App\Models\Setting::get('site_tagline', 'Developing the leaders of tomorrow through world-class academic programs and professional excellence.') }}</p>
+                                                            
+                                                            <div class="d-flex flex-wrap gap-3">
+                                                                <a href="{{ route('about') }}" class="btn btn-premium">
+                                                                    {{ __('Explore Programmes') }}
+                                                                </a>
+                                                                <a href="{{ route('contact.index') }}" class="btn btn-outline-dark rounded-0 px-4 py-3 fw-bold text-uppercase" style="letter-spacing: 1px;">
+                                                                    {{ __('Get In Touch') }}
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    @endforelse
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +307,17 @@
                             <span class="badge-theme-pill mb-4 d-inline-block px-4 py-2 uppercase tracking-widest" data-aos="fade-down" data-aos-delay="200">{{ $siteAbbr }}</span>
                             
                             <h1 class="hero-title display-3 fw-bold text-white mb-4 notranslate" translate="no" data-aos="fade-up" data-aos-delay="300">
-                                {{ \App\Models\Setting::get('site_name', __('menu.home_fallback_title')) }}
+                                @php
+                                    $layout = \App\Models\Setting::get('site_name_layout', '1');
+                                    if ($layout == '2') {
+                                        $line1 = \App\Models\Setting::get('site_name_line1', '');
+                                        $line2 = \App\Models\Setting::get('site_name_line2', '');
+                                        $defaultHeroTitle = e($line1) . '<br>' . e($line2);
+                                    } else {
+                                        $defaultHeroTitle = e(\App\Models\Setting::get('site_name', __('menu.home_fallback_title')));
+                                    }
+                                @endphp
+                                {!! $defaultHeroTitle !!}
                             </h1>
                             
                             <div class="hero-divider-premium mx-auto mb-4" data-aos="stretch-width" data-aos-delay="400"></div>
@@ -638,8 +690,13 @@
                         @foreach($testimonials as $testimonial)
                         <div class="swiper-slide h-auto">
                             <div class="lux-testimonial-card bg-white p-5 text-center transition-all h-100 border border-light d-flex flex-column">
-                                <div class="lux-quote-icon mb-4">
+                                <div class="lux-quote-icon mb-2">
                                     <i class="fas fa-quote-left text-theme-accent opacity-50" style="font-size: 2rem;"></i>
+                                </div>
+                                <div class="mb-3 text-warning">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <i class="fa-solid fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted opacity-25' }}" style="font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free' !important; font-weight: 900 !important; color: {{ $i <= $testimonial->rating ? '#ffc107' : 'inherit' }};"></i>
+                                    @endfor
                                 </div>
                                 <p class="lux-testimonial-text mb-4 italic text-navy" style="font-size: 1.1rem; line-height: 1.8; font-family: 'Crimson Pro', serif; font-style: italic;">
                                     "{{ $testimonial->content }}"
@@ -683,7 +740,12 @@
                                     @endif
                                     <div>
                                         <h6 class="fw-bold mb-0 text-dark">{{ $testimonial->name }}</h6>
-                                        <small class="text-muted">{{ $testimonial->position }}</small>
+                                        <small class="text-muted d-block">{{ $testimonial->position }}</small>
+                                        <div class="mt-1 text-warning" style="font-size: 0.85rem;">
+                                            @for($i = 1; $i <= 5; $i++)
+                                                <i class="fa-solid fa-star {{ $i <= $testimonial->rating ? '' : 'text-muted opacity-25' }}" style="font-family: 'Font Awesome 6 Free', 'Font Awesome 5 Free' !important; font-weight: 900 !important; color: {{ $i <= $testimonial->rating ? '#ffc107' : 'inherit' }};"></i>
+                                            @endfor
+                                        </div>
                                     </div>
                                 </div>
                                 <p class="mb-0 text-muted italic small"><i class="fas fa-quote-left me-2 text-primary opacity-50"></i>{{ $testimonial->content }}</p>
@@ -856,20 +918,36 @@ if (auroraHero) {
 
 // Luxury Split Slider Swiper
 if (document.querySelector('.lux-hero-swiper')) {
-    new Swiper('.lux-hero-swiper', {
-        loop: true,
+    const totalLuxSlides = document.querySelectorAll('.lux-hero-swiper .swiper-slide').length;
+    const luxLoop = totalLuxSlides > 1;
+
+    const luxTextSwiper = new Swiper('.lux-text-swiper', {
+        loop: luxLoop,
+        speed: 1200,
+        effect: 'fade',
+        fadeEffect: { crossFade: true },
+        allowTouchMove: false
+    });
+
+    const luxImgSwiper = new Swiper('.lux-hero-swiper', {
+        loop: luxLoop,
         speed: 1200,
         parallax: true,
-        autoplay: {
+        autoplay: luxLoop ? {
             delay: 4500,
             disableOnInteraction: false,
-        },
+        } : false,
         navigation: { 
             nextEl: '.lux-swiper-next', 
             prevEl: '.lux-swiper-prev' 
         },
         effect: 'slide'
     });
+
+    if (luxLoop) {
+        luxImgSwiper.controller.control = luxTextSwiper;
+        luxTextSwiper.controller.control = luxImgSwiper;
+    }
 }
 
 // Testimonial Swiper

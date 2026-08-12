@@ -551,9 +551,21 @@
         });
 
         // Save structure
-        $('#btn-save-menu').click(function() {
+        // .off() first: guarantees only ONE handler is ever attached to this
+        // button, even if this script block somehow gets executed more than
+        // once on the page (double render, cached partial reload, etc).
+        // isSaving flag: extra guard so an in-flight request can never be
+        // fired twice, regardless of how many click events land on the button.
+        let isSaving = false;
+
+        $('#btn-save-menu').off('click.saveMenu').on('click.saveMenu', function() {
+            if (isSaving) {
+                return; // a save is already in progress, ignore this trigger
+            }
+            isSaving = true;
+
             let menuData = $('#nestable-menu').nestable('serialize');
-            
+
             let btn = $(this);
             let originalText = btn.html();
             btn.html('<i class="fas fa-spinner fa-spin"></i> Menyimpan...');
@@ -582,6 +594,7 @@
                 complete: function() {
                     btn.html(originalText);
                     btn.prop('disabled', false);
+                    isSaving = false;
                 }
             });
         });

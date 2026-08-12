@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class MenuController extends Controller
 {
@@ -124,6 +126,16 @@ class MenuController extends Controller
 
     /**
      * Save the order and hierarchy of menu items.
+     *
+     * Three layers of protection here:
+     *  1. Idempotency guard - if the exact same payload arrives again within
+     *     a few seconds (classic double-submit / double request), the second
+     *     one is dropped instantly before touching the DB at all.
+     *  2. DB transaction + row lock - overlapping requests for the same menu
+     *     queue up instead of racing each other.
+     *  3. Payload-level dedupe - even if the incoming `items` array itself
+     *     already contains duplicate entries (same label+url+parent), only
+     *     the first occurrence at each level is kept before saving.
      */
     public function saveItems(Request $request, Menu $menu)
     {
@@ -131,21 +143,63 @@ class MenuController extends Controller
             'items' => 'required|array',
         ]);
 
-        // Clear existing items to recreate them from the builder
-        // Or realistically, just iterate and update them, but usually 
-        // a simple builder sends the entire list back and recreating is easier 
-        // if IDs aren't strictly preserved, but let's assume it sends standard properties.
+        // --- Layer 1: idempotency guard against double requests ---
+        $payloadHash = md5($menu->id . json_encode($request->items));
+        $cacheKey = "menu-save-lock:{$menu->id}:{$payloadHash}";
 
-        // Simpler approach for a nestable builder array:
-        $menu->allItems()->delete();
-
-        $order = 0;
-        foreach ($request->items as $item) {
-            $this->createMenuItem($menu->id, null, $item, $order);
-            $order++;
+        if (Cache::has($cacheKey)) {
+            // Identical save already processed a moment ago - ignore this repeat.
+            return response()->json([
+                'success' => true,
+                'message' => 'Susunan menu berhasil disimpan.',
+            ]);
         }
+        Cache::put($cacheKey, true, now()->addSeconds(10));
+
+        // --- Layer 3: dedupe the incoming array itself before saving ---
+        $cleanItems = $this->dedupeItems($request->items);
+
+        DB::transaction(function () use ($cleanItems, $menu) {
+            // --- Layer 2: lock the menu row so overlapping requests queue up ---
+            $lockedMenu = Menu::whereKey($menu->id)->lockForUpdate()->firstOrFail();
+
+            $lockedMenu->allItems()->delete();
+
+            $order = 0;
+            foreach ($cleanItems as $item) {
+                $this->createMenuItem($lockedMenu->id, null, $item, $order);
+                $order++;
+            }
+        });
 
         return response()->json(['success' => true, 'message' => 'Susunan menu berhasil disimpan.']);
+    }
+
+    /**
+     * Recursively strip duplicate entries (same label + url) at each level
+     * of the nested items array, keeping only the first occurrence.
+     */
+    private function dedupeItems(array $items): array
+    {
+        $seen = [];
+        $result = [];
+
+        foreach ($items as $item) {
+            $key = ($item['label'] ?? '') . '|' . ($item['url'] ?? '');
+
+            if (isset($seen[$key])) {
+                continue; // skip duplicate
+            }
+            $seen[$key] = true;
+
+            if (!empty($item['children'])) {
+                $item['children'] = $this->dedupeItems($item['children']);
+            }
+
+            $result[] = $item;
+        }
+
+        return $result;
     }
 
     private function createMenuItem($menuId, $parentId, $data, $order)
