@@ -34,7 +34,7 @@
         <div class="row g-5">
             <div class="col-lg-8" data-aos="fade-right">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
-                    <img src="{{ $event->featured_image_url }}" class="img-fluid w-100" alt="{{ $event->title }}" style="max-height: 500px; object-fit: cover;">
+                    <img src="{{ $event->featured_image_url }}" class="img-fluid w-100" alt="{{ $event->title }}">
                     <div class="card-body p-4 p-lg-5">
                         <div class="d-flex flex-wrap gap-3 mb-4">
                             <div class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2">
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="text-dark leading-relaxed mb-5">
-                            {!! $event->description !!}
+                            @safeHtml($event->description)
                         </div>
 
                         @if($event->online_url)
@@ -122,9 +122,11 @@
                             <div class="text-center">
                                 @if($event->registration_deadline && $event->registration_deadline->isPast())
                                 <button class="btn btn-secondary rounded-pill w-100 py-3 disabled" disabled>{{ __('Pendaftaran Ditutup') }}</button>
-                                @else
-                                <a href="#" class="btn btn-primary rounded-pill w-100 py-3 shadow-sm fw-bold">{{ __('Daftar Sekarang') }}</a>
+                                @elseif($event->registration_url)
+                                <a href="{{ $event->registration_url }}" target="_blank" class="btn btn-primary rounded-pill w-100 py-3 shadow-sm fw-bold">{{ __('Daftar Sekarang') }}</a>
                                 <small class="text-muted mt-2 d-block">{{ __('Batas pendaftaran:') }} {{ $event->registration_deadline ? $event->registration_deadline->format('d M Y') : '-' }}</small>
+                                @else
+                                <button class="btn btn-secondary rounded-pill w-100 py-3 disabled" disabled>{{ __('Pendaftaran Tidak Tersedia') }}</button>
                                 @endif
                             </div>
                         </div>

@@ -33,7 +33,7 @@
                     <hr class="mb-4">
 
                     <div class="article-content fs-5" style="line-height: 1.8;">
-                        {!! $announcement->content !!}
+                        @safeHtml($announcement->content)
                     </div>
 
                     @if($announcement->attachment)

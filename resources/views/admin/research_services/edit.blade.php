@@ -84,6 +84,7 @@
                                 <div class="form-group mb-4">
                                     <label class="small font-weight-bold text-muted mb-2 text-uppercase">Status Tampil</label>
                                     <div class="custom-control custom-switch custom-switch-off-danger custom-switch-on-success">
+                                        <input type="hidden" name="is_active" value="0">
                                         <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $researchService->is_active) ? 'checked' : '' }}>
                                         <label class="custom-control-label font-weight-normal" for="is_active">{{ __('admin.active') }} di Website</label>
                                     </div>
@@ -107,7 +108,7 @@
                                         <input type="file" name="file_path" class="custom-file-input" id="file_path" accept=".pdf">
                                         <label class="custom-file-label border-0 bg-light" for="file_path">Ubah File...</label>
                                     </div>
-                                    <small class="text-muted italic">Maksimal 20MB</small>
+                                    <small class="text-muted italic">Maksimal 30MB</small>
                                 </div>
                                 
                                 <div class="form-group mb-3">
@@ -156,6 +157,9 @@
             images_upload_url: '{{ route("admin.media.upload") }}',
             relative_urls: false,
             remove_script_host: false,
+            verify_html: false,
+            extended_valid_elements: 'style[*],script[*],iframe[*],div[*],span[*],p[*],a[*],section[*],article[*],footer[*],header[*],nav[*]',
+            valid_children: '+body[style|script],+div[style|script],+span[style|script],+p[style|script],+section[style|script],+article[style|script],+header[style|script],+footer[style|script],+aside[style|script],+nav[style|script]',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 if (meta.filetype === 'image') {

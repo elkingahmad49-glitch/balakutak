@@ -1,0 +1,275 @@
+/* ==========================================================================
+   Website Prodi - Unified Typography Overrides
+   Focus: Sleek, Modern, Elegant, and Balanced Proportions (Not too large)
+   ========================================================================== */
+
+/* Unify CSS variables for themes that support them */
+:root {
+    --font-body: 'Inter', sans-serif !important;
+    --font-heading: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* --------------------------------------------------------------------------
+   1. BASE TYPOGRAPHY (Body & Headings)
+   -------------------------------------------------------------------------- */
+body.frontend-body {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.925rem !important;
+    line-height: 1.6 !important;
+    letter-spacing: -0.01em !important;
+}
+
+
+/* Base Headings */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+
+/* Proportional Heading Scale */
+h1, .h1 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem) !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em !important;
+}
+
+h2, .h2 {
+    font-size: clamp(1.45rem, 3vw, 1.8rem) !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em !important;
+}
+
+h3, .h3 {
+    font-size: clamp(1.25rem, 2.5vw, 1.45rem) !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.01em !important;
+}
+
+h4, .h4 {
+    font-size: clamp(1.1rem, 2vw, 1.25rem) !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+}
+
+h5, .h5 {
+    font-size: 1.05rem !important;
+    line-height: 1.45 !important;
+    font-weight: 600 !important;
+}
+
+h6, .h6 {
+    font-size: 0.925rem !important;
+    line-height: 1.5 !important;
+    font-weight: 600 !important;
+}
+
+p {
+    font-size: 0.925rem !important;
+    line-height: 1.6 !important;
+}
+
+/* Bootstrap Display overrides */
+.display-4 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.display-5 {
+    font-size: clamp(1.5rem, 3vw, 1.95rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. HEADER & NAVIGATION OVERRIDES
+   -------------------------------------------------------------------------- */
+.elegant-brand-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(1.05rem, 1.8vw, 1.25rem) !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.elegant-brand-subtitle {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.725rem !important;
+    font-weight: 500 !important;
+    line-height: 1.3 !important;
+}
+
+.main-nav-link, .nav-link {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px !important;
+}
+
+.dropdown-item {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.825rem !important;
+    font-weight: 500 !important;
+}
+
+.top-menu-link {
+    font-size: 0.725rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO SECTIONS OVERRIDES
+   -------------------------------------------------------------------------- */
+.hero-title, .lux-hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem) !important;
+    line-height: 1.2 !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #ffffff !important;
+}
+
+.hero-subtitle, .lux-hero-desc {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem) !important;
+    line-height: 1.65 !important;
+    font-weight: 400 !important;
+    opacity: 0.9 !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION & CONTENT ELEMENT OVERRIDES
+   -------------------------------------------------------------------------- */
+.section-title, .lux-section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(1.35rem, 2.5vw, 1.7rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.section-badge {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.725rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+}
+
+/* Cards (News, Events, Lecturers) */
+.card-title, .news-immersive-title, .news-ultimate-card .card-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 1.05rem !important;
+    line-height: 1.45 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.card-text, .news-immersive-card p, .news-ultimate-card p {
+    font-size: 0.85rem !important;
+    line-height: 1.55 !important;
+}
+
+/* Testimonial Typography */
+.lux-testimonial-text {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.925rem !important;
+    line-height: 1.65 !important;
+    font-style: normal !important;
+}
+
+.lux-event-card h4, .event-card h4 {
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+}
+
+/* Stats Element sizes */
+.stat-number {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(1.4rem, 2.8vw, 1.75rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.stat-label {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+}
+
+/* Page Header Premium Title */
+.page-header-premium h1, .page-header-premium .display-4 {
+    font-size: clamp(1.6rem, 3.5vw, 2.1rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+}
+
+.page-header-premium p {
+    font-size: 0.95rem !important;
+    opacity: 0.85 !important;
+}
+
+.breadcrumb-item, .breadcrumb-item a {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.725rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.8px !important;
+}
+
+/* Footer elements overrides */
+.footer-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+}
+
+footer p, footer a, footer li {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. TABLE BORDERS AND GRIDLINES IN USER CONTENT
+   -------------------------------------------------------------------------- */
+table:not(.table) {
+    border-collapse: collapse !important;
+    margin-bottom: 1.5rem !important;
+    border: 1px solid #cbd5e1 !important;
+    width: 100% !important;
+}
+
+table:not(.table) th,
+table:not(.table) td {
+    border: 1px solid #cbd5e1 !important;
+    padding: 0.75rem 1rem !important;
+    vertical-align: middle !important;
+}
+
+/* Clean Header Style Hierarchy (defaults) */
+table:not(.table) th {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Dark Mode support */
+html.dark table:not(.table) {
+    border: 1px solid #475569 !important;
+}
+
+html.dark table:not(.table) th,
+html.dark table:not(.table) td {
+    border: 1px solid #475569 !important;
+    color: #cbd5e1 !important;
+}
+
+html.dark table:not(.table) th {
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+

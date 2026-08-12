@@ -80,6 +80,7 @@
                                 <div class="form-group">
                                     <label>Status</label>
                                     <div class="custom-control custom-switch mt-2">
+                                        <input type="hidden" name="is_active" value="0">
                                         <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $slider->is_active) ? 'checked' : '' }}>
                                         <label class="custom-control-label" for="is_active">Aktif (Tampilkan)</label>
                                     </div>
@@ -96,6 +97,7 @@
         </div>
     </div>
 </div>
+@include('admin.partials.media-modal')
 @stop
 
 @section('js')

@@ -9,8 +9,8 @@
                         $logoWhite = \App\Models\Setting::get('site_logo_white');
                         $logoMain = \App\Models\Setting::get('site_logo');
                         
-                        // Use main logo if white logo is empty OR is still the default seeder path
-                        if (!$logoWhite || $logoWhite == 'images/logo_white.png') {
+                        // Use white logo if configured, fallback to main logo
+                        if (!$logoWhite) {
                             $logo = $logoMain;
                         } else {
                             $logo = $logoWhite;
@@ -23,7 +23,17 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                     @endif
-                    <div class="footer-heading mb-0">{{ \App\Models\Setting::get('site_name', 'Program Studi') }}</div>
+                    @php
+                        $layout = \App\Models\Setting::get('site_name_layout', '1');
+                        if ($layout == '2') {
+                            $line1 = \App\Models\Setting::get('site_name_line1', '');
+                            $line2 = \App\Models\Setting::get('site_name_line2', '');
+                            $footerSiteName = e($line1) . '<br>' . e($line2);
+                        } else {
+                            $footerSiteName = e(\App\Models\Setting::get('site_name', 'Program Studi'));
+                        }
+                    @endphp
+                    <div class="footer-heading mb-0">{!! $footerSiteName !!}</div>
                 </div>
                 <p class="small mb-3 lh-lg" style="color:#94a3b8">{{ \App\Models\Setting::get('site_sub_name', '') }}</p>
                 <div class="d-flex gap-2">
@@ -50,24 +60,47 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-heading">{{ __('Link Cepat') }}</div>
                 <div class="row g-0">
-                    <div class="col-6">
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2"><a href="{{ route('home') }}">{{ __('menu.home') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('about') }}">{{ __('menu.about_prodi') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('academic') }}">{{ __('menu.academic') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('curriculum') }}">{{ __('menu.curriculum') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('calendar') }}">{{ __('menu.calendar') }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-6">
-                        <ul class="list-unstyled small mb-0">
-                            <li class="mb-2"><a href="{{ route('research') }}">{{ __('menu.research') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('community') }}">{{ __('menu.community') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('gallery.index') }}">{{ __('menu.gallery') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('events.index') }}">{{ __('menu.agenda') }}</a></li>
-                            <li class="mb-2"><a href="{{ route('contact.index') }}">{{ __('menu.contact') }}</a></li>
-                        </ul>
-                    </div>
+                    @if(isset($sharedMenus['footer-menu']) && $sharedMenus['footer-menu']->items->count() > 0)
+                        @php
+                            $items = $sharedMenus['footer-menu']->items;
+                            $count = $items->count();
+                            $half = ceil($count / 2);
+                            $chunks = $items->chunk($half);
+                        @endphp
+                        @foreach($chunks as $chunk)
+                            <div class="col-6">
+                                <ul class="list-unstyled small mb-0">
+                                    @foreach($chunk as $item)
+                                        <li class="mb-2">
+                                            <a href="{{ $item->resolved_url }}" target="{{ $item->target }}">
+                                                @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                                                {{ $item->label }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="col-6">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><a href="{{ route('home') }}">{{ __('menu.home') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('about') }}">{{ __('menu.about_prodi') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('academic') }}">{{ __('menu.academic') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('curriculum') }}">{{ __('menu.curriculum') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('calendar') }}">{{ __('menu.calendar') }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="mb-2"><a href="{{ route('research') }}">{{ __('menu.research') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('community') }}">{{ __('menu.community') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('gallery.index') }}">{{ __('menu.gallery') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('events.index') }}">{{ __('menu.agenda') }}</a></li>
+                                <li class="mb-2"><a href="{{ route('contact.index') }}">{{ __('menu.contact') }}</a></li>
+                            </ul>
+                        </div>
+                    @endif
                 </div>
             </div>
 

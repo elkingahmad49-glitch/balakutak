@@ -13,7 +13,7 @@
                 <div class="card-header border-0">
                     <h3 class="card-title">{{ __('admin.edit_tag') }}</h3>
                 </div>
-                <form action="{{ route('admin.tags.update', $tag->id) }}" method="POST">
+                <form action="{{ route('admin.tags.update', $tag) }}" method="POST">
                     @csrf
                     @method('PUT')
                     

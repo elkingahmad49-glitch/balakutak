@@ -341,7 +341,7 @@
             @php 
                 $logo = \App\Models\Setting::get('site_logo');
                 $logoWhiteRaw = \App\Models\Setting::get('site_logo_white');
-                $logoWhite = (!$logoWhiteRaw || $logoWhiteRaw == 'images/logo_white.png') ? $logo : $logoWhiteRaw;
+                $logoWhite = !$logoWhiteRaw ? $logo : $logoWhiteRaw;
             @endphp
             @if($logo)
                 <div class="logo-container">
@@ -356,7 +356,23 @@
                 </div>
             @endif
             <div class="notranslate" translate="no">
-                <div class="fw-bold elegant-brand-title" style="font-size:1.25rem;line-height:1.2; letter-spacing: -0.3px;">{{ \App\Models\Setting::get('site_name', 'Website Prodi') }}</div>
+                <div class="fw-bold elegant-brand-title" style="font-size:1.25rem;line-height:1.2; letter-spacing: -0.3px;">
+                    @php
+                        $layout = \App\Models\Setting::get('site_name_layout', '1');
+                        if ($layout == '2') {
+                            $line1 = \App\Models\Setting::get('site_name_line1', '');
+                            $line2 = \App\Models\Setting::get('site_name_line2', '');
+                            $siteNameDisplay = e($line1) . '<br>' . e($line2);
+                        } else {
+                            $siteName = \App\Models\Setting::get('site_name', 'Website Prodi');
+                            $escapedName = e($siteName);
+                            $siteNameDisplay = str_contains($escapedName, 'Program Studi') 
+                                ? str_replace('Program Studi', 'Program Studi<br>', $escapedName) 
+                                : $escapedName;
+                        }
+                    @endphp
+                    {!! $siteNameDisplay !!}
+                </div>
                 <div class="elegant-brand-subtitle mt-1" style="font-size:.85rem;line-height:1; font-weight: 500;">{{ \App\Models\Setting::get('site_sub_name', '') }}</div>
             </div>
         </a>
@@ -415,6 +431,38 @@
     </div>
 </nav>
 
+@if(isset($sharedMenus['secondary-menu']) && $sharedMenus['secondary-menu']->items->count() > 0)
+    <div class="secondary-menu-wrapper py-2">
+        <div class="container d-flex justify-content-center align-items-center gap-2 flex-wrap">
+            @foreach($sharedMenus['secondary-menu']->items as $item)
+                @if($item->children->count() > 0)
+                    <div class="dropdown">
+                        <a class="secondary-menu-link dropdown-toggle py-1 px-3 text-decoration-none fw-semibold d-inline-flex align-items-center" href="#" id="secDrop{{ $item->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                            <span>{{ $item->label }}</span>
+                        </a>
+                        <ul class="dropdown-menu shadow-lg border-0 elegant-dropdown" aria-labelledby="secDrop{{ $item->id }}">
+                            @foreach($item->children as $child)
+                                <li>
+                                    <a class="dropdown-item elegant-dropdown-item py-2" href="{{ $child->resolved_url }}" target="{{ $child->target }}">
+                                        @if($child->icon) <i class="{{ $child->icon }} me-2 text-primary"></i> @endif
+                                        {{ $child->label }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @else
+                    <a href="{{ $item->resolved_url }}" class="secondary-menu-link py-1 px-3 text-decoration-none fw-semibold d-inline-flex align-items-center" target="{{ $item->target }}">
+                        @if($item->icon) <i class="{{ $item->icon }} me-1"></i> @endif
+                        <span>{{ $item->label }}</span>
+                    </a>
+                @endif
+            @endforeach
+        </div>
+    </div>
+@endif
+
 {{-- Search Modal --}}
 <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -448,6 +496,53 @@
 </div>
 
 <style>
+    /* Secondary Menu Styling */
+    .secondary-menu-wrapper {
+        background: #f8fafc;
+        border-bottom: 1px solid rgba(0, 86, 179, 0.05);
+        position: relative;
+        z-index: 1040;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+    .secondary-menu-link {
+        color: #475569;
+        font-size: 0.9rem;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s ease;
+        border-radius: 6px;
+    }
+    .secondary-menu-link:hover, .secondary-menu-link.show {
+        color: #0056b3;
+        background-color: rgba(0, 86, 179, 0.05);
+    }
+    
+    @media (max-width: 768px) {
+        .secondary-menu-wrapper .container {
+            flex-wrap: nowrap !important;
+            overflow-x: auto;
+            justify-content: start !important;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        .secondary-menu-link {
+            white-space: nowrap;
+        }
+    }
+
+    /* Dark Mode for Secondary Menu */
+    .dark .secondary-menu-wrapper {
+        background: #0d1117;
+        border-bottom: 1px solid rgba(100, 255, 218, 0.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .dark .secondary-menu-link {
+        color: #8b949e;
+    }
+    .dark .secondary-menu-link:hover, .dark .secondary-menu-link.show {
+        color: #64ffda;
+        background-color: rgba(100, 255, 218, 0.08);
+    }
+
     /* Elegant Main Menu Styling */
     .elegant-navbar {
         background: linear-gradient(120deg, #ffffff 0%, #f6f9fc 50%, #e9ecef 100%);
@@ -631,5 +726,168 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+    }
+
+    /* Fix for Stanford themes menu overlapping with announcement bar */
+    [class*="theme-stanford-grow-"] #main-navbar.elegant-navbar:not(.scrolled) {
+        position: relative !important;
+        top: 0 !important;
+        background: var(--p-dark) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+    }
+    .dark [class*="theme-stanford-grow-"] #main-navbar.elegant-navbar:not(.scrolled) {
+        background: #2e2d29 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-content {
+        padding-top: 60px !important;
+    }
+
+    /* Softer and smaller typography for Stanford and Oxford themes */
+    
+    /* Stanford Themes overrides */
+    [class*="theme-stanford-grow-"] h1,
+    [class*="theme-stanford-grow-"] h2,
+    [class*="theme-stanford-grow-"] h3,
+    [class*="theme-stanford-grow-"] h4,
+    [class*="theme-stanford-grow-"] h5,
+    [class*="theme-stanford-grow-"] h6,
+    [class*="theme-stanford-grow-"] .elegant-brand-title {
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-title {
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .hero-subtitle {
+        font-size: 0.9rem !important;
+        opacity: 0.8 !important;
+    }
+    [class*="theme-stanford-grow-"] .section-title,
+    [class*="theme-stanford-grow-"] .lux-section-header .lux-section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        font-weight: 600 !important;
+        letter-spacing: -0.5px !important;
+    }
+    [class*="theme-stanford-grow-"] .display-4 {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        font-weight: 600 !important;
+    }
+    [class*="theme-stanford-grow-"] .elegant-brand-title {
+        font-size: 1.35rem !important;
+    }
+
+    /* Oxford Themes overrides */
+    body[class*="theme-oxford-"] h1,
+    body[class*="theme-oxford-"] h2,
+    body[class*="theme-oxford-"] h3,
+    body[class*="theme-oxford-"] h4,
+    body[class*="theme-oxford-"] h5,
+    body[class*="theme-oxford-"] h6 {
+        font-weight: 650 !important;
+    }
+    body[class*="theme-oxford-"] .elegant-brand-title {
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        line-height: 1.2 !important;
+    }
+    body[class*="theme-oxford-"] .elegant-brand-subtitle {
+        font-size: 0.8rem !important;
+        font-weight: 400 !important;
+        opacity: 0.85 !important;
+    }
+    body[class*="theme-oxford-"] .main-nav-link {
+        font-size: 0.95rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.3px !important;
+    }
+    body[class*="theme-oxford-"] .lux-hero-title {
+        font-size: clamp(1.8rem, 4vw, 2.6rem) !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        margin-bottom: 1.5rem !important;
+    }
+    body[class*="theme-oxford-"] .lux-hero-desc {
+        font-size: 1rem !important;
+        line-height: 1.6 !important;
+        margin-bottom: 2rem !important;
+    }
+    body[class*="theme-oxford-"] .lux-section-title {
+        font-size: clamp(1.5rem, 3vw, 2rem) !important;
+        font-weight: 700 !important;
+    }
+    body[class*="theme-oxford-"] .display-4,
+    body[class*="theme-oxford-"] .page-header-premium h1 {
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem) !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.5px !important;
+    }
+    body[class*="theme-oxford-"] .page-header-premium {
+        padding: 5rem 0 !important;
+    }
+    body[class*="theme-oxford-"] .aurora-cta-title {
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+    }
+
+    /* Reset styles for any footer elements inside the main content area (e.g. copied/pasted in article editor) */
+    body.frontend-body main footer,
+    body.frontend-body main .aurora-footer,
+    body.frontend-body .post-body footer,
+    body.frontend-body .post-body .aurora-footer,
+    body.frontend-body .article-content footer,
+    body.frontend-body .article-content .aurora-footer,
+    body.frontend-body .page-content footer,
+    body.frontend-body .page-content .aurora-footer {
+        background: transparent !important;
+        background-image: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 2rem 0 0 0 !important;
+        color: inherit !important;
+        box-shadow: none !important;
+        height: auto !important;
+        min-height: 0 !important;
+        position: static !important;
+        overflow: visible !important;
+    }
+    
+    body.frontend-body main footer::before,
+    body.frontend-body main footer::after,
+    body.frontend-body main .aurora-footer::before,
+    body.frontend-body main .aurora-footer::after,
+    body.frontend-body .post-body footer::before,
+    body.frontend-body .post-body footer::after,
+    body.frontend-body .post-body .aurora-footer::before,
+    body.frontend-body .post-body .aurora-footer::after,
+    body.frontend-body .article-content footer::before,
+    body.frontend-body .article-content footer::after,
+    body.frontend-body .article-content .aurora-footer::before,
+    body.frontend-body .article-content .aurora-footer::after,
+    body.frontend-body .page-content footer::before,
+    body.frontend-body .page-content footer::after,
+    body.frontend-body .page-content .aurora-footer::before,
+    body.frontend-body .page-content .aurora-footer::after {
+        display: none !important;
+        content: none !important;
+    }
+
+    body.frontend-body main footer *,
+    body.frontend-body main .aurora-footer *,
+    body.frontend-body .post-body footer *,
+    body.frontend-body .post-body .aurora-footer *,
+    body.frontend-body .article-content footer *,
+    body.frontend-body .article-content .aurora-footer *,
+    body.frontend-body .page-content footer *,
+    body.frontend-body .page-content .aurora-footer * {
+        background: transparent !important;
+        background-image: none !important;
+        color: inherit !important;
+        border: none !important;
+        box-shadow: none !important;
+        text-transform: none !important;
+        letter-spacing: normal !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        position: static !important;
     }
 </style>

@@ -414,6 +414,18 @@ body.theme-royal-purple-balakutak h6 {
     transition: all 0.4s ease;
 }
 
+@media (min-width: 768px) {
+    .theme-royal-purple-balakutak .stats-bar .row {
+        flex-wrap: nowrap !important;
+    }
+    .theme-royal-purple-balakutak .stat-item {
+        flex: 1 1 0px !important;
+        max-width: 100% !important;
+        width: auto !important;
+        margin: 0 0.5rem !important;
+    }
+}
+
 .theme-royal-purple-balakutak .stat-item:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(192, 132, 252, 0.25);
@@ -1486,7 +1498,9 @@ html.dark .theme-royal-purple-balakutak .acc-header {
 /* ========= RESPONSIVE ADJUSTMENTS ========= */
 @media (max-width: 768px) {
     .theme-royal-purple-balakutak .stat-item {
-        margin: 0 0.25rem;
+        flex: 0 0 calc(50% - 0.5rem) !important;
+        max-width: calc(50% - 0.5rem) !important;
+        margin: 0.25rem !important;
         padding: 1rem 0.5rem !important;
         border-radius: 14px;
     }

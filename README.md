@@ -36,11 +36,11 @@ Secara teknis, BalaKutaK memisahkan antara manajemen data dan penyajian visual, 
 ### 📝 Content & Academic Management
 *   **📰 Advanced News & Articles**: Pengelolaan konten berita dengan sistem kategori, tag, dan editor teks kaya (Rich Text Editor).
 *   **🎓 Academic Suite**: Modul lengkap untuk institusi pendidikan meliputi:
-    *   **Sumber Daya Manusia**: Profil dosen dan staf akademik yang komprehensif.
-    *   **Kurikulum**: Detail mata kuliah dan struktur program studi.
-    *   **Kalender Akademik**: Visualisasi jadwal kegiatan akademik dalam bentuk list dan kalender.
-    *   **Layanan & Penelitian**: Portal informasi layanan mahasiswa dan hasil pengabdian masyarakat.
-*   **📅 Event & Agenda**: Pengelolaan agenda kegiatan dengan hitung mundur (countdown) dan detail lokasi.
+    *   **Sumber Daya Manusia**: Profil dosen dan staf akademik yang komprehensif dengan dukungan ekspor data ke Excel (.xlsx).
+    *   **Kurikulum**: Detail mata kuliah dan struktur program studi dengan dukungan ekspor data ke Excel (.xlsx).
+    *   **Layanan & Penelitian**: Portal informasi layanan mahasiswa dan hasil pengabdian masyarakat dengan dukungan ekspor data ke Excel (.xlsx) serta fitur impor/impor-ulang dari Excel.
+    *   **Sertifikat Akreditasi**: Integrasi pratinjau (viewer) sertifikat interaktif (untuk file Gambar & PDF) dengan fitur download langsung.
+*   **📅 Event & Agenda**: Pengelolaan agenda kegiatan dengan hitung mundur (countdown), detail lokasi, serta integrasi tautan pendaftaran eksternal yang dinamis.
 *   **📁 Centralized Document Manager**: Pusat unduhan dokumen resmi yang terorganisir.
 
 ### 🛠️ Customization & Site Builder
@@ -54,7 +54,7 @@ Secara teknis, BalaKutaK memisahkan antara manajemen data dan penyajian visual, 
 *   **👥 Role & Permission Management**: Kontrol akses pengguna (Super Admin & Admin) yang presisi menggunakan Laravel Permissions.
 *   **💾 Integrated Backup System**: Fitur pencadangan otomatis untuk database dan file aplikasi dalam format terkompresi (.zip).
 *   **🔍 SEO & Meta Management**: Pengaturan SEO dinamis untuk setiap halaman guna meningkatkan visibilitas di mesin pencari.
-*   **🤖 Integrated Chatbot & Accessibility**: Fitur widget chatbot dan aksesibilitas untuk membantu interaksi pengguna.
+*   **🤖 Integrated Chatbot & Accessibility**: Fitur widget chatbot pintar dan aksesibilitas ramah disabilitas (Grayscale, Kontras Tinggi, Pembesar Font, Text-to-Speech, dll) dengan penataan posisi otomatis antibentrok dan pewarnaan dinamis adaptif sesuai varian warna tema (termasuk kustomisasi glassmorphic pada tema Aurora Glass).
 
 ---
 

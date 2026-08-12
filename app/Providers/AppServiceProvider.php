@@ -15,6 +15,10 @@ class AppServiceProvider extends ServiceProvider
     {
         \Illuminate\Pagination\Paginator::useBootstrap();
 
+        \Illuminate\Support\Facades\Blade::directive('safeHtml', function ($expression) {
+            return "<?php echo \App\Helpers\HtmlHelper::fixHtmlTags($expression); ?>";
+        });
+
         \Illuminate\Support\Facades\View::composer(
             ['admin.settings.*', 'admin.infographics.*'],
             function ($view) {

@@ -15,6 +15,13 @@ class DatabaseSeeder extends Seeder
             DocumentCategorySeeder::class,
             SampleDataSeeder::class,
             FaqSeeder::class,
+            AnnouncementSeeder::class,
+            EventSeeder::class,
+            PostSeeder::class,
+            TestimonialSeeder::class,
+            PartnerSeeder::class,
+            SponsorSeeder::class,
+            MenuSeeder::class,
         ]);
     }
 }

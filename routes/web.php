@@ -69,11 +69,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     // Lecturers
     Route::post('lecturers/import', [LecturerController::class , 'import'])->name('lecturers.import');
     Route::get('lecturers/template', [LecturerController::class , 'downloadTemplate'])->name('lecturers.template');
+    Route::get('lecturers/export', [LecturerController::class , 'export'])->name('lecturers.export');
     Route::resource('lecturers', LecturerController::class);
 
     // Curriculum
     Route::post('curriculums/import', [CurriculumController::class , 'import'])->name('curriculums.import');
     Route::get('curriculums/template', [CurriculumController::class , 'downloadTemplate'])->name('curriculums.template');
+    Route::get('curriculums/export', [CurriculumController::class , 'export'])->name('curriculums.export');
     Route::resource('curriculums', CurriculumController::class);
 
     // Academic Calendar
@@ -83,6 +85,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     Route::resource('academic-services', AcademicServiceController::class);
 
     // Research & Community Services
+    Route::post('research-services/import', [ResearchServiceController::class , 'import'])->name('research-services.import');
+    Route::get('research-services/template', [ResearchServiceController::class , 'downloadTemplate'])->name('research-services.template');
+    Route::get('research-services/export', [ResearchServiceController::class , 'export'])->name('research-services.export');
     Route::resource('research-services', ResearchServiceController::class);
 
     // Documents
@@ -99,6 +104,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'verified', \App\Htt
     // Sliders / Banners
     Route::resource('sliders', SliderController::class);
     Route::patch('sliders/reorder', [SliderController::class , 'reorder'])->name('sliders.reorder');
+    Route::patch('sliders/{slider}/toggle-status', [SliderController::class, 'toggleStatus'])->name('sliders.toggleStatus');
 
     // Partners / Mitra Kerjasama
     Route::patch('partners/{partner}/toggle-status', [PartnerController::class , 'toggleStatus'])->name('partners.toggle-status');
@@ -225,7 +231,10 @@ Route::group([
     Route::get('/kalender-akademik', [\App\Http\Controllers\Frontend\AcademicCalendarController::class, 'index'])->name('calendar');
 
     // Academic Services
-    Route::get('/layanan-akademik', [\App\Http\Controllers\Frontend\AcademicServiceController::class, 'index'])->name('academic-services');
+    Route::get('/academic-services', [\App\Http\Controllers\Frontend\AcademicServiceController::class, 'index'])->name('academic-services');
+    Route::get('/layanan-akademik', function() {
+        return redirect()->route('academic-services', [], 301);
+    });
 
     // Static Pages (Catch-all for anything without a dedicated prefix)
     Route::get('/{slug}', [FrontFrontPageController::class , 'show'])->name('pages.show');

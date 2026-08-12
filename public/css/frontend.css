@@ -1628,3 +1628,194 @@ html.dark .acc-btn:hover {
     background: rgba(255, 255, 255, 0.15) !important;
     transform: translateY(-5px) !important;
 }
+
+/* Aurora CTA Section Pointer Fixes & Z-Index Layering */
+.aurora-cta-section .container {
+    position: relative;
+    z-index: 10 !important;
+}
+.aurora-cta-bg-glow,
+.aurora-cta-pattern,
+.aurora-cta-blob {
+    pointer-events: none !important;
+}
+
+/* ========================================================
+   CHATBOT & ACCESSIBILITY WIDGET STYLING FOR OXFORD THEMES
+   Matches: oxford-premium and all oxford-luxury variants
+   ======================================================== */
+
+/* Theme variables mapping */
+.theme-oxford-premium-balakutak,
+.theme-oxford-luxury-balakutak,
+.theme-oxford-luxury-navygold-balakutak {
+    --oxford-primary: #002147;
+    --oxford-primary-rgb: 0, 33, 71;
+    --oxford-accent: #c69214;
+    --oxford-accent-rgb: 198, 146, 20;
+}
+
+.theme-oxford-luxury-blackgold-balakutak {
+    --oxford-primary: #1a1a1a;
+    --oxford-primary-rgb: 26, 26, 26;
+    --oxford-accent: #c69214;
+    --oxford-accent-rgb: 198, 146, 20;
+}
+
+.theme-oxford-luxury-redgold-balakutak {
+    --oxford-primary: #800000;
+    --oxford-primary-rgb: 128, 0, 0;
+    --oxford-accent: #c69214;
+    --oxford-accent-rgb: 198, 146, 20;
+}
+
+.theme-oxford-luxury-greengold-balakutak {
+    --oxford-primary: #004d40;
+    --oxford-primary-rgb: 0, 77, 64;
+    --oxford-accent: #c69214;
+    --oxford-accent-rgb: 198, 146, 20;
+}
+
+.theme-oxford-luxury-browngold-balakutak {
+    --oxford-primary: #5d4037;
+    --oxford-primary-rgb: 93, 64, 55;
+    --oxford-accent: #c69214;
+    --oxford-accent-rgb: 198, 146, 20;
+}
+
+[class*="theme-oxford"] .chatbot-toggle,
+[class*="theme-oxford"] .acc-toggle {
+    background: var(--oxford-primary, #002147) !important;
+    border: 2px solid var(--oxford-accent, #c69214) !important;
+    color: var(--oxford-accent, #c69214) !important;
+    display: flex !important; /* Force render */
+    z-index: 9999 !important; /* Top-most layer overlay */
+    box-shadow: 0 10px 25px rgba(var(--oxford-primary-rgb, 0, 33, 71), 0.25) !important;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+[class*="theme-oxford"] .chatbot-toggle:hover,
+[class*="theme-oxford"] .acc-toggle:hover {
+    background: var(--oxford-accent, #c69214) !important;
+    color: #ffffff !important;
+    transform: scale(1.1) rotate(5deg) !important;
+    box-shadow: 0 15px 35px rgba(var(--oxford-accent-rgb, 198, 146, 20), 0.4) !important;
+}
+
+[class*="theme-oxford"] .acc-toggle:hover {
+    transform: scale(1.1) !important; /* Avoid rotation for accessibility gear icon */
+}
+
+[class*="theme-oxford"] .acc-widget {
+    position: fixed !important;
+    bottom: 9.5rem !important;
+    right: 2rem !important;
+    z-index: 9997 !important;
+}
+
+[class*="theme-oxford"] .chatbot-window {
+    position: fixed !important;
+    bottom: 9.5rem !important;
+    right: 2rem !important;
+    width: 320px !important;
+    height: 420px !important;
+    border: 1px solid rgba(var(--oxford-accent-rgb, 198, 146, 20), 0.3) !important;
+    box-shadow: 0 15px 40px rgba(var(--oxford-primary-rgb, 0, 33, 71), 0.25) !important;
+    z-index: 9998 !important;
+    border-radius: 16px !important;
+    display: none;
+    flex-direction: column !important;
+    overflow: hidden !important;
+}
+
+[class*="theme-oxford"] .chatbot-window.open {
+    display: flex !important;
+}
+
+[class*="theme-oxford"] .chatbot-header {
+    background: var(--oxford-primary, #002147) !important;
+    border-bottom: 2px solid var(--oxford-accent, #c69214) !important;
+    padding: 0.9rem 1.2rem !important;
+}
+
+[class*="theme-oxford"] .chatbot-input button,
+[class*="theme-oxford"] .chat-bubble.user {
+    background: var(--oxford-primary, #002147) !important;
+    color: #ffffff !important;
+}
+
+[class*="theme-oxford"] .chat-bubble.bot {
+    background: rgba(var(--oxford-primary-rgb, 0, 33, 71), 0.05) !important;
+    color: var(--oxford-primary, #002147) !important;
+    border: 1px solid rgba(var(--oxford-primary-rgb, 0, 33, 71), 0.08) !important;
+}
+
+/* Accessibility menu popup styling for Oxford themes */
+[class*="theme-oxford"] .acc-menu {
+    border: 1px solid rgba(var(--oxford-accent-rgb, 198, 146, 20), 0.3) !important;
+    box-shadow: 0 15px 40px rgba(var(--oxford-primary-rgb, 0, 33, 71), 0.25) !important;
+    z-index: 9998 !important;
+    border-radius: 16px !important;
+}
+
+[class*="theme-oxford"] .acc-header {
+    color: var(--oxford-primary, #002147) !important;
+    font-weight: 700 !important;
+}
+
+[class*="theme-oxford"] .acc-btn.active {
+    background: var(--oxford-primary, #002147) !important;
+    border-color: var(--oxford-primary, #002147) !important;
+    color: #ffffff !important;
+}
+
+[class*="theme-oxford"] .acc-btn:hover:not(.active) {
+    border-color: var(--oxford-accent, #c69214) !important;
+    background: rgba(var(--oxford-accent-rgb, 198, 146, 20), 0.05) !important;
+}
+
+/* Dark mode overrides for floating widgets in Oxford themes */
+html.dark [class*="theme-oxford"] .chatbot-window,
+html.dark [class*="theme-oxford"] .acc-menu {
+    background: #1e293b !important;
+    border-color: rgba(198, 146, 20, 0.4) !important;
+}
+
+html.dark [class*="theme-oxford"] .chat-bubble.bot {
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #f1f5f9 !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark [class*="theme-oxford"] .acc-header {
+    color: var(--lux-gold, #c69214) !important;
+}
+
+html.dark [class*="theme-oxford"] .acc-btn {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #f1f5f9 !important;
+}
+
+html.dark [class*="theme-oxford"] .acc-btn.active {
+    background: var(--lux-gold, #c69214) !important;
+    border-color: var(--lux-gold, #c69214) !important;
+    color: #1a1a1a !important;
+}
+
+/* Mobile responsive adjustments for Oxford theme widgets */
+@media (max-width: 768px) {
+    [class*="theme-oxford"] .acc-widget {
+        bottom: 5.5rem !important;
+        right: 1rem !important;
+    }
+    [class*="theme-oxford"] .chatbot-toggle {
+        bottom: 9.5rem !important;
+        right: 1rem !important;
+    }
+    [class*="theme-oxford"] .chatbot-window {
+        bottom: 13.5rem !important;
+        right: 1rem !important;
+        width: calc(100vw - 2rem) !important;
+    }
+}

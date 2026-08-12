@@ -63,10 +63,10 @@
                                     <td><code>{{ $tag->slug }}</code></td>
                                     <td>{{ Str::limit($tag->description, 50) ?? '-' }}</td>
                                     <td>
-                                        <a href="{{ route('admin.tags.edit', $tag->id) }}" class="btn btn-sm btn-info" title="{{ __('admin.edit') }}">
+                                        <a href="{{ route('admin.tags.edit', $tag) }}" class="btn btn-sm btn-info" title="{{ __('admin.edit') }}">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <form action="{{ route('admin.tags.destroy', $tag->id) }}" method="POST" class="d-inline" onsubmit="return confirm('{{ __('admin.confirm_delete') }}');">
+                                        <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST" class="d-inline" onsubmit="return confirm('{{ __('admin.confirm_delete') }}');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger" title="{{ __('admin.delete') }}">

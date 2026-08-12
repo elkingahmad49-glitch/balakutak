@@ -59,7 +59,7 @@ class EventController extends Controller
                 'organizer' => 'nullable|string|max:255',
                 'contact_person' => 'nullable|string|max:255',
                 'registration_url' => 'nullable|url|max:255',
-                'featured_image' => 'nullable|image|max:10240', // Increased to 10MB to test limits
+                'featured_image_file' => 'nullable|image|max:10240', // Increased to 10MB to test limits
                 'is_published' => 'boolean',
                 'seo_title' => 'nullable|string|max:60',
                 'seo_description' => 'nullable|string|max:160',
@@ -67,20 +67,13 @@ class EventController extends Controller
 
             Log::info('Event Validation Passed');
 
-            $baseSlug = Str::slug($validated['title']);
-            $slug = $baseSlug;
-            $i = 1;
-            
-            // This query might fail if DB is unstable
-            while (Event::withTrashed()->where('slug', $slug)->exists()) {
-                $slug = $baseSlug . '-' . $i++;
-            }
+            $slug = Str::slug($validated['title']);
 
             Log::info('Generated Slug: ' . $slug);
 
             // Clean event data: exclude non-column and file fields for initial creation
             $eventData = collect($validated)
-                ->except(['seo_title', 'seo_description', 'featured_image'])
+                ->except(['seo_title', 'seo_description', 'featured_image_file'])
                 ->toArray();
 
             $event = new Event([
@@ -148,7 +141,7 @@ class EventController extends Controller
                 'organizer' => 'nullable|string|max:255',
                 'contact_person' => 'nullable|string|max:255',
                 'registration_url' => 'nullable|url|max:255',
-                'featured_image' => 'nullable|image|max:10240',
+                'featured_image_file' => 'nullable|image|max:10240',
                 'is_published' => 'boolean',
                 'seo_title' => 'nullable|string|max:60',
                 'seo_description' => 'nullable|string|max:160',
@@ -158,17 +151,18 @@ class EventController extends Controller
 
             // Handle Image via HasMedia logic
             $path = $this->handleMedia('featured_image', 'events', $validated['title']);
+            
+            $eventData = collect($validated)
+                ->except(['seo_title', 'seo_description', 'featured_image_file'])
+                ->toArray();
+
             if ($path) {
                 if ($event->featured_image) {
                     Storage::disk('public')->delete($event->featured_image);
                 }
-                $validated['featured_image'] = $path;
+                $eventData['featured_image'] = $path;
                 $this->syncToGallery($event, $path, 'Agenda & Kegiatan');
             }
-
-            $eventData = collect($validated)
-                ->except(['seo_title', 'seo_description'])
-                ->toArray();
 
             $event->update([
                 ...$eventData,

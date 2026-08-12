@@ -7,7 +7,7 @@
 @section('content')
 @if($page->is_builder)
     <div class="page-builder-content">
-        {!! $processedContent !!}
+        @safeHtml($processedContent)
     </div>
 @else
     <div class="page-header-premium py-5 text-white position-relative overflow-hidden">
@@ -45,7 +45,7 @@
 
                     <div class="page-content bg-white p-4 p-lg-5 rounded-4 shadow-sm border">
                         <div class="text-dark leading-relaxed">
-                            {!! $processedContent !!}
+                            @safeHtml($processedContent)
                         </div>
                     </div>
                     

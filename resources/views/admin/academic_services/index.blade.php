@@ -37,7 +37,11 @@
                                     <small class="text-muted">{{ Str::limit($service->description, 50) }}</small>
                                 </td>
                                 <td class="text-center">
-                                    <i class="{{ $service->icon ?: 'fas fa-link' }} fa-lg text-primary"></i>
+                                    @if($service->icon && (Str::contains($service->icon, '/') || Str::contains($service->icon, '.')))
+                                        <img src="{{ asset('storage/' . $service->icon) }}" alt="icon" style="max-height: 25px; max-width: 25px; object-fit: contain;">
+                                    @else
+                                        <i class="{{ $service->icon ?: 'fas fa-link' }} fa-lg text-primary"></i>
+                                    @endif
                                 </td>
                                 <td>
                                     <a href="{{ $service->url }}" target="_blank" class="text-truncate d-inline-block" style="max-width: 250px;">

@@ -67,7 +67,7 @@ class FrontPageController extends Controller
             $query->where('year', $request->year);
         }
 
-        $posts = $query->latest()->paginate(20)->withQueryString();
+        $posts = $query->orderBy('year', 'desc')->latest()->paginate(20)->withQueryString();
         return view('frontend.research', compact('posts', 'page'));
     }
 
@@ -84,7 +84,7 @@ class FrontPageController extends Controller
             $query->where('year', $request->year);
         }
 
-        $posts = $query->latest()->paginate(20)->withQueryString();
+        $posts = $query->orderBy('year', 'desc')->latest()->paginate(20)->withQueryString();
         return view('frontend.community', compact('posts', 'page'));
     }
 

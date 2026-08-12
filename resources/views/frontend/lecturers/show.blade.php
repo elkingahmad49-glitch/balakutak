@@ -69,7 +69,7 @@
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
                     <h4 class="fw-bold text-primary mb-4 border-bottom pb-2">{{ __('Profil & Biografi') }}</h4>
                     <div class="text-secondary mb-4 leading-relaxed">
-                        {!! $lecturer->biography ?: __('Biografi belum tersedia.') !!}
+                        @safeHtml($lecturer->biography ?: __('Biografi belum tersedia.'))
                     </div>
 
                     <h4 class="fw-bold text-primary mb-4 border-bottom pb-2">{{ __('Informasi Akademik') }}</h4>

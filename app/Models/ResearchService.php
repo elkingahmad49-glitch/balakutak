@@ -78,9 +78,30 @@ class ResearchService extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if (empty($model->slug)) {
-                $model->slug = Str::slug($model->title);
+            $model->slug = self::generateUniqueSlug($model->slug ?: Str::slug($model->title), $model->id);
+        });
+
+        static::updating(function ($model) {
+            if ($model->isDirty('title') || $model->isDirty('slug')) {
+                $base = $model->isDirty('slug') ? $model->slug : Str::slug($model->title);
+                $model->slug = self::generateUniqueSlug($base, $model->id);
             }
         });
+    }
+
+    private static function generateUniqueSlug($titleOrSlug, $id = null)
+    {
+        $slug = Str::slug($titleOrSlug);
+        // Truncate to 240 chars to leave space for suffix
+        $slug = Str::limit($slug, 240, '');
+        $originalSlug = $slug;
+        $count = 2;
+
+        while (self::where('slug', $slug)->where('id', '!=', $id)->exists()) {
+            $suffix = '-' . $count++;
+            $slug = Str::limit($originalSlug, 255 - strlen($suffix), '') . $suffix;
+        }
+
+        return $slug;
     }
 }

@@ -75,6 +75,120 @@
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
 }
+.leader-avatar-premium {
+    width: 150px;
+    height: 200px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 4px solid #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    background: #f1f5f9;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+}
+.leader-avatar-premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+    border-radius: 12px;
+    pointer-events: none;
+}
+.leader-avatar-premium:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #3b82f6;
+}
+.leader-avatar-premium img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+.leader-avatar-premium:hover img {
+    transform: scale(1.08) !important;
+}
+.leader-placeholder-aurora {
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, #cbd5e1, #94a3b8) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #fff !important;
+}
+.aurora-leader-name {
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    color: #0f172a !important;
+    letter-spacing: -0.5px !important;
+    line-height: 1.2 !important;
+    margin: 0 !important;
+}
+.aurora-leader-badge {
+    color: #3b82f6 !important;
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-top: 6px !important;
+}
+.aurora-leader-badge p {
+    margin: 0 !important;
+    display: inline !important;
+}
+.aurora-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 2.5px !important;
+    text-transform: uppercase !important;
+    font-weight: 800 !important;
+    color: #3b82f6 !important;
+    display: block !important;
+}
+.aurora-greet-title {
+    font-weight: 800 !important;
+    font-size: 2.6rem !important;
+    color: #0f172a !important;
+    letter-spacing: -1px !important;
+    line-height: 1.1 !important;
+}
+.aurora-quote-box {
+    position: relative !important;
+    padding-left: 1.5rem !important;
+    border-left: 3px solid #3b82f6 !important;
+}
+.aurora-quote-icon {
+    position: absolute !important;
+    left: -1rem !important;
+    top: -1.5rem !important;
+    font-size: 3rem !important;
+    color: #3b82f6 !important;
+    opacity: 0.1 !important;
+    z-index: -1 !important;
+}
+.aurora-quote-text {
+    font-size: 1.1rem !important;
+    color: #4b5563 !important;
+    line-height: 1.8 !important;
+}
+.aurora-btn-link {
+    color: #3b82f6 !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    transition: all 0.3s !important;
+}
+.aurora-btn-link:hover {
+    color: #2563eb !important;
+    transform: translateX(5px) !important;
+}
 
 /* ── VISION / MISSION ── */
 .vm-card {
@@ -86,7 +200,13 @@
 }
 .vm-card.vision-card {
     background: linear-gradient(135deg, #0f172a, #1e3a5f);
-    color: #fff;
+    color: #fff !important;
+}
+.vm-card.vision-card p,
+.vm-card.vision-card span,
+.vm-card.vision-card strong,
+.vm-card.vision-card font {
+    color: #fff !important;
 }
 .vm-card.mission-card {
     background: #f8fafc;
@@ -109,23 +229,151 @@
     background: #fff;
 }
 
-/* ── ACCREDITATION / CERT ── */
+/* ── ACCREDITATION / CERT PREMIUM STYLE ── */
 .cert-card {
-    border-radius: 16px;
+    border-radius: 20px;
     background: #fff;
-    border: 1px solid #e2e8f0;
-    transition: all .3s;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     overflow: hidden;
+    position: relative;
 }
-.cert-card:hover { border-color: #1a56a0; box-shadow: 0 8px 24px rgba(26,86,160,.12); }
-.cert-badge {
-    background: linear-gradient(135deg, #1a56a0, #3b82f6);
+.cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(26, 86, 160, 0.15);
+}
+.cert-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
     color: #fff;
-    border-radius: 10px 10px 0 0;
-    padding: 1rem;
-    display: flex; align-items: center; gap: .75rem;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 3px solid #3b82f6;
+    transition: all 0.3s ease;
 }
-.cert-badge i { font-size: 1.4rem; }
+.cert-card:hover .cert-header {
+    border-bottom-color: #60a5fa;
+}
+.cert-header i {
+    font-size: 1.8rem;
+    color: #60a5fa;
+}
+.cert-preview-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    margin: 1.5rem auto;
+    width: 90%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+.cert-preview-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+}
+.cert-preview-container:hover img {
+    transform: scale(1.05);
+}
+.cert-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+}
+.cert-preview-container:hover .cert-overlay {
+    opacity: 1;
+}
+.cert-action-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+.cert-action-btn:hover {
+    background: #fff;
+    color: #1a56a0;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.cert-pdf-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+}
+.cert-pdf-placeholder i {
+    font-size: 3.5rem;
+    color: #ef4444;
+}
+.cert-buttons-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.cert-btn-primary {
+    flex: 1;
+    background: #1a56a0;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+.cert-btn-primary:hover {
+    background: #11427d;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(26, 86, 160, 0.2);
+}
+.cert-btn-secondary {
+    flex: 1;
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+}
+.cert-btn-secondary:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
 
 /* ── VIDEO ── */
 .video-frame-wrap {
@@ -183,7 +431,7 @@
                     <span class="section-label text-primary">{{ __('Detail Institusi') }}</span>
                     <div class="gradient-bar"></div>
                     <p class="text-secondary fs-5 lh-lg mb-0" style="text-align:justify;">
-                        {!! $aboutInstitution !!}
+                        @safeHtml($aboutInstitution)
                     </p>
                 </div>
             </div>
@@ -198,7 +446,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-9 fs-5 text-secondary" data-aos="fade-up" style="text-align:justify;">
-                {!! $page->content !!}
+                @safeHtml($page->content)
             </div>
         </div>
     </div>
@@ -228,7 +476,7 @@
                         <div>
                             <h4 class="aurora-leader-name mb-1">{{ $headName }}</h4>
                             <div class="aurora-leader-badge">
-                                <i class="fas fa-award me-1"></i>{{ __('Ketua Program Studi') }}
+                                <i class="fas fa-award me-1"></i>{{ \App\Models\Setting::get('greeting_position', 'Ketua Program Studi') }}
                             </div>
                         </div>
                     </div>
@@ -236,7 +484,7 @@
                     <div class="aurora-quote-box position-relative">
                         <i class="fas fa-quote-left aurora-quote-icon"></i>
                         <div class="aurora-quote-text lh-lg" style="text-align:justify;">
-                            {!! $greeting !!}
+                            @safeHtml($greeting)
                         </div>
                         
                         <div class="mt-4 pt-3">
@@ -285,7 +533,7 @@
                 <div class="vm-card vision-card h-100">
                     <div class="vm-icon"><i class="fas fa-eye"></i></div>
                     <h3 class="fw-bold mb-3">{{ __('Visi') }}</h3>
-                    <p class="opacity-85 lh-lg mb-0" style="text-align:justify;">{!! $vision !!}</p>
+                    <p class="opacity-85 lh-lg mb-0" style="text-align:justify;">@safeHtml($vision)</p>
                     <div class="deco-circle"></div>
                 </div>
             </div>
@@ -295,7 +543,7 @@
                 <div class="vm-card mission-card h-100">
                     <div class="vm-icon"><i class="fas fa-bullseye"></i></div>
                     <h3 class="fw-bold mb-3 text-dark">{{ __('Misi') }}</h3>
-                    <div class="text-secondary lh-lg" style="text-align:justify;">{!! $mission !!}</div>
+                    <div class="text-secondary lh-lg" style="text-align:justify;">@safeHtml($mission)</div>
                     <div class="deco-circle" style="background:#1a56a0;"></div>
                 </div>
             </div>
@@ -319,36 +567,68 @@
 
             {{-- Akreditasi BAN-PT --}}
             @if($accreditation || $certAccreditation)
+            @php 
+                $fileUrl = $certAccreditation ? asset('storage/'.$certAccreditation) : '#';
+                $ext = $certAccreditation ? pathinfo($certAccreditation, PATHINFO_EXTENSION) : '';
+                $isImage = in_array(strtolower($ext), ['jpg','jpeg','png','webp']);
+                $fileType = $isImage ? 'image' : (strtolower($ext) === 'pdf' ? 'pdf' : 'unknown');
+            @endphp
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="cert-card h-100">
-                    <div class="cert-badge">
-                        <i class="fas fa-award"></i>
-                        <div>
-                            <div class="fw-bold">Akreditasi</div>
-                            <small class="opacity-75">BAN-PT / LAM</small>
+                <div class="cert-card h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="cert-header">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <div class="fw-bold">Akreditasi</div>
+                                <small class="opacity-75">BAN-PT / LAM</small>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            @if($certAccreditation)
+                                <div class="cert-preview-container shadow-sm">
+                                    @if($isImage)
+                                        <img src="{{ $fileUrl }}" alt="Sertifikat Akreditasi" class="img-fluid rounded">
+                                    @else
+                                        <div class="cert-pdf-placeholder">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span class="fw-bold text-sm text-dark mt-2">Dokumen PDF</span>
+                                            <span class="text-xs text-muted">Pratinjau Tersedia</span>
+                                        </div>
+                                    @endif
+                                    <div class="cert-overlay">
+                                        <button type="button" class="cert-action-btn" data-bs-toggle="modal" data-bs-target="#certViewerModal" data-file-url="{{ $fileUrl }}" data-file-name="Sertifikat Akreditasi BAN-PT" data-file-type="{{ $fileType }}" title="Pratinjau">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <a href="{{ $fileUrl }}" download class="cert-action-btn" title="Unduh">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="py-5 text-center">
+                                    <i class="fas fa-award fa-4x mb-3" style="color:#1a56a0; opacity:.15;"></i>
+                                    <p class="text-muted small">File sertifikat belum diunggah</p>
+                                </div>
+                            @endif
+                            
+                            @if($accreditation)
+                            <div class="fw-bold fs-4 text-primary mt-2">{{ $accreditation }}</div>
+                            <small class="text-muted d-block mb-3">Status Akreditasi</small>
+                            @endif
                         </div>
                     </div>
-                    <div class="p-4 text-center">
-                        @if($certAccreditation)
-                            @php $ext = pathinfo($certAccreditation, PATHINFO_EXTENSION); @endphp
-                            @if(in_array(strtolower($ext), ['jpg','jpeg','png','webp']))
-                                <img src="{{ asset('storage/'.$certAccreditation) }}" alt="Sertifikat Akreditasi" class="img-fluid rounded mb-3" style="max-height:160px; object-fit:contain;">
-                            @else
-                                <div class="mb-3 py-3">
-                                    <i class="fas fa-file-pdf fa-4x text-danger opacity-75"></i>
-                                </div>
-                                <a href="{{ asset('storage/'.$certAccreditation) }}" target="_blank" class="btn btn-outline-primary btn-sm mb-3">
-                                    <i class="fas fa-eye me-1"></i> Lihat Sertifikat
-                                </a>
-                            @endif
-                        @else
-                            <div class="py-3"><i class="fas fa-award fa-4x" style="color:#1a56a0; opacity:.3;"></i></div>
-                        @endif
-                        @if($accreditation)
-                        <div class="fw-bold fs-4 text-primary">{{ $accreditation }}</div>
-                        <small class="text-muted">Status Akreditasi</small>
-                        @endif
+                    @if($certAccreditation)
+                    <div class="px-4 pb-4">
+                        <div class="cert-buttons-group">
+                            <button type="button" class="cert-btn-primary" data-bs-toggle="modal" data-bs-target="#certViewerModal" data-file-url="{{ $fileUrl }}" data-file-name="Sertifikat Akreditasi BAN-PT" data-file-type="{{ $fileType }}">
+                                <i class="fas fa-eye"></i> {{ __('Lihat') }}
+                            </button>
+                            <a href="{{ $fileUrl }}" download class="cert-btn-secondary">
+                                <i class="fas fa-download"></i> {{ __('Unduh') }}
+                            </a>
+                        </div>
                     </div>
+                    @endif
                 </div>
             </div>
             @endif
@@ -356,31 +636,63 @@
             {{-- Sertifikasi Lainnya --}}
             @foreach($certOthers as $i => $cert)
             @if(!empty($cert['name']))
+            @php 
+                $otherFileUrl = !empty($cert['file']) ? asset('storage/'.$cert['file']) : '#';
+                $ext2 = !empty($cert['file']) ? pathinfo($cert['file'], PATHINFO_EXTENSION) : '';
+                $isImage2 = in_array(strtolower($ext2), ['jpg','jpeg','png','webp']);
+                $fileType2 = $isImage2 ? 'image' : (strtolower($ext2) === 'pdf' ? 'pdf' : 'unknown');
+            @endphp
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="{{ ($i+2)*100 }}">
-                <div class="cert-card h-100">
-                    <div class="cert-badge" style="background:linear-gradient(135deg, #334155, #64748b);">
-                        <i class="fas fa-certificate"></i>
-                        <div>
-                            <div class="fw-bold">{{ $cert['name'] }}</div>
-                            <small class="opacity-75">Sertifikasi</small>
+                <div class="cert-card h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="cert-header" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); border-bottom-color: #64748b;">
+                            <i class="fas fa-certificate" style="color: #94a3b8;"></i>
+                            <div>
+                                <div class="fw-bold">{{ $cert['name'] }}</div>
+                                <small class="opacity-75">Sertifikasi</small>
+                            </div>
+                        </div>
+                        <div class="p-4 text-center">
+                            @if(!empty($cert['file']))
+                                <div class="cert-preview-container shadow-sm">
+                                    @if($isImage2)
+                                        <img src="{{ $otherFileUrl }}" alt="{{ $cert['name'] }}" class="img-fluid rounded">
+                                    @else
+                                        <div class="cert-pdf-placeholder">
+                                            <i class="fas fa-file-pdf"></i>
+                                            <span class="fw-bold text-sm text-dark mt-2">Pratinjau PDF</span>
+                                            <span class="text-xs text-muted">Pratinjau Tersedia</span>
+                                        </div>
+                                    @endif
+                                    <div class="cert-overlay">
+                                        <button type="button" class="cert-action-btn" data-bs-toggle="modal" data-bs-target="#certViewerModal" data-file-url="{{ $otherFileUrl }}" data-file-name="{{ $cert['name'] }}" data-file-type="{{ $fileType2 }}" title="Pratinjau">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <a href="{{ $otherFileUrl }}" download class="cert-action-btn" title="Unduh">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="py-5 text-center">
+                                    <i class="fas fa-certificate fa-4x mb-3" style="color:#64748b; opacity:.15;"></i>
+                                    <p class="text-muted small">File sertifikasi belum diunggah</p>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                    <div class="p-4 text-center">
-                        @if(!empty($cert['file']))
-                            @php $ext2 = pathinfo($cert['file'], PATHINFO_EXTENSION); @endphp
-                            @if(in_array(strtolower($ext2), ['jpg','jpeg','png','webp']))
-                                <img src="{{ asset('storage/'.$cert['file']) }}" alt="{{ $cert['name'] }}" class="img-fluid rounded mb-3" style="max-height:160px; object-fit:contain;">
-                            @else
-                                <div class="py-3 mb-2"><i class="fas fa-file-pdf fa-4x text-danger opacity-75"></i></div>
-                            @endif
-                            <a href="{{ asset('storage/'.$cert['file']) }}" target="_blank" class="btn btn-outline-secondary btn-sm">
-                                <i class="fas fa-eye me-1"></i> Lihat Dokumen
+                    @if(!empty($cert['file']))
+                    <div class="px-4 pb-4">
+                        <div class="cert-buttons-group">
+                            <button type="button" class="cert-btn-primary" style="background:#475569;" data-bs-toggle="modal" data-bs-target="#certViewerModal" data-file-url="{{ $otherFileUrl }}" data-file-name="{{ $cert['name'] }}" data-file-type="{{ $fileType2 }}">
+                                <i class="fas fa-eye"></i> {{ __('Lihat') }}
+                            </button>
+                            <a href="{{ $otherFileUrl }}" download class="cert-btn-secondary">
+                                <i class="fas fa-download"></i> {{ __('Unduh') }}
                             </a>
-                        @else
-                            <div class="py-3"><i class="fas fa-certificate fa-4x text-secondary opacity-25"></i></div>
-                            <p class="text-muted small mb-0">Dokumen tidak tersedia</p>
-                        @endif
+                        </div>
                     </div>
+                    @endif
                 </div>
             </div>
             @endif
@@ -390,5 +702,61 @@
     </div>
 </section>
 @endif
+
+<!-- Modal Viewer untuk Sertifikat -->
+<div class="modal fade" id="certViewerModal" tabindex="-1" aria-labelledby="certViewerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 20px; overflow: hidden; border: none; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);">
+            <div class="modal-header border-0 bg-light py-3 px-4 d-flex align-items-center justify-content-between">
+                <h5 class="modal-title fw-bold text-dark" id="certViewerModalLabel">Pratinjau Dokumen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="box-shadow: none;"></button>
+            </div>
+            <div class="modal-body p-0 bg-dark d-flex align-items-center justify-content-center" style="min-height: 400px; max-height: 80vh; overflow: auto;">
+                <div id="certViewerContent" class="w-100 h-100 d-flex align-items-center justify-content-center p-3">
+                    <!-- Dinamis via Javascript -->
+                </div>
+            </div>
+            <div class="modal-footer border-0 bg-light py-3 px-4 d-flex justify-content-between align-items-center">
+                <span class="text-muted small fw-bold" id="certViewerFooterName">Nama Dokumen</span>
+                <a href="#" id="certViewerDownloadBtn" download class="btn btn-primary rounded-pill px-4 btn-sm fw-bold shadow-sm">
+                    <i class="fas fa-download me-1"></i> Unduh Dokumen
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const certViewerModal = document.getElementById('certViewerModal');
+        if (certViewerModal) {
+            certViewerModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const fileUrl = button.getAttribute('data-file-url');
+                const fileName = button.getAttribute('data-file-name');
+                const fileType = button.getAttribute('data-file-type');
+                
+                const contentContainer = document.getElementById('certViewerContent');
+                const footerName = document.getElementById('certViewerFooterName');
+                const downloadBtn = document.getElementById('certViewerDownloadBtn');
+                
+                // Set footer name and download link
+                footerName.textContent = fileName;
+                downloadBtn.setAttribute('href', fileUrl);
+                
+                // Clear content first
+                contentContainer.innerHTML = '<div class="text-white py-5"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+                
+                if (fileType === 'pdf') {
+                    contentContainer.innerHTML = `<iframe src="${fileUrl}" class="w-100" style="height: 70vh; border: none; border-radius: 8px;"></iframe>`;
+                } else {
+                    contentContainer.innerHTML = `<img src="${fileUrl}" alt="${fileName}" class="img-fluid" style="max-height: 70vh; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">`;
+                }
+            });
+        }
+    });
+</script>
+@endpush
 
 @endsection

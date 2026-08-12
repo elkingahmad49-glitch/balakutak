@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\LecturersImport;
 use App\Exports\LecturerTemplateExport;
+use App\Exports\LecturersExport;
 
 class LecturerController extends Controller
 {
@@ -36,8 +37,8 @@ class LecturerController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:50',
-            'nidn' => 'nullable|string|max:50',
+            'nip' => 'nullable|string|max:50|unique:lecturers,nip',
+            'nidn' => 'nullable|string|max:50|unique:lecturers,nidn',
             'position' => 'nullable|string|max:255',
             'academic_title' => 'nullable|string|max:255',
             'functional_position' => 'nullable|string|max:255',
@@ -81,8 +82,8 @@ class LecturerController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'nip' => 'nullable|string|max:50',
-            'nidn' => 'nullable|string|max:50',
+            'nip' => 'nullable|string|max:50|unique:lecturers,nip,' . $lecturer->id,
+            'nidn' => 'nullable|string|max:50|unique:lecturers,nidn,' . $lecturer->id,
             'position' => 'nullable|string|max:255',
             'academic_title' => 'nullable|string|max:255',
             'functional_position' => 'nullable|string|max:255',
@@ -159,6 +160,11 @@ class LecturerController extends Controller
     public function downloadTemplate()
     {
         return Excel::download(new LecturerTemplateExport, 'template_import_dosen_staff.xlsx');
+    }
+
+    public function export()
+    {
+        return Excel::download(new LecturersExport, 'data_dosen_staff.xlsx');
     }
 
     public function destroy(Lecturer $lecturer)

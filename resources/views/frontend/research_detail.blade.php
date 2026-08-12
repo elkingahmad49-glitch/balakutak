@@ -64,7 +64,7 @@
 
                             {{-- Content Body --}}
                             <div class="post-body lh-lg" style="font-size: 1.1rem; text-align: justify; color: #444;">
-                                {!! $post->content !!}
+                                @safeHtml($post->content)
                             </div>
                         </div>
 

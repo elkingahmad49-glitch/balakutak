@@ -60,7 +60,7 @@
                             @error('file')<span class="text-danger d-block mt-2 font-weight-bold">{{ $message }}</span>@enderror
                             <div class="mt-3 text-muted text-sm">
                                 <p class="mb-1 text-info"><i class="fas fa-exclamation-triangle"></i> Biarkan kosong jika tidak ingin mengubah file saat ini.</p>
-                                <p class="mb-0"><strong>Ukuran maksimal:</strong> 20 MB.</p>
+                                <p class="mb-0"><strong>Ukuran maksimal:</strong> 30 MB.</p>
                             </div>
                         </div>
                     </div>

@@ -51,14 +51,21 @@ class SettingsSeeder extends Seeder
             ['key' => 'mission', 'value' => "1. Menyelenggarakan pendidikan berkualitas\n2. Mengembangkan penelitian inovatif\n3. Melaksanakan pengabdian masyarakat", 'group' => 'academic', 'type' => 'textarea', 'label' => 'Misi'],
             ['key' => 'greeting_text', 'value' => 'Selamat datang di Program Studi kami. Kami berkomitmen untuk menghasilkan lulusan yang kompeten dan berdaya saing global.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Sambutan Ketua Prodi'],
             ['key' => 'greeting_name', 'value' => 'Prof. Fulan bin Fulan, M.Kom.', 'group' => 'academic', 'type' => 'text', 'label' => 'Nama Ketua Prodi'],
-            ['key' => 'profile_video_url', 'value' => 'https://www.youtube.com/watch?v=EpEDHCGKNW4', 'group' => 'academic', 'type' => 'text', 'label' => 'URL Video Profil (YouTube Embed)'],
+            ['key' => 'greeting_position', 'value' => 'Ketua Program Studi', 'group' => 'academic', 'type' => 'text', 'label' => 'Jabatan Ketua Prodi'],
+            ['key' => 'profile_video_url', 'value' => 'https://youtu.be/uWKHrHpA1nY', 'group' => 'academic', 'type' => 'text', 'label' => 'URL Video Profil (YouTube Embed)'],
             ['key' => 'about_institution', 'value' => 'BalaKutaK adalah sebuah Content Management System (CMS) berbasis open source yang dirancang untuk memberikan kemudahan, fleksibilitas, dan kebebasan dalam membangun serta mengelola website secara efisien. Dikembangkan dengan semangat kolaborasi dan keterbukaan, BalaKutaK hadir sebagai solusi bagi individu, institusi pendidikan, organisasi, hingga komunitas digital yang membutuhkan platform web yang ringan, adaptif, dan mudah dikembangkan.
 
 Dengan arsitektur yang modular dan ramah pengembang, BalaKutaK memungkinkan pengguna untuk menyesuaikan fitur sesuai kebutuhan—mulai dari pengelolaan konten, manajemen pengguna, hingga integrasi dengan berbagai teknologi modern. Tidak hanya berfokus pada fungsionalitas, BalaKutaK juga mengedepankan pengalaman pengguna (user experience) yang intuitif, sehingga dapat digunakan baik oleh pemula maupun profesional.
 
 Sebagai proyek open source, BalaKutaK membuka ruang kontribusi bagi siapa saja yang ingin berpartisipasi dalam pengembangan, peningkatan keamanan, maupun inovasi fitur. Hal ini menjadikan BalaKutaK bukan sekadar CMS, tetapi juga ekosistem kolaboratif yang terus berkembang.
 
-BalaKutaK hadir sebagai wujud komitmen untuk mendukung transformasi digital yang inklusif, khususnya dalam dunia pendidikan dan pengembangan teknologi berbasis komunitas.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Detail Institusi (Halaman Tentang)'],
+            BalaKutaK hadir sebagai wujud komitmen untuk mendukung transformasi digital yang inklusif, khususnya dalam dunia pendidikan dan pengembangan teknologi berbasis komunitas.', 'group' => 'academic', 'type' => 'textarea', 'label' => 'Detail Institusi (Halaman Tentang)'],
+            
+            // Appearance & Layout Defaults
+            ['key' => 'site_name_layout', 'value' => '2', 'group' => 'general', 'type' => 'select', 'label' => 'Tata Letak Nama Website'],
+            ['key' => 'site_name_line1', 'value' => 'Selamat Datang', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 1'],
+            ['key' => 'site_name_line2', 'value' => 'BalaKutaK CMS', 'group' => 'general', 'type' => 'text', 'label' => 'Nama Baris 2'],
+            ['key' => 'site_theme', 'value' => 'aurora-glass-balakutak', 'group' => 'appearance', 'type' => 'select', 'label' => 'Tema Website'],
         ];
 
         foreach ($settings as $setting) {

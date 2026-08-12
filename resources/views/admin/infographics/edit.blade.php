@@ -85,6 +85,7 @@
                     <div class="form-group row mb-0 bg-light p-3 rounded-lg border">
                         <div class="col-sm-12">
                             <div class="custom-control custom-switch custom-switch-md">
+                                <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" class="custom-control-input" id="is_active" name="is_active" value="1" {{ old('is_active', $infographic->is_active) ? 'checked' : '' }}>
                                 <label class="custom-control-label font-weight-bold" for="is_active">Status Aktif di Beranda</label>
                             </div>

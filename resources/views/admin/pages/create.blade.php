@@ -21,8 +21,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label>{{ __('admin.page_content') }} <span class="text-danger">*</span></label>
-                            <textarea name="content" class="form-control content-editor @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <label class="mb-0">{{ __('admin.page_content') }} <span class="text-danger">*</span></label>
+                                
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Editor Mode">
+                                    <button type="button" class="btn btn-primary active" id="btn-mode-visual">
+                                        <i class="fas fa-eye mr-1"></i> Visual
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" id="btn-mode-code">
+                                        <i class="fas fa-code mr-1"></i> Code (HTML)
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div id="editor-wrapper">
+                                <textarea name="content" id="contentEditor" class="form-control content-editor @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
+                                <textarea id="codeEditor" class="form-control" rows="25" style="display: none; height: 600px !important; min-height: 600px !important; font-family: 'Courier New', Courier, monospace !important; font-size: 14px !important; background-color: #1e293b !important; color: #f8fafc !important; caret-color: #ffffff !important; border: 1px solid #475569 !important; border-radius: 8px !important; padding: 1rem !important; line-height: 1.5 !important; resize: vertical !important; direction: ltr !important; text-align: left !important;" placeholder="Tulis kode HTML di sini..."></textarea>
+                            </div>
                             @error('content')<span class="invalid-feedback">{{ $message }}</span>@enderror
                         </div>
                         
@@ -113,6 +128,9 @@
             images_upload_url: '{{ route("admin.media.upload") }}',
             relative_urls: false,
             remove_script_host: false,
+            verify_html: false,
+            extended_valid_elements: 'style[*],script[*],iframe[*],div[*],span[*],p[*],a[*],section[*],article[*],footer[*],header[*],nav[*]',
+            valid_children: '+body[style|script],+div[style|script],+span[style|script],+p[style|script],+section[style|script],+article[style|script],+header[style|script],+footer[style|script],+aside[style|script],+nav[style|script]',
             file_picker_types: 'image',
             file_picker_callback: function (cb, value, meta) {
                 if (meta.filetype === 'image') {
@@ -159,6 +177,83 @@
             .tox .tox-toolbar, .tox .tox-toolbar__overflow, .tox .tox-toolbar__primary { background-color: #f8fafc !important; }
         `;
         document.head.appendChild(style);
+
+        // Tab Visual / Code toggles
+        const btnVisual = document.getElementById('btn-mode-visual');
+        const btnCode = document.getElementById('btn-mode-code');
+        const codeEditor = document.getElementById('codeEditor');
+        const contentEditor = document.getElementById('contentEditor');
+        let currentMode = 'visual';
+
+        if (btnVisual && btnCode && codeEditor) {
+            btnVisual.addEventListener('click', function () {
+                if (currentMode === 'visual') return;
+                
+                const codeVal = codeEditor.value;
+                const editor = tinymce.get('contentEditor');
+                if (editor) {
+                    editor.setContent(codeVal);
+                } else {
+                    contentEditor.value = codeVal;
+                }
+                
+                codeEditor.style.display = 'none';
+                const tinymceContainer = document.querySelector('.tox-tinymce');
+                if (tinymceContainer) {
+                    tinymceContainer.style.display = 'flex';
+                }
+                
+                btnVisual.classList.add('btn-primary', 'active');
+                btnVisual.classList.remove('btn-outline-primary');
+                btnCode.classList.remove('btn-primary', 'active');
+                btnCode.classList.add('btn-outline-primary');
+                
+                currentMode = 'visual';
+            });
+
+            btnCode.addEventListener('click', function () {
+                if (currentMode === 'code') return;
+                
+                let htmlVal = '';
+                const editor = tinymce.get('contentEditor');
+                if (editor) {
+                    htmlVal = editor.getContent();
+                } else {
+                    htmlVal = contentEditor.value;
+                }
+                
+                codeEditor.value = htmlVal;
+                
+                const tinymceContainer = document.querySelector('.tox-tinymce');
+                if (tinymceContainer) {
+                    tinymceContainer.style.display = 'none';
+                }
+                codeEditor.style.display = 'block';
+                
+                btnCode.classList.add('btn-primary', 'active');
+                btnCode.classList.remove('btn-outline-primary');
+                btnVisual.classList.remove('btn-primary', 'active');
+                btnVisual.classList.add('btn-outline-primary');
+                
+                currentMode = 'code';
+            });
+
+            const form = btnVisual.closest('form');
+            if (form) {
+                form.addEventListener('submit', function () {
+                    if (currentMode === 'code') {
+                        const codeVal = codeEditor.value;
+                        const editor = tinymce.get('contentEditor');
+                        if (editor) {
+                            editor.setContent(codeVal);
+                            editor.save();
+                        } else {
+                            contentEditor.value = codeVal;
+                        }
+                    }
+                });
+            }
+        }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
 @stop

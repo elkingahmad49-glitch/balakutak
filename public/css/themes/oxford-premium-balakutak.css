@@ -257,19 +257,7 @@ html.dark .theme-oxford-premium-balakutak .news-immersive-card {
     background-color: #1e293b !important;
 }
 
-/* Miscellaneous UI Fixes */
-.theme-oxford-premium-balakutak .chatbot-toggle,
-.theme-oxford-premium-balakutak .acc-toggle {
-    background: var(--ox-blue) !important;
-    border-color: var(--ox-gold) !important;
-    color: var(--ox-gold) !important;
-}
-
-.theme-oxford-premium-balakutak .chatbot-toggle:hover,
-.theme-oxford-premium-balakutak .acc-toggle:hover {
-    background: var(--ox-gold) !important;
-    color: #FFF !important;
-}
+/* Miscellaneous UI Fixes - Chatbot and Accessibility styled globally for Oxford themes in frontend.css */
 
 /* ========= AURORA CTA SECTION (Oxford Premium) ========= */
 .theme-oxford-premium-balakutak .aurora-cta-section {

@@ -63,7 +63,7 @@
                             <img src="{{ asset('storage/'.\App\Models\Setting::get('site_logo')) }}" alt="Logo" class="mb-4" style="max-height: 80px;">
                             <h2 class="font-weight-bold mb-1">Selamat Datang di BalaKutaK CMS</h2>
                             <div class="mb-3">
-                                <span class="badge badge-primary px-3 py-2">Versi 1.0.0 Stable</span>
+                                <span class="badge badge-primary px-3 py-2">Versi 2.0.1 Stable</span>
                             </div>
                             <p class="text-muted lead mx-auto" style="max-width: 800px;">
                                 Sistem Manajemen Konten Premium yang fleksibel dan powerful untuk pengelolaan informasi digital secara profesional.

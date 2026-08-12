@@ -23,7 +23,13 @@ class PostController extends Controller
             ->when($request->status, fn($q) => $q->where('status', $request->status))
             ->when($request->type, fn($q) => $q->where('type', $request->type))
             ->when($request->category_id, fn($q) => $q->where('category_id', $request->category_id))
-            ->latest();
+            ->when($request->month, function($q) use ($request) {
+                return $q->whereMonth(\DB::raw('COALESCE(published_at, created_at)'), $request->month);
+            })
+            ->when($request->year, function($q) use ($request) {
+                return $q->whereYear(\DB::raw('COALESCE(published_at, created_at)'), $request->year);
+            })
+            ->orderByRaw('COALESCE(published_at, created_at) DESC');
 
         // Editors & Dosens only see their own posts
         if (!auth()->user()->hasRole(['Super Admin', 'Admin Prodi'])) {
@@ -33,7 +39,31 @@ class PostController extends Controller
         $posts = $query->paginate(15)->withQueryString();
         $categories = Category::all();
 
-        return view('admin.posts.index', compact('posts', 'categories'));
+        // Get list of distinct years for filtering
+        $years = Post::selectRaw('YEAR(COALESCE(published_at, created_at)) as year')
+            ->whereNotNull('created_at')
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year')
+            ->filter()
+            ->toArray();
+
+        $months = [
+            '1' => 'Januari',
+            '2' => 'Februari',
+            '3' => 'Maret',
+            '4' => 'April',
+            '5' => 'Mei',
+            '6' => 'Juni',
+            '7' => 'Juli',
+            '8' => 'Agustus',
+            '9' => 'September',
+            '10' => 'Oktober',
+            '11' => 'November',
+            '12' => 'Desember'
+        ];
+
+        return view('admin.posts.index', compact('posts', 'categories', 'years', 'months'));
     }
 
     public function create()
@@ -65,8 +95,7 @@ class PostController extends Controller
             'language' => 'nullable|string|max:5',
         ]);
 
-        $slug = Str::slug($validated['title']);
-        $slug = $this->uniqueSlug($slug, Post::class);
+        $slug = $request->slug ? Str::slug($request->slug) : Str::slug($validated['title']);
 
         $published_at = $validated['published_at'] ?? now();
         if ($validated['status'] !== 'published') {
@@ -154,8 +183,9 @@ class PostController extends Controller
 
             // Only import posts
             if ((string)$wpMeta->post_type === 'post') {
-                $title = (string)$item->title;
+                $title = trim(html_entity_decode((string)$item->title, ENT_QUOTES, 'UTF-8'));
                 $slug = (string)$wpMeta->post_name ?: Str::slug($title);
+                $slug = trim(html_entity_decode($slug, ENT_QUOTES, 'UTF-8'));
 
                 // Content mapped from <content:encoded>
                 $contentNode = $item->children($contentNamespace);
@@ -173,15 +203,20 @@ class PostController extends Controller
                 $categoryId = $defaultCategory->id;
                 foreach ($item->category as $cat) {
                     if ((string)$cat['domain'] === 'category') {
-                        $catName = (string)$cat;
+                        $catName = trim(html_entity_decode((string)$cat, ENT_QUOTES, 'UTF-8'));
                         // Avoid empty categories
-                        if (!empty(trim($catName))) {
+                        if (!empty($catName)) {
                             $catSlug = Str::limit(Str::slug($catName), 255, '');
                             $dbCategory = Category::where('name', $catName)
                                 ->orWhere('slug', $catSlug)
                                 ->first();
 
                             if (!$dbCategory) {
+                                $originalSlug = $catSlug;
+                                $count = 2;
+                                while (Category::withTrashed()->where('slug', $catSlug)->exists()) {
+                                    $catSlug = Str::limit($originalSlug, 255 - strlen('-' . $count), '') . '-' . $count++;
+                                }
                                 $dbCategory = Category::create([
                                     'name' => Str::limit($catName, 255, ''),
                                     'slug' => $catSlug
@@ -193,7 +228,7 @@ class PostController extends Controller
                     }
                 }
 
-                $postSlug = $this->uniqueSlug($slug, Post::class);
+                $postSlug = $slug;
 
                 // Download all images in content and update URLs
                 $content = $this->processImportContentImages($content);
@@ -274,6 +309,7 @@ class PostController extends Controller
 
         $postData = [
             ...$validated,
+            'slug' => $request->slug ? Str::slug($request->slug) : Str::slug($validated['title']),
             'is_featured' => $request->boolean('is_featured'),
             'allow_comments' => $request->boolean('allow_comments', true),
             'published_at' => $published_at,
@@ -348,19 +384,7 @@ class PostController extends Controller
         return back()->with('success', 'Status artikel diperbarui!');
     }
 
-    protected function uniqueSlug(string $slug, string $model, int $limit = 255): string
-    {
-        // First truncate if it exceeds limit (leaving room for possible suffix)
-        $slug = Str::limit($slug, $limit - 10, '');
-        $original = $slug;
-        $i = 1;
-        while ($model::withTrashed()->where('slug', $slug)->exists()) {
-            $suffix = "-{$i}";
-            $slug = Str::limit($original, $limit - strlen($suffix), '') . $suffix;
-            $i++;
-        }
-        return $slug;
-    }
+
 
     private function processImportContentImages($content)
     {
